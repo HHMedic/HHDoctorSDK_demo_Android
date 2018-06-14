@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hhmedic.android.hhdoctorvideodemo">
+
+    <application
+        android:name=".application.DoctorApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="com.hhmedic.home" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.CallSelectorAct"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.hhmedic.doctor.robot" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.CallbackAct"
+            android:theme="@style/Callback">
+            <intent-filter>
+                <action android:name="com.hhmedic.doctor.call" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".receiver.RefuseReceiver">
+            <intent-filter>
+                <action android:name="com.hhmedic.doctor.refuse" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.Controller">
+            <intent-filter>
+                <action android:name="com.hhmedic.doctor.robot.controller" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.DepartReceiver">
+            <intent-filter>
+                <action android:name="com.hhmedic.doctor.select.depart" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:paddingTop="20dp">
+
+        <include layout="@layout/hp_back_layout" />
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="-30dp"
+            android:baselineAligned="false">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="-50dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right">
+
+
+                <Button
+                    android:id="@+id/child_btn"
+                    style="@style/hh_btn_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/hp_depart_icon_child_config"
+                    android:text="@string/hp_call_dept_child"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="26sp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="-50dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/all_btn"
+                    style="@style/hh_btn_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/hp_depart_icon_all_config"
+                    android:text="@string/hp_call_dept_all"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="26sp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/is_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="gone"
+        android:textSize="18dp"
+        android:text="当前版本是测试版本" />
+</RelativeLayout>
