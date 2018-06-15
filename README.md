@@ -28,8 +28,8 @@
         * [2.7 医生回拨的时候拒绝（主要应用于音箱）](#27-医生回拨的时候拒绝主要应用于音箱)
         * [2.8 挂断（主要用于智能音箱）](#28-挂断主要用于智能音箱)
     * [3. 回调说明](#3-回调说明)
-        * [3.1登录回调（HHLoginListener）](#31登录回调hhloginlistener)
-        * [3.2呼叫回调（HHCallListener）](#32呼叫回调hhcalllistener)
+        * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
+        * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
         * [3.3 拒绝回调](#33-拒绝回调)
 * [三、常见问题](#三常见问题)
     * [1. 如果在使用过程出现了AndroidManifest合并问题有可能是如下代码造](#1-如果在使用过程出现了AndroidManifest合并问题有可能是如下代码造成)
@@ -245,7 +245,7 @@ public static void handUp()
 
 >主要说明在各个接口用到的回调代理
 
-##### 3.1登录回调（HHLoginListener）
+##### 3.1 登录回调（HHLoginListener）
 
 ```java
 public interface HHLoginListener
@@ -264,7 +264,7 @@ public interface HHLoginListener
 
 ```
 
-##### 3.2呼叫回调（HHCallListener）
+##### 3.2 呼叫回调（HHCallListener）
 
 ```java
 public interface HHCallListener
