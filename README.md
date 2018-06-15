@@ -1,4 +1,4 @@
-##和缓视频医生 Android SDK接入文档
+## 和缓视频医生 Android SDK接入文档
 
 <p align="right">
 北京和缓医疗科技有限公司<br/>
