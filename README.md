@@ -32,7 +32,7 @@
         * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
         * [3.3 拒绝回调](#33-拒绝回调)
 * [三、常见问题](#三常见问题)
-    * [1. AndroidManifest合并冲突问题](#1-AndroidManifest合并冲突问题)
+    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
 * [四、Demo下载地址](#四demo下载地址)
 * [五、版本更新说明](#五版本更新说明)
 
