@@ -31,8 +31,10 @@
         * [3.1登录回调（HHLoginListener）](#31登录回调hhloginlistener)
         * [3.2呼叫回调（HHCallListener）](#32呼叫回调hhcalllistener)
         * [3.3 拒绝回调](#33-拒绝回调)
-* [三、Demo下载地址](#三demo下载地址)
-* [四、版本更新说明](#四版本更新说明)
+* [三、常见问题](#三常见问题)
+    * [1. 如果在使用过程出现了AndroidManifest合并问题有可能是如下代码造](#1-如果在使用过程出现了AndroidManifest合并问题有可能是如下代码造成)
+* [四、Demo下载地址](#四demo下载地址)
+* [五、版本更新说明](#五版本更新说明)
 
 ### 一、SDK接入引用说明
 
@@ -341,11 +343,46 @@ public interface OnCallback
     }
 ```
 
-### 三、Demo下载地址
+### 三、常见问题
+#### 1. 如果在使用过程出现了AndroidManifest合并问题有可能是如下代码造成
+
+```
+ <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+</provider>
+```
+
+可以更替乘如下写法
+
+```
+<manifest package="cn.edu.fudan.rndrobot"
+    xmlns:tools="http://schemas.android.com/tools"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+    <provider
+        tools:replace="android:authorities"
+        android:name="android.support.v4.content.FileProvider"
+        android:authorities="${applicationId}.fileprovider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            tools:replace="android:resource"
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths"/>
+    </provider>
+</manifest>
+```
+
+### 四、Demo下载地址
 
 https://github.com/HHMedic/DoctorVideoDemo
 
-### 四、版本更新说明
+### 五、版本更新说明
 
 |版本号|说明|
 |---|---|
