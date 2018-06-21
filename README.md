@@ -388,3 +388,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |版本号|说明|
 |---|---|
 |0.0.1| 发出初版|
+|0.0.2| fix 直接呼叫crashbug|
