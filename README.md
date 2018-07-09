@@ -389,3 +389,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |---|---|
 |0.0.1| 发出初版|
 |0.0.2| fix 直接呼叫crashbug|
+|0.1.070915| 1、版本号切换尾号为时间 2、添加铃声可控配置 3、fix bugs|
