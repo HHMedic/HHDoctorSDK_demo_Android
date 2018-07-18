@@ -44,7 +44,7 @@
 
 ```
 repositories {
-    ~~maven { url "https://jitpack.io" }~~
+    <del>maven { url "https://jitpack.io" }</del>
     maven {
         credentials {
             username 'hh-public'
