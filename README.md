@@ -44,7 +44,7 @@
 
 ```
 repositories {
-    maven { url "https://jitpack.io" }
+    ~~maven { url "https://jitpack.io" }~~
     maven {
         credentials {
             username 'hh-public'
@@ -392,3 +392,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |0.0.2| fix 直接呼叫crashbug|
 |0.1.070915| 1、版本号切换尾号为时间 2、添加铃声可控配置 3、fix bugs|
 |0.1.071810| 1、新增评价功能 2、fix bugs|
+|0.1.071815| 更新配置可以去除maven { url "https://jitpack.io" }这个配置|
