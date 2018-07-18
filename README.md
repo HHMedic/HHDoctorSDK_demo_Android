@@ -7,12 +7,12 @@
 </p>
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
-* [1. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下](#1-和缓视频医生android-sdk通过maven仓库引用来导入工程如下)
-* [1.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置](#11-在buildgradle文件中配置远程库地址在respositories中添加相应配置)
-* [1.2 在build.gradle文件中dependencies中配置库的引用](#12-在buildgradle文件中dependencies中配置库的引用)
-* [1.3 配置NDK架构选择，必须进行对应配置](#13-配置ndk架构选择必须进行对应配置)
-* [1.4 java8支持的配置，必须配置](#14-java8支持的配置必须配置)
-* [1.5 packageingOptions配置，必须配置](#15-packageingoptions配置必须配置)
+    * [1. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下](#1-和缓视频医生android-sdk通过maven仓库引用来导入工程如下)
+        * [1.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置](#11-在buildgradle文件中配置远程库地址在respositories中添加相应配置)
+        * [1.2 在build.gradle文件中dependencies中配置库的引用](#12-在buildgradle文件中dependencies中配置库的引用)
+        * [1.3 配置NDK架构选择，必须进行对应配置](#13-配置ndk架构选择必须进行对应配置)
+        * [1.4 java8支持的配置，必须配置](#14-java8支持的配置必须配置)
+        * [1.5 packageingOptions配置，必须配置](#15-packageingoptions配置必须配置)
 * [二、SDK接入引用说明](#二sdk接入引用说明)
 * [1. SDK初始化](#1-sdk初始化)
 * [1.1 SDK配置选项 HHSDKOptions](#11-sdk配置选项-hhsdkoptions)
