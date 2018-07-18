@@ -7,6 +7,7 @@
 </p>
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
+
             * [1. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下](#1-和缓视频医生android-sdk通过maven仓库引用来导入工程如下)
                * [1.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置](#11-在buildgradle文件中配置远程库地址在respositories中添加相应配置)
                * [1.2 在build.gradle文件中dependencies中配置库的引用](#12-在buildgradle文件中dependencies中配置库的引用)
