@@ -44,6 +44,7 @@
 
 ```
 repositories {
+    maven { url "https://jitpack.io" }
     maven {
         credentials {
             username 'hh-public'
