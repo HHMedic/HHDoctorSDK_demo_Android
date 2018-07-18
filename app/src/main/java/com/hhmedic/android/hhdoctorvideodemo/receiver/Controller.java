@@ -26,7 +26,7 @@ public class Controller extends BroadcastReceiver
 
         if (!TextUtils.isEmpty(command))
         {
-            HHDoctor.handUp();
+            HHDoctor.hangUp();
         }
     }
 }
