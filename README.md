@@ -7,12 +7,15 @@
 </p>
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
-    * [1. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下](#1-和缓视频医生android-sdk通过maven仓库引用来导入工程如下)
-        * [1.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置](#11-在buildgradle文件中配置远程库地址在respositories中添加相应配置)
-        * [1.2 在build.gradle文件中dependencies中配置库的引用](#12-在buildgradle文件中dependencies中配置库的引用)
-        * [1.3 配置NDK架构选择，必须进行对应配置](#13-配置ndk架构选择必须进行对应配置)
-        * [1.4 java8支持的配置，必须配置](#14-java8支持的配置必须配置)
-        * [1.5 packageingOptions配置，必须配置](#15-packageingoptions配置必须配置)
+    * [1. 建议接入环境](#1-建议接入环境)
+                * [1.1 建议接入使用IDE版本](#1-1-建议接入使用IDE版本)
+                * [1.2 建议接入SDK版本](#1-2-建议接入SDK版本)
+            * [2. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下](#1-和缓视频医生android-sdk通过maven仓库引用来导入工程如下)
+               * [2.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置](#11-在buildgradle文件中配置远程库地址在respositories中添加相应配置)
+               * [2.2 在build.gradle文件中dependencies中配置库的引用](#12-在buildgradle文件中dependencies中配置库的引用)
+               * [2.3 配置NDK架构选择，必须进行对应配置](#13-配置ndk架构选择必须进行对应配置)
+               * [2.4 java8支持的配置，必须配置](#14-java8支持的配置必须配置)
+               * [2.5 packageingOptions配置，必须配置](#15-packageingoptions配置必须配置)
 * [二、SDK接入引用说明](#二sdk接入引用说明)
    * [1. SDK初始化](#1-sdk初始化)
       * [1.1 SDK配置选项 HHSDKOptions](#11-sdk配置选项-hhsdkoptions)
@@ -40,12 +43,27 @@
 
 ### 一、SDK接入引用说明
 
-#### 1. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下
+#### 1. 建议接入环境
 
-##### 1.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置
+##### 1.1 建议接入使用IDE版本
+
+Android Studio 3.x.x版本以上版本
+
+##### 1.2 建议接入SDK版本
+
+|配置项|版本|
+|---|---|
+|compileSdkVersion| 27及以上|
+|minSdkVersion| 17及以上|
+|targetSdkVersion| 27及以上|
+
+#### 2. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下
+
+##### 2.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置
 
 ```
 repositories {
+    maven { url "https://jitpack.io" }
     maven {
         credentials {
             username 'hh-public'
@@ -56,7 +74,7 @@ repositories {
 }
 ```
 
-##### 1.2 在build.gradle文件中dependencies中配置库的引用
+##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
 implementation 'com.hhmedic.android.sdk:hh:0.0.1'
@@ -64,7 +82,7 @@ implementation 'com.hhmedic.android.sdk:hh:0.0.1'
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
 
-##### 1.3 配置NDK架构选择，必须进行对应配置
+##### 2.3 配置NDK架构选择，必须进行对应配置
 
 ```
 ndk {
@@ -73,7 +91,7 @@ ndk {
 }
 ```
 
-##### 1.4 java8支持的配置，必须配置
+##### 2.4 java8支持的配置，必须配置
 
 ```
 compileOptions {
@@ -82,7 +100,7 @@ compileOptions {
 }
 ```
 
-##### 1.5 packageingOptions配置，必须配置
+##### 2.5 packageingOptions配置，必须配置
 
 ```
 packagingOptions {
