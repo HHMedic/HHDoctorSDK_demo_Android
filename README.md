@@ -256,7 +256,7 @@ public static void onRefuse(Context context,String message,Refuse.OnCallback cal
 ##### 2.8 挂断（主要用于智能音箱）
 
 ```java
-public static void handUp()
+public static void hangUp()
 ```
 
 >用于视频中挂断操作
