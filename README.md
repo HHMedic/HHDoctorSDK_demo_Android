@@ -7,40 +7,59 @@
 </p>
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
-    * [1. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下](#1-和缓视频医生android-sdk通过maven仓库引用来导入工程如下)
-        * [1.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置](#11-在buildgradle文件中配置远程库地址在respositories中添加相应配置)
-        * [1.2 在build.gradle文件中dependencies中配置库的引用](#12-在buildgradle文件中dependencies中配置库的引用)
-        * [1.3 配置NDK架构选择，必须进行对应配置](#13-配置ndk架构选择必须进行对应配置)
-        * [1.4 java8支持的配置，必须配置](#14-java8支持的配置必须配置)
-        * [1.5 packageingOptions配置，必须配置](#15-packageingoptions配置必须配置)
+   * [1. 建议接入环境](#1-建议接入环境)
+      * [1.1 建议接入使用IDE版本](#11-建议接入使用ide版本)
+      * [1.2 建议接入SDK版本](#12-建议接入sdk版本)
+   * [2. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下](#2-和缓视频医生android-sdk通过maven仓库引用来导入工程如下)
+      * [2.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置](#21-在buildgradle文件中配置远程库地址在respositories中添加相应配置)
+      * [2.2 在build.gradle文件中dependencies中配置库的引用](#22-在buildgradle文件中dependencies中配置库的引用)
+      * [2.3 配置NDK架构选择，必须进行对应配置](#23-配置ndk架构选择必须进行对应配置)
+      * [2.4 java8支持的配置，必须配置](#24-java8支持的配置必须配置)
+      * [2.5 packageingOptions配置，必须配置](#25-packageingoptions配置必须配置)
 * [二、SDK接入引用说明](#二sdk接入引用说明)
-    * [1. SDK初始化](#1-sdk初始化)
-        * [1.1 SDK配置选项 HHSDKOptions](#11-sdk配置选项-hhsdkoptions)
-        * [1.2 音箱接入快捷获取基本配置选项方式](#12-音箱接入快捷获取基本配置选项方式)
-        * [1.3 SDK初始化](#13-sdk初始化)
-    * [2. SDK功能介绍](#2-sdk功能介绍)
-        * [2.1 获取SDK版本号](#21-获取sdk版本号)
-        * [2.2 登录](#22-登录)
-        * [2.3 登出](#23-登出)
-        * [2.4 呼叫成人医生](#24-呼叫成人医生)
-        * [2.5 呼叫儿童医生](#25-呼叫儿童医生)
-        * [2.6 医生回拨的时候接受（主要应用于音箱）](#26-医生回拨的时候接受主要应用于音箱)
-        * [2.7 医生回拨的时候拒绝（主要应用于音箱）](#27-医生回拨的时候拒绝主要应用于音箱)
-        * [2.8 挂断（主要用于智能音箱）](#28-挂断主要用于智能音箱)
-    * [3. 回调说明](#3-回调说明)
-        * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
-        * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
-        * [3.3 拒绝回调](#33-拒绝回调)
+   * [1. SDK初始化](#1-sdk初始化)
+      * [1.1 SDK配置选项 HHSDKOptions](#11-sdk配置选项-hhsdkoptions)
+      * [1.2 音箱接入快捷获取基本配置选项方式](#12-音箱接入快捷获取基本配置选项方式)
+      * [1.3 SDK初始化](#13-sdk初始化)
+   * [2. SDK功能介绍](#2-sdk功能介绍)
+      * [2.1 获取SDK版本号](#21-获取sdk版本号)
+      * [2.2 登录](#22-登录)
+      * [2.3 登出](#23-登出)
+      * [2.4 呼叫成人医生](#24-呼叫成人医生)
+      * [2.5 呼叫儿童医生](#25-呼叫儿童医生)
+      * [2.6 医生回拨的时候接受（主要应用于音箱）](#26-医生回拨的时候接受主要应用于音箱)
+      * [2.7 医生回拨的时候拒绝（主要应用于音箱）](#27-医生回拨的时候拒绝主要应用于音箱)
+      * [2.8 挂断（主要用于智能音箱）](#28-挂断主要用于智能音箱)
+   * [3. 回调说明](#3-回调说明)
+      * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
+      * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
+      * [3.3 拒绝回调](#33-拒绝回调)
 * [三、常见问题](#三常见问题)
-    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
+   * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
+   * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
 * [四、Demo下载地址](#四demo下载地址)
 * [五、版本更新说明](#五版本更新说明)
 
+
 ### 一、SDK接入引用说明
 
-#### 1. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下
+#### 1. 建议接入环境
 
-##### 1.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置
+##### 1.1 建议接入使用IDE版本
+
+Android Studio 3.x.x版本以上版本
+
+##### 1.2 建议接入SDK版本
+
+|配置项|版本|
+|---|---|
+|compileSdkVersion| 27及以上|
+|minSdkVersion| 17及以上|
+|targetSdkVersion| 27及以上|
+
+#### 2. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下
+
+##### 2.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置
 
 ```
 repositories {
@@ -55,7 +74,7 @@ repositories {
 }
 ```
 
-##### 1.2 在build.gradle文件中dependencies中配置库的引用
+##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
 implementation 'com.hhmedic.android.sdk:hh:0.0.1'
@@ -63,7 +82,7 @@ implementation 'com.hhmedic.android.sdk:hh:0.0.1'
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
 
-##### 1.3 配置NDK架构选择，必须进行对应配置
+##### 2.3 配置NDK架构选择，必须进行对应配置
 
 ```
 ndk {
@@ -72,7 +91,7 @@ ndk {
 }
 ```
 
-##### 1.4 java8支持的配置，必须配置
+##### 2.4 java8支持的配置，必须配置
 
 ```
 compileOptions {
@@ -81,7 +100,7 @@ compileOptions {
 }
 ```
 
-##### 1.5 packageingOptions配置，必须配置
+##### 2.5 packageingOptions配置，必须配置
 
 ```
 packagingOptions {
@@ -237,7 +256,7 @@ public static void onRefuse(Context context,String message,Refuse.OnCallback cal
 ##### 2.8 挂断（主要用于智能音箱）
 
 ```java
-public static void handUp()
+public static void hangUp()
 ```
 
 >用于视频中挂断操作
@@ -380,6 +399,12 @@ public interface OnCallback
 </manifest>
 ```
 
+#### 2. error:style attribute '@android:attr/windowEnterAnimation' not found
+
+在Project/gradle.properties中添加 android.enableAapt2=false
+
+
+
 ### 四、Demo下载地址
 
 https://github.com/HHMedic/DoctorVideoDemo
@@ -392,3 +417,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |0.0.2| fix 直接呼叫crashbug|
 |0.1.070915| 1、版本号切换尾号为时间 2、添加铃声可控配置 3、fix bugs|
 |0.1.071810| 1、新增评价功能 2、fix bugs|
+|0.1.071815| 更新配置可以去除maven { url "https://jitpack.io" }这个配置|
