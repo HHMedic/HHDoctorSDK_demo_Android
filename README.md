@@ -63,7 +63,6 @@ Android Studio 3.x.x版本以上版本
 
 ```
 repositories {
-    maven { url "https://jitpack.io" }
     maven {
         credentials {
             username 'hh-public'
