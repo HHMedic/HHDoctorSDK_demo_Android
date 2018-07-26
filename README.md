@@ -231,7 +231,7 @@ packagingOptions {
         <meta-data
             android:name="com.huawei.hms.client.appid"
             android:value="100086277" />
-        <provider
+<provider
 android:name="com.huawei.hms.update.provider.UpdateProvider"
             android:authorities="{这里需要替换成自己的包名，不用带大括号}.hms.update.provider"
             android:exported="false"
