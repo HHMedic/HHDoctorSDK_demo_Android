@@ -16,6 +16,10 @@
       * [2.3 配置NDK架构选择，必须进行对应配置](#23-配置ndk架构选择必须进行对应配置)
       * [2.4 java8支持的配置，必须配置](#24-java8支持的配置必须配置)
       * [2.5 packageingOptions配置，必须配置](#25-packageingoptions配置必须配置)
+    * [3. 推送相关配置](#3-推送相关配置)
+        * [3.1 申请华为和小米的推送](#31-申请华为和小米的推送)
+        * [3.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：](#32-另外我们需要在配置文件androidmanifestxml文件配置push相关配置如下)
+        * [3.3 我们提供push相关jar包](#33-我们提供push相关jar包)
 * [二、SDK接入引用说明](#二sdk接入引用说明)
    * [1. SDK初始化](#1-sdk初始化)
       * [1.1 SDK配置选项 HHSDKOptions](#11-sdk配置选项-hhsdkoptions)
@@ -106,6 +110,138 @@ packagingOptions {
    pickFirst 'lib/armeabi-v7a/libsecsdk.so'
 }
 ```
+
+#### 3. 推送相关配置
+
+> 如果需要使用SDK的push功能，需要进行相应文件和配置的添加，主要是小米和华为推送SDK包添加，以及推送参数的申请，小米
+推送需要接入方提供AppSecret和包名给我们，华为需要接入方提供AppID和AppSecret以及包名给我们，我们使用这些参数去生成对应SDK中需要配置的参数。具体说明如下：
+
+##### 3.1 申请华为和小米的推送
+
+- 需要将小米的AppSecret提供给和缓
+- 需要将华为的AppId和AppSecret提供给和缓
+
+    > 我们使用这些以上提供的数据来生成我们需要的参数,注意如下两个参数均需和缓来生成。另外需要提供唤醒的时候应该跳到哪个界面的配置，通知的图标配置，小米推送的AppId和小米推送的AppKey。如下：
+    
+    ```java
+    public class HHPushConfig {
+    
+        /**
+         * 通知栏提醒的响应intent的activity类型。<br>
+         * 可以为null。如果未提供，将使用包的launcher的入口intent的activity。
+         */
+        public Class<? extends Activity> notificationEntrance;
+    
+        /**
+         * 状态栏提醒的小图标的资源ID。<br>
+         * 如果不提供，使用app的icon
+         */
+        public int notificationSmallIconId;
+    
+    
+        /**
+         * 小米推送 appId
+         */
+        public String xmAppId;
+    
+        /**
+         * 小米推送 appKey
+         */
+        public String xmAppKey;
+    
+        public String xmCertificateName; //这个参数是由小米提供的参数生成的
+        
+        public String hwCertificateName; //这个是由华为提供的参数生成的
+    }
+
+    ```
+    
+    ##### 3.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：
+    
+    ```xml
+    //小米push相关
+    
+    <!-- 小米push permission -->
+
+        <permission android:name="com.hhmedic.app.patient.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+        <uses-permission android:name="com.hhmedic.app.patient.permission.MIPUSH_RECEIVE" />
+
+    <!-- end-->
+    
+    <!-- 小米 推送-->
+
+        <!-- 小米推送配置 -->
+        <!--配置的service和receiver-->
+        <service
+            android:name="com.xiaomi.push.service.XMPushService"
+            android:process=":mixpush"
+            android:enabled="true"
+            />
+        <service
+            android:name="com.xiaomi.push.service.XMJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":mixpush" />
+        <!--注：此service必须在3.0.1版本以后（包括3.0.1版本）加入-->
+        <service
+            android:enabled="true"
+            android:exported="true"
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler" />
+
+        <service android:enabled="true"
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService" />
+        <!--注：此service必须在2.2.5版本以后（包括2.2.5版本）加入-->
+        <receiver
+            android:exported="true"
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:exported="false"
+            android:process=":mixpush"
+            android:name="com.xiaomi.push.service.receivers.PingReceiver" >
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER" />
+            </intent-filter>
+        </receiver>
+
+
+
+        <receiver
+            android:name="com.netease.nimlib.mixpush.mi.MiPushReceiver"
+            android:exported="true">
+            <intent-filter android:priority="0x7fffffff">
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 小米 end -->
+    
+    
+    
+    
+    //华为push相关
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="100086277" />
+        <provider
+android:name="com.huawei.hms.update.provider.UpdateProvider"
+            android:authorities="{这里需要替换成自己的包名，不用带大括号}.hms.update.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"/>
+
+    ```
+
+##### 3.3 我们提供push相关jar包
+
+> jar包由我们发送给接入方
 
 ### 二、SDK接入引用说明
 
