@@ -67,6 +67,9 @@ Android Studio 3.x.x版本以上版本
 
 ```
 repositories {
+
+    maven {url 'http://developer.huawei.com/repo/'} //这个是在用到华为推送的时候才需要配置
+    
     maven {
         credentials {
             username 'hh-public'
