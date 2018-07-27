@@ -243,6 +243,13 @@ packagingOptions {
 
 > jar包由我们发送给接入方
 
+需要二外添加gradle引用
+
+```
+api "com.netease.nimlib:push:5.4.0"
+api 'com.huawei.android.hms:push:2.6.0.301'
+```
+
 ### 二、SDK接入引用说明
 
 #### 1. SDK初始化
