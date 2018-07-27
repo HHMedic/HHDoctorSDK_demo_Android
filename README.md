@@ -163,9 +163,9 @@ packagingOptions {
     
     <!-- 小米push permission -->
 
-        <permission android:name="com.hhmedic.app.patient.permission.MIPUSH_RECEIVE"
+        <permission android:name="{这里需要替换成你的包名}.permission.MIPUSH_RECEIVE"
         android:protectionLevel="signature" />
-        <uses-permission android:name="com.hhmedic.app.patient.permission.MIPUSH_RECEIVE" />
+        <uses-permission android:name="{这里需要替换成你的包名}.permission.MIPUSH_RECEIVE" />
 
     <!-- end-->
     
