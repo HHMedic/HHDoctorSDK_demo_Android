@@ -243,7 +243,7 @@ packagingOptions {
 
 > jar包由我们发送给接入方
 
-需要二外添加gradle引用
+需要额外添加gradle引用
 
 ```
 api "com.netease.nimlib:push:5.4.0"
