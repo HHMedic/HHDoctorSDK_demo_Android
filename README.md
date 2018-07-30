@@ -86,7 +86,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.0.0'
+implementation 'com.hhmedic.android.sdk:hh:2.0.1'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
