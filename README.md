@@ -16,6 +16,10 @@
       * [2.3 配置NDK架构选择，必须进行对应配置](#23-配置ndk架构选择必须进行对应配置)
       * [2.4 java8支持的配置，必须配置](#24-java8支持的配置必须配置)
       * [2.5 packageingOptions配置，必须配置](#25-packageingoptions配置必须配置)
+    * [3. 推送相关配置](#3-推送相关配置)
+        * [3.1 申请华为和小米的推送](#31-申请华为和小米的推送)
+        * [3.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：](#32-另外我们需要在配置文件androidmanifestxml文件配置push相关配置如下)
+        * [3.3 我们提供push相关jar包](#33-我们提供push相关jar包)
 * [二、SDK接入引用说明](#二sdk接入引用说明)
    * [1. SDK初始化](#1-sdk初始化)
       * [1.1 SDK配置选项 HHSDKOptions](#11-sdk配置选项-hhsdkoptions)
@@ -30,10 +34,13 @@
       * [2.6 医生回拨的时候接受（主要应用于音箱）](#26-医生回拨的时候接受主要应用于音箱)
       * [2.7 医生回拨的时候拒绝（主要应用于音箱）](#27-医生回拨的时候拒绝主要应用于音箱)
       * [2.8 挂断（主要用于智能音箱）](#28-挂断主要用于智能音箱)
+      * [2.9 获取用户登录状态](#29-获取用户登录状态)
+      * [2.10 设置视频回拨处理结果回调](#210-设置视频回拨处理结果回调)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
       * [3.3 拒绝回调](#33-拒绝回调)
+      * [3.4 视频回拨处理结果回调](#34-视频回拨处理结果回调)
 * [三、常见问题](#三常见问题)
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
@@ -63,7 +70,9 @@ Android Studio 3.x.x版本以上版本
 
 ```
 repositories {
-    maven { url "https://jitpack.io" }
+
+    maven {url 'http://developer.huawei.com/repo/'} //这个是在用到华为推送的时候才需要配置
+    
     maven {
         credentials {
             username 'hh-public'
@@ -77,7 +86,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:0.0.1'
+implementation 'com.hhmedic.android.sdk:hh:2.0.1'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -106,6 +115,145 @@ compileOptions {
 packagingOptions {
    pickFirst 'lib/armeabi-v7a/libsecsdk.so'
 }
+```
+
+#### 3. 推送相关配置
+
+> 如果需要使用SDK的push功能，需要进行相应文件和配置的添加，主要是小米和华为推送SDK包添加，以及推送参数的申请，小米
+推送需要接入方提供AppSecret和包名给我们，华为需要接入方提供AppID和AppSecret以及包名给我们，我们使用这些参数去生成对应SDK中需要配置的参数。具体说明如下：
+
+##### 3.1 申请华为和小米的推送
+
+- 需要将小米的AppSecret提供给和缓
+- 需要将华为的AppId和AppSecret提供给和缓
+
+    > 我们使用这些以上提供的数据来生成我们需要的参数,注意如下两个参数均需和缓来生成。另外需要提供唤醒的时候应该跳到哪个界面的配置，通知的图标配置，小米推送的AppId和小米推送的AppKey。如下：
+    
+    ```java
+    public class HHPushConfig {
+    
+        /**
+         * 通知栏提醒的响应intent的activity类型。<br>
+         * 可以为null。如果未提供，将使用包的launcher的入口intent的activity。
+         */
+        public Class<? extends Activity> notificationEntrance;
+    
+        /**
+         * 状态栏提醒的小图标的资源ID。<br>
+         * 如果不提供，使用app的icon
+         */
+        public int notificationSmallIconId;
+    
+    
+        /**
+         * 小米推送 appId
+         */
+        public String xmAppId;
+    
+        /**
+         * 小米推送 appKey
+         */
+        public String xmAppKey;
+    
+        public String xmCertificateName; //这个参数是由小米提供的参数生成的
+        
+        public String hwCertificateName; //这个是由华为提供的参数生成的
+    }
+
+    ```
+    
+    ##### 3.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：
+    
+    ```xml
+    //小米push相关
+    
+    <!-- 小米push permission -->
+
+        <permission android:name="{这里需要替换成你的包名}.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+        <uses-permission android:name="{这里需要替换成你的包名}.permission.MIPUSH_RECEIVE" />
+
+    <!-- end-->
+    
+    <!-- 小米 推送-->
+
+        <!-- 小米推送配置 -->
+        <!--配置的service和receiver-->
+        <service
+            android:name="com.xiaomi.push.service.XMPushService"
+            android:process=":mixpush"
+            android:enabled="true"
+            />
+        <service
+            android:name="com.xiaomi.push.service.XMJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":mixpush" />
+        <!--注：此service必须在3.0.1版本以后（包括3.0.1版本）加入-->
+        <service
+            android:enabled="true"
+            android:exported="true"
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler" />
+
+        <service android:enabled="true"
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService" />
+        <!--注：此service必须在2.2.5版本以后（包括2.2.5版本）加入-->
+        <receiver
+            android:exported="true"
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:exported="false"
+            android:process=":mixpush"
+            android:name="com.xiaomi.push.service.receivers.PingReceiver" >
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER" />
+            </intent-filter>
+        </receiver>
+
+
+
+        <receiver
+            android:name="com.netease.nimlib.mixpush.mi.MiPushReceiver"
+            android:exported="true">
+            <intent-filter android:priority="0x7fffffff">
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 小米 end -->
+    
+    
+    
+    
+    //华为push相关
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="华为的AppID" />
+        <provider
+            android:name="com.huawei.hms.update.provider.UpdateProvider"
+            android:authorities="{这里需要替换成自己的包名，不用带大括号}.hms.update.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"/>
+
+    ```
+
+##### 3.3 我们提供push相关jar包
+
+> jar包由我们发送给接入方
+
+需要额外添加gradle引用
+
+```
+api "com.netease.nimlib:push:5.4.0"
+api 'com.huawei.android.hms:push:2.6.0.301'
 ```
 
 ### 二、SDK接入引用说明
@@ -261,6 +409,32 @@ public static void hangUp()
 
 >用于视频中挂断操作
 
+##### 2.9 获取用户登录状态
+
+```java
+public static boolean isLogined(Context context)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|Context context|上下文，当前呼叫发起Activity|
+
+##### 2.10 设置视频回拨处理结果回调
+
+```
+public static void setCallbackListener(HHCallbackListener listener)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|HHCallbackListener listener|回调代理|
+
+
+
 #### 3. 回调说明
 
 >主要说明在各个接口用到的回调代理
@@ -363,6 +537,21 @@ public interface OnCallback
     }
 ```
 
+##### 3.4 视频回拨处理结果回调
+
+```java
+public interface HHCallbackListener {
+
+    //拒绝接听
+    void onRefuse();
+
+    //接听
+    void onAccept();
+
+}
+```
+
+
 ### 三、常见问题
 
 #### 1. AndroidManifest合并冲突问题
@@ -418,3 +607,5 @@ https://github.com/HHMedic/DoctorVideoDemo
 |0.1.070915| 1、版本号切换尾号为时间 2、添加铃声可控配置 3、fix bugs|
 |0.1.071810| 1、新增评价功能 2、fix bugs|
 |0.1.071815| 更新配置可以去除maven { url "https://jitpack.io" }这个配置|
+|2.0.0|HHSDKOptions添加默认摄像头选择配置videoDefaultFrontCamera，默认开启前置摄像头，特殊情况摄像头在设备上相反的情况下可以取反|
+|2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
