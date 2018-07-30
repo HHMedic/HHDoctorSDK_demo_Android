@@ -608,3 +608,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |0.1.071810| 1、新增评价功能 2、fix bugs|
 |0.1.071815| 更新配置可以去除maven { url "https://jitpack.io" }这个配置|
 |2.0.0|HHSDKOptions添加默认摄像头选择配置videoDefaultFrontCamera，默认开启前置摄像头，特殊情况摄像头在设备上相反的情况下可以取反|
+|2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
