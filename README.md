@@ -34,10 +34,13 @@
       * [2.6 医生回拨的时候接受（主要应用于音箱）](#26-医生回拨的时候接受主要应用于音箱)
       * [2.7 医生回拨的时候拒绝（主要应用于音箱）](#27-医生回拨的时候拒绝主要应用于音箱)
       * [2.8 挂断（主要用于智能音箱）](#28-挂断主要用于智能音箱)
+      * [2.9 获取用户登录状态](#29-获取用户登录状态)
+      * [2.10 设置视频回拨处理结果回调](#210-设置视频回拨处理结果回调)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
       * [3.3 拒绝回调](#33-拒绝回调)
+      * [3.4 视频回拨处理结果回调](#34-视频回拨处理结果回调)
 * [三、常见问题](#三常见问题)
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
@@ -406,6 +409,32 @@ public static void hangUp()
 
 >用于视频中挂断操作
 
+##### 2.9 获取用户登录状态
+
+```java
+public static boolean isLogined(Context context)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|Context context|上下文，当前呼叫发起Activity|
+
+##### 2.10 设置视频回拨处理结果回调
+
+```
+public static void setCallbackListener(HHCallbackListener listener)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|HHCallbackListener listener|回调代理|
+
+
+
 #### 3. 回调说明
 
 >主要说明在各个接口用到的回调代理
@@ -507,6 +536,21 @@ public interface OnCallback
         void onError(String tips);
     }
 ```
+
+##### 3.4 视频回拨处理结果回调
+
+```java
+public interface HHCallbackListener {
+
+    //拒绝接听
+    void onRefuse();
+
+    //接听
+    void onAccept();
+
+}
+```
+
 
 ### 三、常见问题
 
