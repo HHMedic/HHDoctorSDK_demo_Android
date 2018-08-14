@@ -256,6 +256,13 @@ api "com.netease.nimlib:push:5.4.0"
 api 'com.huawei.android.hms:push:2.6.0.301'
 ```
 
+如果使用华为的push需要添加混淆配置
+
+```
+-keep class com.huawei.hms.**{*;}
+```
+
+
 ### 二、SDK接入引用说明
 
 #### 1. SDK初始化
