@@ -80,6 +80,10 @@ repositories {
         }
         url 'http://develop.hh-medic.com/repository/maven-public'
     }
+    
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+    }
 }
 ```
 
