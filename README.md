@@ -91,7 +91,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.0.3'
+implementation 'com.hhmedic.android.sdk:hh:2.0.4'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -631,3 +631,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.0|HHSDKOptions添加默认摄像头选择配置videoDefaultFrontCamera，默认开启前置摄像头，特殊情况摄像头在设备上相反的情况下可以取反|
 |2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
 |2.0.3|fix bugs|
+|2.0.4|utdid回退添加，如果遇到冲突请按说明(#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)解决|
