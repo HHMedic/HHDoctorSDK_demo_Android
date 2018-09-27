@@ -20,3 +20,5 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -keep class  com.netease.mobsecurity.**{*;}
+-keep class com.ut.**{*;}
+-keep class com.ta.**{*;}
