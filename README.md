@@ -44,6 +44,7 @@
 * [三、常见问题](#三常见问题)
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
+   * [3. SDK UTDID冲突解决方案](#3-SDK-UTDID冲突解决方案)
 * [四、Demo下载地址](#四demo下载地址)
 * [五、版本更新说明](#五版本更新说明)
 
@@ -603,6 +604,15 @@ public interface HHCallbackListener {
 
 在Project/gradle.properties中添加 android.enableAapt2=false
 
+
+#### 3. SDK UTDID冲突解决方案
+
+Android UTDID包命名形式为：utdid4all-x.x.x.jar，UTDID作为阿里集团移动端SDK通用组件，包括阿里云在内的许多平台产品移动端SDK对其有依赖，若同时集成多平台移动端SDK，可能发生UTDID冲突。解决重复的方案是手动删除重复的UTDID SDK，仅保留一个UTDID SDK，建议保留阿里云平台下载的UTDID SDK。如果是通过gradle引用通过关闭其他SDK包的utdid的引用即可如下：
+```
+compile ('com.xxx:xxx.xxx:1.0.1') {
+  exclude (module: 'alicloud-android-utdid')
+}
+```
 
 
 ### 四、Demo下载地址
