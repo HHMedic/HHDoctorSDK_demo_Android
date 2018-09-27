@@ -44,7 +44,7 @@
 * [三、常见问题](#三常见问题)
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
-   * [3. SDK UTDID冲突解决方案](#3-SDK-UTDID冲突解决方案)
+   * [3. SDK UTDID冲突解决方案](#3-sdk-utdid冲突解决方案)
 * [四、Demo下载地址](#四demo下载地址)
 * [五、版本更新说明](#五版本更新说明)
 
