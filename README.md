@@ -631,4 +631,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.0|HHSDKOptions添加默认摄像头选择配置videoDefaultFrontCamera，默认开启前置摄像头，特殊情况摄像头在设备上相反的情况下可以取反|
 |2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
 |2.0.3|fix bugs|
-|2.0.4|utdid回退添加，如果遇到冲突请按说明(#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)解决|
+|2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
