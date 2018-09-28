@@ -17,7 +17,7 @@ public class DoctorApplication extends Application {
 
     private void initSDK() {
 
-        HHSDKOptions options = HHSDKOptions.defaultSoundOption("productId"); //productId是和缓分配的产品Id
+        HHSDKOptions options = HHSDKOptions.defaultSoundOption("9002"); //productId是和缓分配的产品Id
         options.isDebug = true;
         options.mImei = "xxxxxxxxxxxxxx";//设备编号，多用于音箱设备对接
         options.dev = true;

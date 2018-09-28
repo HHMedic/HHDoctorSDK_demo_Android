@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initUI() {
         super.initUI();
-        long uuid = 0; //这个ID是和和缓对接之后得到的和缓的UUID
+        long uuid = 100000470; //这个ID是和和缓对接之后得到的和缓的UUID
         findViewById(R.id.login_button).setOnClickListener(v -> HHDoctor.login(this,uuid, new HHLoginListener() {
             @Override
             public void onSuccess() {
