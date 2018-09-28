@@ -44,6 +44,7 @@
 * [三、常见问题](#三常见问题)
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
+   * [3. SDK UTDID冲突解决方案](#3-sdk-utdid冲突解决方案)
 * [四、Demo下载地址](#四demo下载地址)
 * [五、版本更新说明](#五版本更新说明)
 
@@ -90,7 +91,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.0.3'
+implementation 'com.hhmedic.android.sdk:hh:2.0.4'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -604,6 +605,15 @@ public interface HHCallbackListener {
 在Project/gradle.properties中添加 android.enableAapt2=false
 
 
+#### 3. SDK UTDID冲突解决方案
+
+Android UTDID包命名形式为：utdid4all-x.x.x.jar，UTDID作为阿里集团移动端SDK通用组件，包括阿里云在内的许多平台产品移动端SDK对其有依赖，若同时集成多平台移动端SDK，可能发生UTDID冲突。解决重复的方案是手动删除重复的UTDID SDK，仅保留一个UTDID SDK，建议保留阿里云平台下载的UTDID SDK。如果是通过gradle引用通过关闭其他SDK包的utdid的引用即可如下：
+```
+compile ('com.xxx:xxx.xxx:1.0.1') {
+  exclude (module: 'alicloud-android-utdid')
+}
+```
+
 
 ### 四、Demo下载地址
 
@@ -621,3 +631,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.0|HHSDKOptions添加默认摄像头选择配置videoDefaultFrontCamera，默认开启前置摄像头，特殊情况摄像头在设备上相反的情况下可以取反|
 |2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
 |2.0.3|fix bugs|
+|2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
