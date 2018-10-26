@@ -614,6 +614,9 @@ compile ('com.xxx:xxx.xxx:1.0.1') {
 }
 ```
 
+如果这种方式解决不了可以去阿里官网下载一个不带utdid的一个支付宝的包用就行，具体说明地址如下
+https://help.aliyun.com/knowledge_detail/59152.html?spm=a2c4g.11186623.2.20.26d216ee1AMm0k
+
 
 ### 四、Demo下载地址
 
