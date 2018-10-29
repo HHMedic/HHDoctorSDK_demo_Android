@@ -623,6 +623,15 @@ https://help.aliyun.com/knowledge_detail/59152.html?spm=a2c4g.11186623.2.20.26d2
 造成冲突的原因有很多种，例如如果同时使用了阿里的 Utils库和友盟的库就会造成冲突，最好使用Utils库不要使用本地引用最好使用远程gradle引用。如果遇到了冲突可以先查看本地是否引用了阿里云的Utils SDK的包如果有可以删除即可或者使用gralde引用然后利用exclude排除Utils的module，即排除alicloud-android-utils。具体问题可以参照阿里的说明，地址如下
 https://helpcdn.aliyun.com/knowledge_detail/66886.html?spm=a2c4g.11186631.2.1.8c0fb068qquUGZ
 
+#### 5. 如果遇到库冲突也就是duplicate某个包这说明库冲突了，这种问题可以用如下方法解决
+这种问题遇到的情况有可能是用到的库和我们SDK中用到的库冲突，如果是module的冲突类似于问题4中的那种可以用exclude来进行排序module就行，另外一种情况是库和我们SDK库引用的版本的版本不一样，只要对库的版本选一个最合适的版本force一下版本就可以解决了。force大概写法如下：
+```
+configurations.all {
+    resolutionStrategy {
+        force "com.android.support:recyclerview-v7:27.1.1"
+    }
+}
+```
 
 ### 四、Demo下载地址
 
