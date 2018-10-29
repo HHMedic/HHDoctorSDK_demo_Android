@@ -46,6 +46,7 @@
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
    * [3. SDK UTDID冲突解决方案](#3-sdk-utdid冲突解决方案)
    * [4. 使用阿里云Utils SDK造成的冲突即这个moudlealicloud-android-utils的冲突可以以如下方式解决](#4-使用阿里云Utils-SDK造成的冲突即这个moudlealicloud-android-utils的冲突可以以如下方式解决)
+   * [5. 如果遇到库冲突也就是duplicate某个包这说明库冲突了，这种问题可以用如下方法解决](#5-如果遇到库冲突也就是duplicate某个包这说明库冲突了，这种问题可以用如下方法解决)
 * [四、Demo下载地址](#四demo下载地址)
 * [五、版本更新说明](#五版本更新说明)
 
