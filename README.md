@@ -617,6 +617,9 @@ compile ('com.xxx:xxx.xxx:1.0.1') {
 如果这种方式解决不了可以去阿里官网下载一个不带utdid的一个支付宝的包用就行，具体说明地址如下
 https://help.aliyun.com/knowledge_detail/59152.html?spm=a2c4g.11186623.2.20.26d216ee1AMm0k
 
+#### 4. 使用阿里云Utils SDK造成的冲突即这个moudlealicloud-android-utils的冲突可以以如下方式解决
+
+造成冲突的原因有很多种，例如如果同时使用了阿里的 Utils库和友盟的库就会造成冲突，最好使用Utils库不要使用本地引用最好使用远程gradle引用。
 
 ### 四、Demo下载地址
 
