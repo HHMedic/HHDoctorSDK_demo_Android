@@ -20,6 +20,7 @@
         * [3.1 申请华为和小米的推送](#31-申请华为和小米的推送)
         * [3.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：](#32-另外我们需要在配置文件androidmanifestxml文件配置push相关配置如下)
         * [3.3 我们提供push相关jar包](#33-我们提供push相关jar包)
+    * [4. 我们用到的常用第三方库以及库的版本](4-我们用到的常用第三方库以及库的版本)
 * [二、SDK接入引用说明](#二sdk接入引用说明)
    * [1. SDK初始化](#1-sdk初始化)
       * [1.1 SDK配置选项 HHSDKOptions](#11-sdk配置选项-hhsdkoptions)
@@ -268,6 +269,17 @@ api 'com.huawei.android.hms:push:2.6.0.301'
 ```
 -keep class com.huawei.hms.**{*;}
 ```
+
+#### 4. 我们用到的常用第三方库以及库的版本
+```
+implementation 'com.google.code.gson:gson:2.8.2'
+implementation 'com.orhanobut:logger:2.2.0'
+implementation 'com.github.bumptech.glide:glide:4.8.0'
+implementation 'com.zhihu.android:matisse:0.5.1'
+implementation 'com.squareup.okhttp3:okhttp:3.x.x' //这个版本号只是一个代写
+```
+
+> 如果由于这些包引用出现冲突例如是duplicate某个jar包或文件有可能是某些库引用的版本和我们不一致，直接force一个合适的版本就行。具体写法可以参考[这里](#5-如果遇到库冲突也就是duplicate某个包这说明库冲突了这种问题可以用如下方法解决)。
 
 
 ### 二、SDK接入引用说明
@@ -651,3 +663,5 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
 |2.0.3|fix bugs|
 |2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
+
+
