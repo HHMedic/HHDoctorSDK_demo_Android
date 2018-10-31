@@ -20,6 +20,7 @@
         * [3.1 申请华为和小米的推送](#31-申请华为和小米的推送)
         * [3.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：](#32-另外我们需要在配置文件androidmanifestxml文件配置push相关配置如下)
         * [3.3 我们提供push相关jar包](#33-我们提供push相关jar包)
+    * [4. 我们用到的常用第三方库以及库的版本](#4-我们用到的常用第三方库以及库的版本)
 * [二、SDK接入引用说明](#二sdk接入引用说明)
    * [1. SDK初始化](#1-sdk初始化)
       * [1.1 SDK配置选项 HHSDKOptions](#11-sdk配置选项-hhsdkoptions)
@@ -45,6 +46,8 @@
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
    * [3. SDK UTDID冲突解决方案](#3-sdk-utdid冲突解决方案)
+   * [4. 使用阿里云Utils SDK造成的冲突即这个moudlealicloud-android-utils的冲突可以以如下方式解决](#4-使用阿里云Utils-SDK造成的冲突即这个moudlealicloud-android-utils的冲突可以以如下方式解决)
+   * [5. 如果遇到库冲突也就是duplicate某个包这说明库冲突了，这种问题可以用如下方法解决](#5-如果遇到库冲突也就是duplicate某个包这说明库冲突了这种问题可以用如下方法解决)
 * [四、Demo下载地址](#四demo下载地址)
 * [五、版本更新说明](#五版本更新说明)
 
@@ -91,7 +94,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.0.4'
+implementation 'com.hhmedic.android.sdk:hh:2.0.5'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -266,6 +269,17 @@ api 'com.huawei.android.hms:push:2.6.0.301'
 ```
 -keep class com.huawei.hms.**{*;}
 ```
+
+#### 4. 我们用到的常用第三方库以及库的版本
+```
+implementation 'com.google.code.gson:gson:2.8.2'
+implementation 'com.orhanobut:logger:2.2.0'
+implementation 'com.github.bumptech.glide:glide:4.8.0'
+implementation 'com.zhihu.android:matisse:0.5.1'
+implementation 'com.squareup.okhttp3:okhttp:3.x.x' //这个版本号只是一个代写
+```
+
+> 如果由于这些包引用出现冲突例如是duplicate某个jar包或文件有可能是某些库引用的版本和我们不一致，直接force一个合适的版本就行。具体写法可以参考[这里](#5-如果遇到库冲突也就是duplicate某个包这说明库冲突了这种问题可以用如下方法解决)。
 
 
 ### 二、SDK接入引用说明
@@ -614,6 +628,23 @@ compile ('com.xxx:xxx.xxx:1.0.1') {
 }
 ```
 
+如果这种方式解决不了可以去阿里官网下载一个不带utdid的一个支付宝的包用就行，具体说明地址如下
+https://help.aliyun.com/knowledge_detail/59152.html?spm=a2c4g.11186623.2.20.26d216ee1AMm0k
+
+#### 4. 使用阿里云Utils SDK造成的冲突即这个moudlealicloud-android-utils的冲突可以以如下方式解决
+
+造成冲突的原因有很多种，例如如果同时使用了阿里的 Utils库和友盟的库就会造成冲突，最好使用Utils库不要使用本地引用最好使用远程gradle引用。如果遇到了冲突可以先查看本地是否引用了阿里云的Utils SDK的包如果有可以删除即可或者使用gralde引用然后利用exclude排除Utils的module，即排除alicloud-android-utils。具体问题可以参照阿里的说明，地址如下
+https://helpcdn.aliyun.com/knowledge_detail/66886.html?spm=a2c4g.11186631.2.1.8c0fb068qquUGZ
+
+#### 5. 如果遇到库冲突也就是duplicate某个包这说明库冲突了，这种问题可以用如下方法解决
+这种问题遇到的情况有可能是用到的库和我们SDK中用到的库冲突，如果是module的冲突类似于问题4中的那种可以用exclude来进行排序module就行，另外一种情况是库和我们SDK库引用的版本的版本不一样，只要对库的版本选一个最合适的版本force一下版本就可以解决了。force大概写法如下：
+```
+configurations.all {
+    resolutionStrategy {
+        force "com.android.support:recyclerview-v7:27.1.1"
+    }
+}
+```
 
 ### 四、Demo下载地址
 
@@ -632,3 +663,5 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
 |2.0.3|fix bugs|
 |2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
+
+
