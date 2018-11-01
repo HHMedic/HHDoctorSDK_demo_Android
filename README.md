@@ -37,6 +37,8 @@
       * [2.8 挂断（主要用于智能音箱）](#28-挂断主要用于智能音箱)
       * [2.9 获取用户登录状态](#29-获取用户登录状态)
       * [2.10 设置视频回拨处理结果回调](#210-设置视频回拨处理结果回调)
+      * [2.11 获取病历列表地址](#211-获取病历列表地址)
+      * [2.12 获取病历详情地址](#212-获取病历详情地址)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
@@ -459,7 +461,28 @@ public static void setCallbackListener(HHCallbackListener listener)
 | --- | --- |
 |HHCallbackListener listener|回调代理|
 
+##### 2.11 获取病历列表地址
+```
+public static String getMedicListUrl(Context context,long memberUUID)
+```
 
+参数说明：
+| 参数定义 | 说明 |
+| --- | --- |
+|Context context|当前上下文，一般为当前Activity|
+|long memberUUID|需要查看的成员的UUID，UUID为与和缓对接得到的用户ID|
+
+##### 2.12 获取病历详情地址
+```
+public static String getMedicDetailUrl(Context context,long memberUUID,String medicId)
+```
+
+参数说明：
+| 参数定义 | 说明 |
+| --- | --- |
+|Context context|当前上下文，一般为当前Activity|
+|long memberUUID|需要查看的成员的UUID，UUID为与和缓对接得到的用户ID|
+|String medicId |病历存档ID,这个存档ID由和缓同步到接入方的存档ID|
 
 #### 3. 回调说明
 
@@ -663,5 +686,3 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
 |2.0.3|fix bugs|
 |2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
-
-
