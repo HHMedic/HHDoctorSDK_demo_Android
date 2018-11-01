@@ -697,6 +697,6 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
 |2.0.3|fix bugs|
 |2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
-|2.0.6|新增获取病历列表以及病历详情的地址的接口，可以通过WebView进行病历的展示|
+|2.0.6|新增获取病历列表以及病历详情的地址的接口，可以通过WebView通过获取到url进行病历的展示|
 
 
