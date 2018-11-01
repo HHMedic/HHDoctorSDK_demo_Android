@@ -17,10 +17,9 @@ public class DoctorApplication extends Application {
 
     private void initSDK() {
 
-        HHSDKOptions options = HHSDKOptions.defaultSoundOption("8008"); //productId是和缓分配的产品Id
+        HHSDKOptions options = new HHSDKOptions("9002"); //productId是和缓分配的产品Id
         options.isDebug = true;
         options.dev = true;
-        options.mOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
         HHDoctor.init(getApplicationContext(), options);
     }

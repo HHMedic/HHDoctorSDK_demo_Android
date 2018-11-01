@@ -7,6 +7,8 @@
 
     <string name="hp_call_dept_all">成人</string>
     <string name="hp_call_dept_child">儿童</string>
+    <string name="hp_view_list">查看病例列表</string>
+    <string name="hp_view_detail">查看病例详情</string>
     <string name="hp_main_title">请选择类别</string>
 
     <string name="hp_notice_depart">请选择给儿童看还是成人看</string>

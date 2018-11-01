@@ -6,12 +6,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000"
         android:orientation="vertical"
-        android:paddingBottom="10dp"
-        android:paddingEnd="10dp"
         android:paddingStart="10dp"
-        android:paddingTop="20dp">
+        android:paddingTop="20dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp">
 
         <include layout="@layout/hp_back_layout" />
 
@@ -19,54 +18,47 @@
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="-30dp"
-            android:baselineAligned="false">
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:baselineAligned="false"
+            android:gravity="center_horizontal">
 
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="30dp"
-                android:layout_marginTop="-50dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical|right">
+            <Button
+                android:id="@+id/child_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/call_child"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
 
 
-                <Button
-                    android:id="@+id/child_btn"
-                    style="@style/hh_btn_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/hp_depart_icon_child_config"
-                    android:text="@string/hp_call_dept_child"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="26sp" />
+            <Button
+                android:id="@+id/all_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/call_adult"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textSize="20sp" />
 
+            <Button
+                android:id="@+id/view_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hp_view_list"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textSize="20sp" />
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="70dp"
-                android:layout_marginTop="-50dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical">
-
-                <Button
-                    android:id="@+id/all_btn"
-                    style="@style/hh_btn_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/hp_depart_icon_all_config"
-                    android:text="@string/hp_call_dept_all"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="26sp" />
-
-
-            </LinearLayout>
-
+            <Button
+                android:id="@+id/view_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hp_view_detail"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -77,8 +69,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:text="当前版本是测试版本"
         android:textColor="@android:color/holo_red_light"
-        android:visibility="gone"
         android:textSize="18dp"
-        android:text="当前版本是测试版本" />
+        android:visibility="gone" />
 </RelativeLayout>
