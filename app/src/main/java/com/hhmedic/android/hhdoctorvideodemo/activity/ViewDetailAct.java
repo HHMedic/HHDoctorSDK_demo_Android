@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
+
+import static android.view.KeyEvent.KEYCODE_BACK;
 
 public class ViewDetailAct extends AppCompatActivity {
 
@@ -26,7 +29,13 @@ public class ViewDetailAct extends AppCompatActivity {
     }
 
     private void initUI(Intent intent) {
-        findViewById(R.id.back_btn).setOnClickListener(v -> finish());
+        findViewById(R.id.back_btn).setOnClickListener(v -> {
+            if (mWebView.canGoBack()) {
+                mWebView.goBack();
+                return;
+            }
+            finish();
+        });
         TextView textView = findViewById(R.id.title);
         textView.setText(intent.getStringExtra("title"));
         mWebView = findViewById(R.id.webView);
@@ -70,6 +79,15 @@ public class ViewDetailAct extends AppCompatActivity {
         {
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KEYCODE_BACK && mWebView.canGoBack()) {
+            mWebView.goBack();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

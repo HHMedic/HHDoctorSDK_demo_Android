@@ -188,7 +188,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
      */
     private void viewList() {
         Intent intent = new Intent(this, ViewDetailAct.class);
-        String url = HHDoctor.getMedicListUrl(this, 100000470);
+        String url = HHDoctor.getMedicListUrl(this, 100002514);
         intent.putExtra("url", url);
         intent.putExtra("title", "病历存档列表");
         startActivity(intent);
@@ -199,7 +199,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
      */
     private void viewDetail() {
         Intent intent = new Intent(this, ViewDetailAct.class);
-        String url = HHDoctor.getMedicDetailUrl(this, 100000470, "1533808648331");
+        String url = HHDoctor.getMedicDetailUrl(this, 100002514, "1541041785333");
         intent.putExtra("url", url);
         intent.putExtra("title", "病历存档详情");
         startActivity(intent);
