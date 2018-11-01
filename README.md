@@ -26,6 +26,7 @@
       * [1.1 SDK配置选项 HHSDKOptions](#11-sdk配置选项-hhsdkoptions)
       * [1.2 音箱接入快捷获取基本配置选项方式](#12-音箱接入快捷获取基本配置选项方式)
       * [1.3 SDK初始化](#13-sdk初始化)
+      * [1.4 SDK使用到的主要权限说明](#14-sdk使用到的主要权限说明)
    * [2. SDK功能介绍](#2-sdk功能介绍)
       * [2.1 获取SDK版本号](#21-获取sdk版本号)
       * [2.2 登录](#22-登录)
@@ -62,13 +63,14 @@
 
 Android Studio 3.x.x版本以上版本
 
-##### 1.2 建议接入SDK版本
+##### 1.2 建议接入SDK版本以及最低支持设备系统版本
 
 |配置项|版本|
 |---|---|
 |compileSdkVersion| 27及以上|
 |minSdkVersion| 17及以上|
 |targetSdkVersion| 27及以上|
+|最低支持设备系统| >= 4.2 |
 
 #### 2. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下
 
@@ -339,6 +341,15 @@ options.isOpenCamera = false;
 options.mOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 HHDoctor.init(getApplicationContext(),options);
 ```
+
+##### 1.4 SDK使用到的主要权限说明
+
+| 权限 | 说明 |
+| --- | --- |
+| android.permission.CALL_PHONE | 在视频通话过程中如果有电话进来我们会做挂断视频保证正常电话通话 |
+|android.permission.CAMERA|保证正常使用设备的摄像设备|
+|android.permission.RECORD_AUDIO|保证正常使用设备的音频设备|
+|android.permission.WRITE_EXTERNAL_STORAGE android.permission.READ_EXTERNAL_STORAGE | 保证正常读取存储设备上的媒体文件 |
 
 #### 2. SDK功能介绍
 
@@ -686,3 +697,5 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
 |2.0.3|fix bugs|
 |2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
+
+
