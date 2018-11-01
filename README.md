@@ -478,6 +478,7 @@ public static String getMedicListUrl(Context context,long memberUUID)
 ```
 
 参数说明：
+
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
@@ -489,6 +490,7 @@ public static String getMedicDetailUrl(Context context,long memberUUID,String me
 ```
 
 参数说明：
+
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
