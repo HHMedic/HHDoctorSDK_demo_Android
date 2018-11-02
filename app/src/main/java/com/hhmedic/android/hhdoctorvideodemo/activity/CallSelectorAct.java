@@ -14,6 +14,7 @@ import com.hhmedic.android.sdk.listener.HHCallListener;
 public class CallSelectorAct extends BaseActivity implements View.OnClickListener{
 
     private boolean noticeTTS;
+    private final String userToken = "ECEEDCCD74B7D54BCF6690B7E26262B73F0D04F68EA2608F6783B874E4F50EEF";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -188,7 +189,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
      */
     private void viewList() {
         Intent intent = new Intent(this, ViewDetailAct.class);
-        String url = HHDoctor.getMedicListUrl(this, 100002514);
+        String url = HHDoctor.getMedicListUrl(this, userToken);
         intent.putExtra("url", url);
         intent.putExtra("title", "病历存档列表");
         startActivity(intent);
@@ -199,7 +200,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
      */
     private void viewDetail() {
         Intent intent = new Intent(this, ViewDetailAct.class);
-        String url = HHDoctor.getMedicDetailUrl(this, 100002514, "1541041785333");
+        String url = HHDoctor.getMedicDetailUrl(this, userToken, "1541041785333");
         intent.putExtra("url", url);
         intent.putExtra("title", "病历存档详情");
         startActivity(intent);
