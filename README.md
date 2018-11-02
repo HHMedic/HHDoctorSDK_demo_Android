@@ -474,7 +474,7 @@ public static void setCallbackListener(HHCallbackListener listener)
 
 ##### 2.11 获取病历列表地址
 ```
-public static String getMedicListUrl(Context context,long memberUUID)
+public static String getMedicListUrl(Context context,String userToken)
 ```
 
 参数说明：
@@ -482,11 +482,11 @@ public static String getMedicListUrl(Context context,long memberUUID)
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
-|long memberUUID|需要查看的成员的UUID，UUID为与和缓对接得到的用户ID|
+|String userToken|由和缓分配给第三方的用户安全标志，userToken为与和缓对接得到的用户安全标志|
 
 ##### 2.12 获取病历详情地址
 ```
-public static String getMedicDetailUrl(Context context,long memberUUID,String medicId)
+public static String getMedicDetailUrl(Context context,String userToken,String medicId)
 ```
 
 参数说明：
@@ -494,7 +494,7 @@ public static String getMedicDetailUrl(Context context,long memberUUID,String me
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
-|long memberUUID|需要查看的成员的UUID，UUID为与和缓对接得到的用户ID|
+|String userToken|由和缓分配给第三方的用户安全标志，userToken为与和缓对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由和缓同步到接入方的存档ID|
 
 #### 3. 回调说明
@@ -699,6 +699,6 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
 |2.0.3|fix bugs|
 |2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
-|2.0.6|新增获取病历列表以及病历详情的地址的接口，可以通过WebView通过获取到url进行病历的展示，本版本还去除了volley库的引用以及去除阿里的utdid的引用，如果之前有因为冲突重新使用不带utdid的AlipaySDK的可以重新使用带带utidid的AlipaySDK|
+|2.0.6.1|新增获取病历列表以及病历详情的地址的接口，可以通过WebView通过获取到url进行病历的展示，本版本还去除了volley库的引用以及去除阿里的utdid的引用，如果之前有因为冲突重新使用不带utdid的AlipaySDK的可以重新使用带带utidid的AlipaySDK|
 
 
