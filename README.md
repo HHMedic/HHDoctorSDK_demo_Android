@@ -704,5 +704,3 @@ https://github.com/HHMedic/DoctorVideoDemo
 
 ### 六、产品接入整体流程与效果
 
-![transfor](transform.gif)
-
