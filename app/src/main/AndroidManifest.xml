@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="com.hhmedic.home" />
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         <activity
             android:name=".activity.CallSelectorAct"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="com.hhmedic.doctor.robot" />
 
@@ -65,7 +65,7 @@
 
         <activity
             android:name=".activity.ViewDetailAct"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
