@@ -700,5 +700,7 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.3|fix bugs|
 |2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
 |2.0.6.3|新增获取病历列表以及病历详情的地址的接口，可以通过WebView通过获取到url进行病历的展示，本版本还去除了volley库的引用以及去除阿里的utdid的引用，如果之前有因为冲突重新使用不带utdid的AlipaySDK的可以重新使用带带utidid的AlipaySDK|
+|2.0.6.4|视频优化|
 
+### 六、产品接入整体流程与效果
 
