@@ -266,7 +266,7 @@ packagingOptions {
 需要额外添加gradle引用
 
 ```
-~~api "com.netease.nimlib:push:6.1.0"~~
+<del>api "com.netease.nimlib:push:6.1.0"</del>
 api 'com.huawei.android.hms:push:2.6.0.301'
 ```
 
