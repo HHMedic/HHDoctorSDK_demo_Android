@@ -85,7 +85,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         HHDoctor.callForAdult(this, new HHCallListener() {
 
             @Override
-            public void onStart() {
+            public void onStart(String orderId) {
                 Log.i(TAG,"call onStart");
             }
 
@@ -138,7 +138,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         HHDoctor.callForChild(this, new HHCallListener() {
 
             @Override
-            public void onStart() {
+            public void onStart(String orderId) {
                 Log.i(TAG,"call onStart");
             }
 

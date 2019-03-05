@@ -81,7 +81,7 @@ public class CallbackAct extends BaseActivity {
     private void doAccept() {
         HHDoctor.onAccept(this, new HHCallListener() {
             @Override
-            public void onStart() {
+            public void onStart(String orderId) {
 
             }
 
@@ -131,7 +131,7 @@ public class CallbackAct extends BaseActivity {
         if (callChild) {
             HHDoctor.callForChild(this, new HHCallListener() {
                 @Override
-                public void onStart() {
+                public void onStart(String orderId) {
 
                 }
 
@@ -178,7 +178,7 @@ public class CallbackAct extends BaseActivity {
         } else {
             HHDoctor.callForAdult(this, new HHCallListener() {
                 @Override
-                public void onStart() {
+                public void onStart(String orderId) {
 
                 }
 
