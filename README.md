@@ -100,7 +100,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.0.6'
+implementation 'com.hhmedic.android.sdk:hh:2.0.6.6'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -265,8 +265,9 @@ packagingOptions {
 
 需要额外添加gradle引用
 
+~~api "com.netease.nimlib:push:6.1.0"~~
+
 ```
-api "com.netease.nimlib:push:5.7.0"
 api 'com.huawei.android.hms:push:2.6.0.301'
 ```
 
@@ -531,7 +532,7 @@ public interface HHCallListener
     /**
      * 启动呼叫
      */
-    void onStart();
+    void onStart(String orderId);
 
     /**
      * 呼叫中
@@ -641,7 +642,7 @@ public interface HHCallbackListener {
     <provider
         tools:replace="android:authorities"
         android:name="android.support.v4.content.FileProvider"
-        android:authorities="${applicationId}.fileprovider"
+        android:authorities="${applicationId}.provider"
         android:exported="false"
         android:grantUriPermissions="true">
         <meta-data
@@ -703,4 +704,5 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
 |2.0.6.3|新增获取病历列表以及病历详情的地址的接口，可以通过WebView通过获取到url进行病历的展示，本版本还去除了volley库的引用以及去除阿里的utdid的引用，如果之前有因为冲突重新使用不带utdid的AlipaySDK的可以重新使用带带utidid的AlipaySDK|
 |2.0.6.4|视频优化|
+|2.0.6.6|1.HHCallListener中onStart接口添加orderId回传 2.api "com.netease.nimlib:push:6.1.0"配置去除，转移到sdk中管理|
 
