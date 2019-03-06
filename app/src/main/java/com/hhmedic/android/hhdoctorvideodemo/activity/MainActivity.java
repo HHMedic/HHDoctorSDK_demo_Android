@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doLogin() {
-        long uuid = 100002514; //这个ID是和和缓对接之后得到的和缓的UUID
+        long uuid = 100005580; //这个ID是和和缓对接之后得到的和缓的UUID
         HHDoctor.login(this,uuid, new HHLoginListener() {
             @Override
             public void onSuccess() {

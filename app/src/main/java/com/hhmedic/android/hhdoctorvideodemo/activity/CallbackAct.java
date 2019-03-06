@@ -2,7 +2,6 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.application.Command;
