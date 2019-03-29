@@ -342,6 +342,7 @@ options.mImei = "设备编号";
 options.dev = true;
 options.isOpenCamera = false;
 options.mOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+options.pushConfig = new HHPushConfig() //这里是需要实例化然后补充参数后赋值
 HHDoctor.init(getApplicationContext(),options);
 ```
 
