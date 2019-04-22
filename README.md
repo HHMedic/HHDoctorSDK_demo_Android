@@ -42,6 +42,7 @@
       * [2.10 设置视频回拨处理结果回调](#210-设置视频回拨处理结果回调)
       * [2.11 获取病历列表地址](#211-获取病历列表地址)
       * [2.12 获取病历详情地址](#212-获取病历详情地址)
+      * [2.13 获取所有成员病历列表地址](#213-获取所有成员病历列表地址)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
@@ -501,6 +502,18 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |String userToken|由和缓分配给第三方的用户安全标志，userToken为与和缓对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由和缓同步到接入方的存档ID|
 
+##### 2.13 获取所有成员病历列表地址
+```
+public static String getAllMedics(Context context,String userToken)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|Context context|当前上下文，一般为当前Activity|
+|String userToken|由和缓分配给第三方的用户安全标志，userToken为与和缓对接得到的用户安全标志|
+
 #### 3. 回调说明
 
 >主要说明在各个接口用到的回调代理
@@ -706,4 +719,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.6.3|新增获取病历列表以及病历详情的地址的接口，可以通过WebView通过获取到url进行病历的展示，本版本还去除了volley库的引用以及去除阿里的utdid的引用，如果之前有因为冲突重新使用不带utdid的AlipaySDK的可以重新使用带带utidid的AlipaySDK|
 |2.0.6.4|视频优化|
 |2.0.6.6|1.HHCallListener中onStart接口添加orderId回传 2.api "com.netease.nimlib:push:6.1.0"配置去除，转移到sdk中管理|
-
+|2.0.6.8.042215|1.fix bugs 2.新增查看所有成员病历接口getAllMedics|
