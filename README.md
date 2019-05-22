@@ -1,11 +1,11 @@
-## 和缓视频医生 Android SDK接入文档
+## 视频医生 Android SDK接入文档
 ![demo](demo.gif)
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
    * [1. 建议接入环境](#1-建议接入环境)
       * [1.1 建议接入使用IDE版本](#11-建议接入使用ide版本)
       * [1.2 建议接入SDK版本](#12-建议接入sdk版本)
-   * [2. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下](#2-和缓视频医生android-sdk通过maven仓库引用来导入工程如下)
+   * [2. 视频医生Android SDK通过maven仓库引用来导入工程，如下](#2-视频医生android-sdk通过maven仓库引用来导入工程如下)
       * [2.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置](#21-在buildgradle文件中配置远程库地址在respositories中添加相应配置)
       * [2.2 在build.gradle文件中dependencies中配置库的引用](#22-在buildgradle文件中dependencies中配置库的引用)
       * [2.3 配置NDK架构选择，必须进行对应配置](#23-配置ndk架构选择必须进行对应配置)
@@ -68,7 +68,7 @@ Android Studio 3.x.x版本以上版本
 |targetSdkVersion| 27及以上|
 |最低支持设备系统| >= 4.2 |
 
-#### 2. 和缓视频医生Android SDK通过maven仓库引用来导入工程，如下
+#### 2. 视频医生Android SDK通过maven仓库引用来导入工程，如下
 
 ##### 2.1 在build.gradle文件中配置远程库地址，在respositories中添加相应配置
 
@@ -128,14 +128,14 @@ packagingOptions {
 #### 3. 推送相关配置
 
 > 如果需要使用SDK的push功能，需要进行相应文件和配置的添加，主要是小米和华为推送SDK包添加，以及推送参数的申请，小米
-推送需要接入方提供AppSecret和包名给我们，华为需要接入方提供AppID和AppSecret以及包名给我们，我们使用这些参数去生成对应SDK中需要配置的参数。## 和缓视频医生 Android SDK接入文档
+推送需要接入方提供AppSecret和包名给我们，华为需要接入方提供AppID和AppSecret以及包名给我们，我们使用这些参数去生成对应SDK中需要配置的参数。
 
 ##### 3.1 申请华为和小米的推送
 
-- 需要将小米的AppSecret提供给和缓
-- 需要将华为的AppId和AppSecret提供给和缓
+- 需要将小米的AppSecret提供
+- 需要将华为的AppId和AppSecret提供
 
-    > 我们使用这些以上提供的数据来生成我们需要的参数,注意如下两个参数均需和缓来生成。另外需要提供唤醒的时候应该跳到哪个界面的配置，通知的图标配置，小米推送的AppId和小米推送的AppKey。如下：
+    > 我们使用这些以上提供的数据来生成我们需要的参数,注意如下两个参数均需视频医生提供方来生成。另外需要提供唤醒的时候应该跳到哪个界面的配置，通知的图标配置，小米推送的AppId和小米推送的AppKey。如下：
     
     ```java
     public class HHPushConfig {
@@ -297,7 +297,7 @@ HHSDKOptions options = new HHSDKOptions("productId");
 
 | 参数定义 | 说明 |
 | --- | --- |
-| productId | 和缓分配的产品ID |
+| productId | 分配的产品ID |
 | sDebug    |是否开启调试（开启会打印log）|
 |mDeviceType|接入设备类型(NORMAL, SOUND)，NORMAL表示手机、Pad SOUND 表示音箱|
 |mImei|设备序列号（只有音箱接入的时候需要传入）|
@@ -370,7 +370,7 @@ public static void login(Context context, long uuid, HHLoginListener listener)
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|上下文，当前操作Activity|
-|long uuid|接入方和和缓服务端对接后返回和缓的uuid|
+|long uuid|接入方和视频医生服务端对接后返回的uuid|
 |HHLoginListener listener|登录回调|
 
 ##### 2.3 登出
@@ -480,7 +480,7 @@ public static String getMedicListUrl(Context context,String userToken)
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
-|String userToken|由和缓分配给第三方的用户安全标志，userToken为与和缓对接得到的用户安全标志|
+|String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
 ##### 2.12 获取病历详情地址
 ```
@@ -492,8 +492,8 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
-|String userToken|由和缓分配给第三方的用户安全标志，userToken为与和缓对接得到的用户安全标志|
-|String medicId |病历存档ID,这个存档ID由和缓同步到接入方的存档ID|
+|String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
+|String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
 
 ##### 2.13 获取所有成员病历列表地址
 ```
@@ -505,7 +505,7 @@ public static String getAllMedics(Context context,String userToken)
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
-|String userToken|由和缓分配给第三方的用户安全标志，userToken为与和缓对接得到的用户安全标志|
+|String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
 #### 3. 回调说明
 
@@ -718,10 +718,10 @@ https://github.com/HHMedic/DoctorVideoDemo
 
 ##### 3.1 申请华为和小米的推送
 
-- 需要将小米的AppSecret提供给和缓
-- 需要将华为的AppId和AppSecret提供给和缓
+- 需要将小米的AppSecret提供给视频医生提供方
+- 需要将华为的AppId和AppSecret提供给视频医生提供方
 
-    > 我们使用这些以上提供的数据来生成我们需要的参数,注意如下两个参数均需和缓来生成。另外需要提供唤醒的时候应该跳到哪个界面的配置，通知的图标配置，小米推送的AppId和小米推送的AppKey。如下：
+    > 我们使用这些以上提供的数据来生成我们需要的参数,注意如下两个参数均需视频医生提供方来生成。另外需要提供唤醒的时候应该跳到哪个界面的配置，通知的图标配置，小米推送的AppId和小米推送的AppKey。如下：
     
     ```java
     public class HHPushConfig {
@@ -883,7 +883,7 @@ HHSDKOptions options = new HHSDKOptions("productId");
 
 | 参数定义 | 说明 |
 | --- | --- |
-| productId | 和缓分配的产品ID |
+| productId | 视频医生提供方分配的产品ID |
 | sDebug    |是否开启调试（开启会打印log）|
 |mDeviceType|接入设备类型(NORMAL, SOUND)，NORMAL表示手机、Pad SOUND 表示音箱|
 |mImei|设备序列号（只有音箱接入的时候需要传入）|
@@ -956,7 +956,7 @@ public static void login(Context context, long uuid, HHLoginListener listener)
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|上下文，当前操作Activity|
-|long uuid|接入方和和缓服务端对接后返回和缓的uuid|
+|long uuid|接入方和视频医生提供方服务端对接后返回视频医生提供方的uuid|
 |HHLoginListener listener|登录回调|
 
 ##### 2.3 登出
@@ -1066,7 +1066,7 @@ public static String getMedicListUrl(Context context,String userToken)
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
-|String userToken|由和缓分配给第三方的用户安全标志，userToken为与和缓对接得到的用户安全标志|
+|String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
 ##### 2.12 获取病历详情地址
 ```
@@ -1078,8 +1078,8 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
-|String userToken|由和缓分配给第三方的用户安全标志，userToken为与和缓对接得到的用户安全标志|
-|String medicId |病历存档ID,这个存档ID由和缓同步到接入方的存档ID|
+|String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
+|String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
 
 ##### 2.13 获取所有成员病历列表地址
 ```
@@ -1091,7 +1091,7 @@ public static String getAllMedics(Context context,String userToken)
 | 参数定义 | 说明 |
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
-|String userToken|由和缓分配给第三方的用户安全标志，userToken为与和缓对接得到的用户安全标志|
+|String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
 #### 3. 回调说明
 
