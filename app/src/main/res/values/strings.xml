@@ -1,16 +1,27 @@
 <resources>
     <string name="app_name">和缓视频医生SDK Demo</string>
+    <string name="user_token">UserToken:</string>
+    <string name="input_user_token">请输入UserToken</string>
+    <string name="is_develop">是否为测试环境</string>
+    <string name="tip_is_in_develop">当前为测试环境</string>
     <string name="login_button">登录</string>
+    <string name="use_default_token">使用默认登录token</string>
     <string name="logout_button">登出</string>
     <string name="call_adult">呼叫成人医生</string>
     <string name="call_child">呼叫儿童医生</string>
+    <string name="hp_input_hint_order_id">请输入病历订单号</string>
 
     <string name="hp_call_dept_all">成人</string>
     <string name="hp_call_dept_child">儿童</string>
-    <string name="hp_view_list">查看病例列表</string>
-    <string name="hp_view_detail">查看病例详情</string>
+    <string name="hp_view_list">查看病历列表</string>
+    <string name="hp_view_detail">查看病历详情</string>
     <string name="hp_main_title">请选择类别</string>
-
+    <string name="hp_medicine_demo">药Demo入口</string>
+    <string name="hp_view_order_list">订单列表</string>
+    <string name="hp_view_order_detail">订单详情</string>
+    <string name="hp_view_order_detail_hint">请输入订单ID</string>
+    <string name="hp_view_pay_detail">和豆支付详情</string>
+    <string name="hp_address_manager">地址管理</string>
     <string name="hp_notice_depart">请选择给儿童看还是成人看</string>
 
 </resources>

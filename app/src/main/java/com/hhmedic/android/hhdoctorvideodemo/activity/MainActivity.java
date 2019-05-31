@@ -3,6 +3,11 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.hhmedic.android.sdk.HHDoctor;
@@ -12,6 +17,9 @@ import com.hhmedic.android.sdk.listener.HHLoginListener;
 import com.yanzhenjie.permission.AndPermission;
 
 public class MainActivity extends BaseActivity {
+
+    private Switch mIsDevelopSwitch;
+    private EditText mUserTokenEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +35,20 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initUI() {
         super.initUI();
-
+        mIsDevelopSwitch = findViewById(R.id.developSwitch);
+        mIsDevelopSwitch.setChecked(LocalConfig.isDevelop(this));
+        mIsDevelopSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setDevelop(this, isChecked);
+            Toast.makeText(MainActivity.this, "切换完环境后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(() -> System.exit(0), 1000);
+        });
         findViewById(R.id.login_button).setOnClickListener(v -> login());
+        mUserTokenEdit = findViewById(R.id.userToken);
 
-        findViewById(R.id.logout_button).setOnClickListener( v -> HHDoctor.loginOut(this));
+        findViewById(R.id.is_in_develop).setVisibility(LocalConfig.isDevelop(this) ? View.VISIBLE : View.GONE);
+        findViewById(R.id.use_default_toke).setOnClickListener(v -> {
+            mUserTokenEdit.setText(LocalConfig.DefaultUserToken);
+        });
     }
 
     private void login() {
@@ -62,8 +80,13 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doLogin() {
-        long uuid = 100005580; //这个ID是和和缓对接之后得到的和缓的UUID
-        HHDoctor.login(this,uuid, new HHLoginListener() {
+        String userToken = mUserTokenEdit.getText().toString(); //这个ID是和和缓对接之后得到的和缓的UserToken
+        if (userToken.isEmpty()) {
+            Toast.makeText(this, "请输入需要登录的userToken", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        LocalConfig.setLoginedToken(this,userToken);
+        HHDoctor.login(this, userToken, new HHLoginListener() {
             @Override
             public void onSuccess() {
                 loginForward();
@@ -71,7 +94,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onError(String s) {
-                Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "请确保参数使用环境，不要使用非正式环境参数访问正式环境", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.MedicineDemo"></activity>
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
@@ -65,7 +66,7 @@
 
         <activity
             android:name=".activity.ViewDetailAct"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

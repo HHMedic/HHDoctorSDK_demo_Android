@@ -1,4 +1,17 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
+
+static def increasedVersionCode() {
+    return (int) (System.currentTimeMillis() / 1000 / 60)
+}
+
+static def buildTime() {
+    def df = new SimpleDateFormat("MMddHH")
+    return df.format(new Date())
+}
+
+def sdk_version = "2.1.0"
 
 android {
     compileSdkVersion 27
@@ -6,8 +19,8 @@ android {
         applicationId "com.hhmedic.app.patient.demo"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode increasedVersionCode()
+        versionName "1.0.3.${buildTime()}"
 
         ndk {
             //设置支持的SO库架构
@@ -38,6 +51,20 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+    android.applicationVariants.all { variant ->
+
+        variant.outputs.all
+                {
+
+                    outputFileName = "hh_android_demo_${defaultConfig.versionName}.apk"
+
+                }
+    }
 }
 
 dependencies {
@@ -46,19 +73,9 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     implementation 'com.yanzhenjie:permission:2.0.0-rc1'
-    implementation 'com.hhmedic.android.sdk:hh:2.0.6.6'
+    implementation "com.hhmedic.android.sdk:hh:$sdk_version"
+    implementation "com.hhmedic.android.sdk:medicine:$sdk_version"
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-}
-
-repositories {
-
-    maven {
-        credentials {
-            username 'hh-public'
-            password 'OFGB5wX0'
-        }
-        url 'http://develop.hh-medic.com/repository/maven-public'
-    }
 }

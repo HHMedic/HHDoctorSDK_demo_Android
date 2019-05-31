@@ -1,24 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
+
+    <TextView
+        android:id="@+id/is_in_develop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/tip_is_in_develop"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="15dp"
+        android:textColor="@android:color/holo_red_dark"/>
+
+
+    <Switch
+        android:id="@+id/developSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/is_develop"
+        android:paddingLeft="15dp"
+        android:checked="true"
+        app:layout_constraintBottom_toTopOf="@id/userToken"/>
+
+    <EditText
+        android:id="@+id/userToken"
+        android:layout_width="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/input_user_token"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="12sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"/>
+
+
+    <Button
+        android:id="@+id/use_default_toke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/use_default_token"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/login_button"
+        app:layout_constraintTop_toBottomOf="@id/userToken" />
+
     <Button
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:text="@string/login_button" />
+        android:text="@string/login_button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/use_default_toke"
+        app:layout_constraintTop_toBottomOf="@id/userToken" />
 
-    <Button
-        android:id="@+id/logout_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:text="@string/logout_button" />
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

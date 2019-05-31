@@ -22,6 +22,16 @@ allprojects {
         maven {
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
         }
+
+        maven { url "https://jitpack.io" }
+
+        maven {
+            credentials {
+                username 'hh-public'
+                password 'OFGB5wX0'
+            }
+            url 'http://develop.hh-medic.com/repository/maven-public'
+        }
     }
 }
 

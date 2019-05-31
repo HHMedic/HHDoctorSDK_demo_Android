@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.application.HHDemoUtils;
@@ -14,7 +16,8 @@ import com.hhmedic.android.sdk.listener.HHCallListener;
 public class CallSelectorAct extends BaseActivity implements View.OnClickListener{
 
     private boolean noticeTTS;
-    private final String userToken = "ECEEDCCD74B7D54BCF6690B7E26262B73F0D04F68EA2608F6783B874E4F50EEF";
+    private EditText mOrderIdEdit;
+//    private final String userToken = "ECEEDCCD74B7D54BCF6690B7E26262B73F0D04F68EA2608F6783B874E4F50EEF";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,11 +32,15 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
     @Override
     protected void initUI() {
         super.initUI();
+        findViewById(R.id.is_in_develop).setVisibility(LocalConfig.isDevelop(this) ? View.VISIBLE : View.GONE);
         findViewById(R.id.all_btn).setOnClickListener(this);
         findViewById(R.id.child_btn).setOnClickListener(this);
         findViewById(R.id.back_btn).setOnClickListener(this);
         findViewById(R.id.view_list).setOnClickListener(this);
         findViewById(R.id.view_detail).setOnClickListener(this);
+        findViewById(R.id.medicine_demo).setOnClickListener(this);
+        mOrderIdEdit = findViewById(R.id.orderId);
+        mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
     }
 
     @Override
@@ -52,7 +59,12 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 viewDetail();
                 break;
             case R.id.back_btn:
+                HHDoctor.loginOut(this);
+                LocalConfig.setLoginedToken(this, "");
                 finish();
+                break;
+            case R.id.medicine_demo:
+                medicineDemo();
                 break;
                 default:
                     break;
@@ -189,7 +201,8 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
      */
     private void viewList() {
         Intent intent = new Intent(this, ViewDetailAct.class);
-        String url = HHDoctor.getMedicListUrl(this, userToken);
+        String url = HHDoctor.getMedicListUrl(this, LocalConfig.getLoginedToken(this));
+        Log.e("list url", url);
         intent.putExtra("url", url);
         intent.putExtra("title", "病历存档列表");
         startActivity(intent);
@@ -199,10 +212,20 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
      * 查看病历存档详情
      */
     private void viewDetail() {
+        String orderId = mOrderIdEdit.getText().toString();
+        if (orderId.isEmpty()) {
+            Toast.makeText(this, "请提供病历订单号", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Intent intent = new Intent(this, ViewDetailAct.class);
-        String url = HHDoctor.getMedicDetailUrl(this, userToken, "1541041785333");
+        String url = HHDoctor.getMedicDetailUrl(this, LocalConfig.getLoginedToken(this), orderId);
         intent.putExtra("url", url);
         intent.putExtra("title", "病历存档详情");
+        startActivity(intent);
+    }
+
+    private void medicineDemo() {
+        Intent intent = new Intent(this, MedicineDemo.class);
         startActivity(intent);
     }
 }
