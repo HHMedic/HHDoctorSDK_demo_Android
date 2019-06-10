@@ -69,9 +69,7 @@ public class MainActivity extends BaseActivity {
                     if (AndPermission.hasAlwaysDeniedPermission(MainActivity.this, permissions)) {
                         // 这些权限被用户总是拒绝。
 //                        alwaysTips(permissionTips());
-                    }
-                    else
-                    {
+                    } else {
 
                     }
 
@@ -80,18 +78,13 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doLogin() {
-<<<<<<< HEAD
         String userToken = mUserTokenEdit.getText().toString(); //这个ID是和和缓对接之后得到的和缓的UserToken
         if (userToken.isEmpty()) {
             Toast.makeText(this, "请输入需要登录的userToken", Toast.LENGTH_SHORT).show();
             return;
         }
-        LocalConfig.setLoginedToken(this,userToken);
+        LocalConfig.setLoginedToken(this, userToken);
         HHDoctor.login(this, userToken, new HHLoginListener() {
-=======
-        long uuid = 100005580; //这个ID是和视频医生提供方对接之后得到的UUID
-        HHDoctor.login(this,uuid, new HHLoginListener() {
->>>>>>> 89826d965c0bc38e3fbfdc3825d6716067a3de93
             @Override
             public void onSuccess() {
                 loginForward();
@@ -108,7 +101,7 @@ public class MainActivity extends BaseActivity {
      * 跳转选择呼叫类型界面
      */
     private void loginForward() {
-        Intent intent = new Intent(this,CallSelectorAct.class);
+        Intent intent = new Intent(this, CallSelectorAct.class);
         startActivity(intent);
     }
 }
