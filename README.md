@@ -493,6 +493,7 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
 
 ##### 2.13 获取所有成员病历列表地址
+<span style="color:red;">推荐使用这个接口</span>
 ```
 public static String getAllMedics(Context context,String userToken)
 ```
@@ -698,3 +699,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.6.6|1.HHCallListener中onStart接口添加orderId回传 2.api "com.netease.nimlib:push:6.1.0"配置去除，转移到sdk中管理|
 |2.0.6.8.042215|1.fix bugs 2.新增查看所有成员病历接口getAllMedics|
 |2.1.0|1.fix bugs 2.废弃uuid登录接口 3.新增使用userToken登录接口|
+
