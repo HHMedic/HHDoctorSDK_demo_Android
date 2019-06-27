@@ -92,7 +92,7 @@ repositories {
 implementation 'com.hhmedic.android.sdk:hh:2.1.0'
 ```
 
-<span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
+<p style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</p>
 
 ##### 2.3 配置NDK架构选择，必须进行对应配置
 
