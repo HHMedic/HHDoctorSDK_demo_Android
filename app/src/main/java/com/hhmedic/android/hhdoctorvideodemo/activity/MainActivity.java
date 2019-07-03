@@ -57,7 +57,6 @@ public class MainActivity extends BaseActivity {
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.READ_PHONE_STATE,
-                Manifest.permission.CALL_PHONE,
                 Manifest.permission.CAMERA,
                 Manifest.permission.RECORD_AUDIO
         )
