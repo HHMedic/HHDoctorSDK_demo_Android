@@ -300,6 +300,7 @@ HHSDKOptions options = new HHSDKOptions("sdkProductId");
 |isOpenCamera|视频过程中是否开启拍照|
 |mOrientation|屏幕方向 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT 或 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE|
 |mCoopId|渠道编号|
+|enablePush|是否开启push，默认为开启true，如果需要关闭设置为false|
 
 ##### 1.2 音箱接入快捷获取基本配置选项方式
 
@@ -341,7 +342,7 @@ HHDoctor.init(getApplicationContext(),options);
 
 | 权限 | 说明 |
 | --- | --- |
-| android.permission.CALL_PHONE | 在视频通话过程中如果有电话进来我们会做挂断视频保证正常电话通话 |
+| android.permission.READ_PHONE_STATE | 在视频通话过程中如果有电话进来我们会做挂断视频保证正常电话通话 |
 |android.permission.CAMERA|保证正常使用设备的摄像设备|
 |android.permission.RECORD_AUDIO|保证正常使用设备的音频设备|
 |android.permission.WRITE_EXTERNAL_STORAGE android.permission.READ_EXTERNAL_STORAGE | 保证正常读取存储设备上的媒体文件 |
@@ -492,7 +493,7 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
 
-##### 2.13 获取所有成员病历列表地址(推荐使用)
+##### 2.13 获取所有成员病历列表地址(*推荐使用*)
 
 ```
 public static String getAllMedics(Context context,String userToken)
