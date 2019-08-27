@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V2.1.0
+## 视频医生 Android SDK接入文档 V2.1.0 去除购药SDK
 ![demo](demo.gif)
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
@@ -46,8 +46,7 @@
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
    * [3. 如果遇到库冲突也就是duplicate某个包这说明库冲突了，这种问题可以用如下方法解决](#3-如果遇到库冲突也就是duplicate某个包这说明库冲突了这种问题可以用如下方法解决)
 * [四、Demo下载地址](#四demo下载地址)
-* [五、带药SDK接入文档](#五带药SDK接入文档)
-* [六、版本更新说明](#六版本更新说明)
+* [五、版本更新说明](#五版本更新说明)
 
 
 ### 一、SDK接入引用说明
@@ -677,12 +676,7 @@ configurations.all {
 
 https://github.com/HHMedic/DoctorVideoDemo
 
-### 五、带药SDK接入文档
-> 在接入带药SDK的时候需要先对视频医生SDK接入，带药SDK对视频SDK是依赖关系。
- 
-[带药SDK接入文档地址](https://github.com/HHMedic/HHDoctorSDK_demo_Android/blob/master/MEDICINE.md)
-
-### 六、版本更新说明
+### 五、版本更新说明
 
 |版本号|说明|
 |---|---|
