@@ -1,7 +1,7 @@
 package com.hhmedic.android.hhdoctorvideodemo.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,8 +9,6 @@ import android.widget.Toast;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.medicine.HHMedicine;
-import com.hhmedic.android.sdk.medicine.listener.OnOrderListener;
-import com.hhmedic.android.sdk.utils.HHStringUtils;
 
 public class MedicineDemo extends AppCompatActivity implements View.OnClickListener {
 
@@ -75,6 +73,6 @@ public class MedicineDemo extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addressList() {
-        HHMedicine.addressList(this);
+        HHMedicine.addressList(this, LocalConfig.getLoginedToken(this));
     }
 }
