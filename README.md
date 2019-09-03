@@ -33,9 +33,8 @@
       * [2.8 挂断（主要用于智能音箱）](#28-挂断主要用于智能音箱)
       * [2.9 获取用户登录状态](#29-获取用户登录状态)
       * [2.10 设置视频回拨处理结果回调](#210-设置视频回拨处理结果回调)
-      * [2.11 获取病历列表地址](#211-获取病历列表地址)
+      * [2.11 获取所有成员病历列表地址(推荐使用)](#213-获取所有成员病历列表地址推荐使用)
       * [2.12 获取病历详情地址](#212-获取病历详情地址)
-      * [2.13 获取所有成员病历列表地址(推荐使用)](#213-获取所有成员病历列表地址推荐使用)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
@@ -469,9 +468,10 @@ public static void setCallbackListener(HHCallbackListener listener)
 | --- | --- |
 |HHCallbackListener listener|回调代理|
 
-##### 2.11 获取病历列表地址
+##### 2.11 获取所有成员病历列表地址(*推荐使用*)
+
 ```
-public static String getMedicListUrl(Context context,String userToken)
+public static String getAllMedics(Context context,String userToken)
 ```
 
 参数说明：
@@ -493,19 +493,6 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
-
-##### 2.13 获取所有成员病历列表地址(*推荐使用*)
-
-```
-public static String getAllMedics(Context context,String userToken)
-```
-
-参数说明：
-
-| 参数定义 | 说明 |
-| --- | --- |
-|Context context|当前上下文，一般为当前Activity|
-|String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
 #### 3. 回调说明
 
