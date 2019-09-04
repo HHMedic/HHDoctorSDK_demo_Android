@@ -17,6 +17,7 @@
     <string name="hp_view_detail">查看病历详情</string>
     <string name="hp_main_title">请选择类别</string>
     <string name="hp_medicine_demo">药Demo入口</string>
+    <string name="hp_view_order_list_all">所有成员病历列表</string>
     <string name="hp_view_order_list">订单列表</string>
     <string name="hp_view_order_detail">订单详情</string>
     <string name="hp_view_order_detail_hint">请输入订单ID</string>

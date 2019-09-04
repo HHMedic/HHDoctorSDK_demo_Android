@@ -73,6 +73,15 @@
                 android:textSize="20sp" />
 
             <Button
+                android:id="@+id/view_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/hp_view_order_list_all"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <Button
                 android:id="@+id/view_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

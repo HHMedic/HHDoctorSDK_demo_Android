@@ -39,6 +39,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         findViewById(R.id.view_list).setOnClickListener(this);
         findViewById(R.id.view_detail).setOnClickListener(this);
         findViewById(R.id.medicine_demo).setOnClickListener(this);
+        findViewById(R.id.view_all).setOnClickListener(this);
         mOrderIdEdit = findViewById(R.id.orderId);
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
     }
@@ -51,6 +52,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 break;
             case  R.id.child_btn:
                 callChild();
+                break;
+            case R.id.view_all:
+                viewAll();
                 break;
             case R.id.view_list:
                 viewList();
@@ -194,6 +198,18 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 Log.i(TAG,"call onLineUp");
             }
         });
+    }
+
+    /**
+     * 查看所有成员病历存档列表
+     */
+    private void viewAll() {
+        Intent intent = new Intent(this, ViewDetailAct.class);
+        String url = HHDoctor.getAllMedics(this, LocalConfig.getLoginedToken(this));
+        Log.e("list url", url);
+        intent.putExtra("url", url);
+        intent.putExtra("title", "病历存档列表");
+        startActivity(intent);
     }
 
     /**
