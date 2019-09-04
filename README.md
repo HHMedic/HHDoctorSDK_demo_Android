@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V2.1.0 去除购药SDK
+## 视频医生 Android SDK接入文档 V2.2.6
 ![demo](demo.gif)
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
@@ -33,9 +33,8 @@
       * [2.8 挂断（主要用于智能音箱）](#28-挂断主要用于智能音箱)
       * [2.9 获取用户登录状态](#29-获取用户登录状态)
       * [2.10 设置视频回拨处理结果回调](#210-设置视频回拨处理结果回调)
-      * [2.11 获取病历列表地址](#211-获取病历列表地址)
+      * [2.11 获取所有成员病历列表地址(推荐使用)](#211-获取所有成员病历列表地址推荐使用)
       * [2.12 获取病历详情地址](#212-获取病历详情地址)
-      * [2.13 获取所有成员病历列表地址(推荐使用)](#213-获取所有成员病历列表地址推荐使用)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
@@ -88,7 +87,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.1.0'
+implementation 'com.hhmedic.android.sdk:hh:2.2.6'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -116,6 +115,8 @@ compileOptions {
 ```
 packagingOptions {
    pickFirst 'lib/armeabi-v7a/libsecsdk.so'
+   pickFirst 'lib/arm64-v8a/libsecsdk.so'
+   pickFirst 'lib/armeabi/libsecsdk.so'
 }
 ```
 
@@ -467,9 +468,10 @@ public static void setCallbackListener(HHCallbackListener listener)
 | --- | --- |
 |HHCallbackListener listener|回调代理|
 
-##### 2.11 获取病历列表地址
+##### 2.11 获取所有成员病历列表地址(*推荐使用*)
+
 ```
-public static String getMedicListUrl(Context context,String userToken)
+public static String getAllMedics(Context context,String userToken)
 ```
 
 参数说明：
@@ -491,19 +493,6 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
-
-##### 2.13 获取所有成员病历列表地址(*推荐使用*)
-
-```
-public static String getAllMedics(Context context,String userToken)
-```
-
-参数说明：
-
-| 参数定义 | 说明 |
-| --- | --- |
-|Context context|当前上下文，一般为当前Activity|
-|String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
 #### 3. 回调说明
 
@@ -694,4 +683,5 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.0.6.6|1.HHCallListener中onStart接口添加orderId回传 2.api "com.netease.nimlib:push:6.1.0"配置去除，转移到sdk中管理|
 |2.0.6.8.042215|1.fix bugs 2.新增查看所有成员病历接口getAllMedics|
 |2.1.0|1.fix bugs 2.废弃uuid登录接口 3.新增使用userToken登录接口|
-
+|2.2.4|1.fix bugs 2.优化视频流畅度|
+|2.2.6|支持64位|
