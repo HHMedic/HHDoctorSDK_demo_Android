@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V2.2.8.112818
+# ## 视频医生 Android SDK接入文档 V2.4.4.120214
 ![demo](demo.gif)
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
@@ -88,7 +88,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.2.8.112818'
+implementation 'com.hhmedic.android.sdk:hh:2.4.4.120214'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -699,3 +699,5 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.2.4|1.fix bugs 2.优化视频流畅度|
 |2.2.6|支持64位|
 |2.2.8.112818|优化了在一些智能设备音频发送|
+|2.4.4.120214|优化音频|
+
