@@ -1,4 +1,4 @@
-# ## 视频医生 Android SDK接入文档 V2.4.4.120214
+# ## 视频医生 Android SDK接入文档 V2.4.4.123110
 ![demo](demo.gif)
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
@@ -28,14 +28,15 @@
       * [2.3 登出](#23-登出)
       * [2.4 呼叫成人医生](#24-呼叫成人医生)
       * [2.5 呼叫儿童医生](#25-呼叫儿童医生)
-      * [2.6 医生回拨的时候接受（主要应用于音箱）](#26-医生回拨的时候接受主要应用于音箱)
-      * [2.7 医生回拨的时候拒绝（主要应用于音箱）](#27-医生回拨的时候拒绝主要应用于音箱)
-      * [2.8 挂断（主要用于智能音箱）](#28-挂断主要用于智能音箱)
-      * [2.9 获取用户登录状态](#29-获取用户登录状态)
-      * [2.10 设置视频回拨处理结果回调](#210-设置视频回拨处理结果回调)
-      * [2.11 获取病历列表地址](#211-获取病历列表地址)
-      * [2.12 获取病历详情地址](#212-获取病历详情地址)
-      * [2.13 获取所有成员病历列表地址(推荐使用)](#213-获取所有成员病历列表地址推荐使用)
+      * [2.6 使用特定用户token呼叫](#26-使用特定用户token呼叫)
+      * [2.7 医生回拨的时候接受（主要应用于音箱）](#26-医生回拨的时候接受主要应用于音箱)
+      * [2.8 医生回拨的时候拒绝（主要应用于音箱）](#27-医生回拨的时候拒绝主要应用于音箱)
+      * [2.9 挂断（主要用于智能音箱）](#28-挂断主要用于智能音箱)
+      * [2.10 获取用户登录状态](#29-获取用户登录状态)
+      * [2.11 设置视频回拨处理结果回调](#210-设置视频回拨处理结果回调)
+      * [2.12 获取病历列表地址](#211-获取病历列表地址)
+      * [2.13 获取病历详情地址](#212-获取病历详情地址)
+      * [2.14 获取所有成员病历列表地址(推荐使用)](#213-获取所有成员病历列表地址推荐使用)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
@@ -88,7 +89,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.4.4.120214'
+implementation 'com.hhmedic.android.sdk:hh:2.4.4.123110'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -410,7 +411,24 @@ public static void callForChild(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### 2.6 医生回拨的时候接受（主要应用于音箱）
+##### 2.6 使用特定用户token呼叫
+
+```java
+public static void callByToken(Context context, CallType type, String userToken,HHCallListener listener)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|Context context|上下文，当前呼叫发起Activity|
+|CallType type|呼叫类型|
+|String userToken|用户token，对接和缓服务获得|
+|HHCallListener listener|呼叫回调|
+
+
+
+##### 2.7 医生回拨的时候接受（主要应用于音箱）
 
 ```java
 public static void onAccept(Context context,HHCallListener listener)
@@ -423,7 +441,7 @@ public static void onAccept(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### 2.7 医生回拨的时候拒绝（主要应用于音箱）
+##### 2.8 医生回拨的时候拒绝（主要应用于音箱）
 
 ```java
 public static void onRefuse(Context context,String message,Refuse.OnCallback callback)
@@ -437,7 +455,7 @@ public static void onRefuse(Context context,String message,Refuse.OnCallback cal
 |String message|服务端推送的数据|
 |Refuse.OnCallback callback|呼叫回调|
 
-##### 2.8 挂断（主要用于智能音箱）
+##### 2.9 挂断（主要用于智能音箱）
 
 ```java
 public static void hangUp()
@@ -445,7 +463,7 @@ public static void hangUp()
 
 >用于视频中挂断操作
 
-##### 2.9 获取用户登录状态
+##### 2.10 获取用户登录状态
 
 ```java
 public static boolean isLogined(Context context)
@@ -457,7 +475,7 @@ public static boolean isLogined(Context context)
 | --- | --- |
 |Context context|上下文，当前呼叫发起Activity|
 
-##### 2.10 设置视频回拨处理结果回调
+##### 2.11 设置视频回拨处理结果回调
 
 ```
 public static void setCallbackListener(HHCallbackListener listener)
@@ -469,7 +487,7 @@ public static void setCallbackListener(HHCallbackListener listener)
 | --- | --- |
 |HHCallbackListener listener|回调代理|
 
-##### 2.11 获取病历列表地址
+##### 2.12 获取病历列表地址
 ```
 public static String getMedicListUrl(Context context,String userToken)
 ```
@@ -481,7 +499,7 @@ public static String getMedicListUrl(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.12 获取病历详情地址
+##### 2.13 获取病历详情地址
 ```
 public static String getMedicDetailUrl(Context context,String userToken,String medicId)
 ```
@@ -494,7 +512,7 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
 
-##### 2.13 获取所有成员病历列表地址(*推荐使用*)
+##### 2.14 获取所有成员病历列表地址(*推荐使用*)
 
 ```
 public static String getAllMedics(Context context,String userToken)
@@ -700,4 +718,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.2.6|支持64位|
 |2.2.8.112818|优化了在一些智能设备音频发送|
 |2.4.4.120214|优化音频|
-
+|2.4.4.123110|新增呼叫指定用户的方法，如果没有特殊逻辑不使用这个方法，推荐使用原来呼叫方法|
