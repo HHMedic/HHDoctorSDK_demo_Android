@@ -1,4 +1,4 @@
-# ## 视频医生 Android SDK接入文档 V2.4.4.123110
+# ## 视频医生 Android SDK接入文档 V2.5.4.03011601
 ![demo](demo.gif)
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
@@ -89,12 +89,12 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.4.4.123110'
+implementation 'com.hhmedic.android.sdk:hh:2.5.4.03011601'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
 
-##### 2.3 配置NDK架构选择，必须进行对应配置
+##### 2.3 配置NDK架构选择，必须进行对应配置（这个配置在2.5.4.03011601这个版本后废弃）
 
 ```
 ndk {
@@ -719,3 +719,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.2.8.112818|优化了在一些智能设备音频发送|
 |2.4.4.120214|优化音频|
 |2.4.4.123110|新增呼叫指定用户的方法，如果没有特殊逻辑不使用这个方法，推荐使用原来呼叫方法|
+|2.5.4.03011601|1. 优化内部逻辑   2.FileProvider的自定义使用，不再产生FileProvider的定义引起的冲突|
