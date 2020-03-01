@@ -75,7 +75,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     implementation 'com.yanzhenjie:permission:2.0.0-rc1'
-    implementation "com.hhmedic.android.sdk:hh:2.4.4.120214"
+    implementation "com.hhmedic.android.sdk:hh:2.5.4.03011601"
     implementation "com.hhmedic.android.sdk:medicine:$sdk_version"
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
