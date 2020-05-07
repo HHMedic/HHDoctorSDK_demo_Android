@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V2.5.6.03181842
+## 视频医生 Android SDK接入文档 V2.5.8.05071050
 ![demo](demo.gif)
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
