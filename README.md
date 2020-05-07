@@ -89,7 +89,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.5.6.03181842'
+implementation 'com.hhmedic.android.sdk:hh:2.5.8.05071050'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -721,3 +721,4 @@ https://github.com/HHMedic/DoctorVideoDemo
 |2.4.4.123110|新增呼叫指定用户的方法，如果没有特殊逻辑不使用这个方法，推荐使用原来呼叫方法|
 |2.5.4.03011601|1. 优化内部逻辑   2.FileProvider的自定义使用，不再产生FileProvider的定义引起的冲突|
 |2.5.6.03181842|1. 优化内部逻辑 2.适配Android Q(主要是应用最新Matisse库)，但非AndroidX版本|
+|2.5.8.05071050|1.升级音视频库 2.修复一些其他问题|
