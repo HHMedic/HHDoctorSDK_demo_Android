@@ -301,7 +301,6 @@ HHSDKOptions options = new HHSDKOptions("sdkProductId");
 |dev|是否开始测试服模式，开启后连接测试服|
 |isOpenCamera|视频过程中是否开启拍照|
 |mOrientation|屏幕方向 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT 或 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE|
-|mCoopId|渠道编号|
 |enablePush|是否开启push，默认为开启true，如果需要关闭设置为false|
 
 ##### 1.2 音箱接入快捷获取基本配置选项方式
