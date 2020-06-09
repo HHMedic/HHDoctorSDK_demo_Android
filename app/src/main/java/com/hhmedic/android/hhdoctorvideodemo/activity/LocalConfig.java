@@ -9,7 +9,7 @@ public class LocalConfig {
     public static final String KEY = "isDevelop";
     public static final String USER_TOKEN = "user_token";
 
-    public static final String DefaultUserToken = "D68A2DBC99CD9289CD19886F16F9156F3F0D04F68EA2608F6783B874E4F50EEF";
+    public static final String DefaultUserToken = "8DC2FD1D49451309DF7123716BFF20843F0D04F68EA2608F6783B874E4F50EEF";
     public static final String DefaultCallOrderId = "1559198060885";
     public static final String DefaultMedicineOrderId = "Y2019053014434215200";
 

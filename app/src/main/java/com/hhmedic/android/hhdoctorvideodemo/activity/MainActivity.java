@@ -5,14 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import com.hhmedic.android.sdk.HHDoctor;
-
 import com.hhmedic.android.hhdoctorvideodemo.R;
+import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
 import com.yanzhenjie.permission.AndPermission;
 
