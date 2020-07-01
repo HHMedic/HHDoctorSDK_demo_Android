@@ -301,6 +301,7 @@ HHSDKOptions options = new HHSDKOptions("sdkProductId");
 |dev|是否开始测试服模式，开启后连接测试服|
 |isOpenCamera|视频过程中是否开启拍照|
 |mOrientation|屏幕方向 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT 或 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE|
+|mCoopId|渠道编号|
 |enablePush|是否开启push，默认为开启true，如果需要关闭设置为false|
 
 ##### 1.2 音箱接入快捷获取基本配置选项方式
@@ -699,25 +700,25 @@ https://github.com/HHMedic/DoctorVideoDemo
 
 |版本号|说明|
 |---|---|
-|0.0.1| 发出初版|
-|0.0.2| fix 直接呼叫crashbug|
-|0.1.070915| 1、版本号切换尾号为时间 2、添加铃声可控配置 3、fix bugs|
-|0.1.071810| 1、新增评价功能 2、fix bugs|
-|0.1.071815| 更新配置可以去除maven { url "https://jitpack.io" }这个配置|
-|2.0.0|HHSDKOptions添加默认摄像头选择配置videoDefaultFrontCamera，默认开启前置摄像头，特殊情况摄像头在设备上相反的情况下可以取反|
-|2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
-|2.0.3|fix bugs|
-|2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
-|2.0.6.3|新增获取病历列表以及病历详情的地址的接口，可以通过WebView通过获取到url进行病历的展示，本版本还去除了volley库的引用以及去除阿里的utdid的引用，如果之前有因为冲突重新使用不带utdid的AlipaySDK的可以重新使用带带utidid的AlipaySDK|
-|2.0.6.4|视频优化|
-|2.0.6.6|1.HHCallListener中onStart接口添加orderId回传 2.api "com.netease.nimlib:push:6.1.0"配置去除，转移到sdk中管理|
-|2.0.6.8.042215|1.fix bugs 2.新增查看所有成员病历接口getAllMedics|
-|2.1.0|1.fix bugs 2.废弃uuid登录接口 3.新增使用userToken登录接口|
-|2.2.4|1.fix bugs 2.优化视频流畅度|
-|2.2.6|支持64位|
-|2.2.8.112818|优化了在一些智能设备音频发送|
-|2.4.4.120214|优化音频|
-|2.4.4.123110|新增呼叫指定用户的方法，如果没有特殊逻辑不使用这个方法，推荐使用原来呼叫方法|
-|2.5.4.03011601|1. 优化内部逻辑   2.FileProvider的自定义使用，不再产生FileProvider的定义引起的冲突|
-|2.5.6.03181842|1. 优化内部逻辑 2.适配Android Q(主要是应用最新Matisse库)，但非AndroidX版本|
 |2.5.8.05071050|1.升级音视频库 2.修复一些其他问题|
+|2.5.6.03181842|1. 优化内部逻辑 2.适配Android Q(主要是应用最新Matisse库)，但非AndroidX版本|
+|2.5.4.03011601|1. 优化内部逻辑   2.FileProvider的自定义使用，不再产生FileProvider的定义引起的冲突|
+|2.4.4.123110|新增呼叫指定用户的方法，如果没有特殊逻辑不使用这个方法，推荐使用原来呼叫方法|
+|2.4.4.120214|优化音频|
+|2.2.8.112818|优化了在一些智能设备音频发送|
+|2.2.6|支持64位|
+|2.2.4|1.fix bugs 2.优化视频流畅度|
+|2.1.0|1.fix bugs 2.废弃uuid登录接口 3.新增使用userToken登录接口|
+|2.0.6.8.042215|1.fix bugs 2.新增查看所有成员病历接口getAllMedics|
+|2.0.6.6|1.HHCallListener中onStart接口添加orderId回传 2.api "com.netease.nimlib:push:6.1.0"配置去除，转移到sdk中管理|
+|2.0.6.4|视频优化|
+|2.0.6.3|新增获取病历列表以及病历详情的地址的接口，可以通过WebView通过获取到url进行病历的展示，本版本还去除了volley库的引用以及去除阿里的utdid的引用，如果之前有因为冲突重新使用不带utdid的AlipaySDK的可以重新使用带带utidid的AlipaySDK|
+|2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
+|2.0.3|fix bugs|
+|2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
+|2.0.0|HHSDKOptions添加默认摄像头选择配置videoDefaultFrontCamera，默认开启前置摄像头，特殊情况摄像头在设备上相反的情况下可以取反|
+|0.1.071815| 更新配置可以去除maven { url "https://jitpack.io" }这个配置|
+|0.1.071810| 1、新增评价功能 2、fix bugs|
+|0.1.070915| 1、版本号切换尾号为时间 2、添加铃声可控配置 3、fix bugs|
+|0.0.2| fix 直接呼叫crashbug|
+|0.0.1| 发出初版|
