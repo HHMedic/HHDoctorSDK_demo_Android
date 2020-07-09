@@ -2,6 +2,7 @@ package com.hhmedic.android.hhdoctorvideodemo.application;
 
 import android.app.Application;
 import android.content.pm.ActivityInfo;
+import android.text.TextUtils;
 import android.util.Log;
 
 
@@ -21,7 +22,11 @@ public class DoctorApplication extends Application {
 
     private void initSDK() {
 
-        HHSDKOptions options = new HHSDKOptions("9002"); //productId是视频医生提供方分配的产品Id
+        String pid = LocalConfig.getPid(this);
+        if (TextUtils.isEmpty(pid)) {
+            pid = "9002";
+        }
+        HHSDKOptions options = new HHSDKOptions(pid); //productId是视频医生提供方分配的产品Id
         options.isDebug = true;
         options.dev = LocalConfig.isDevelop(this);
         HHDoctor.init(getApplicationContext(), options);

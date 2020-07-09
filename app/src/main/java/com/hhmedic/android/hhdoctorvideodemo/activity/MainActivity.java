@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -16,8 +17,8 @@ import com.yanzhenjie.permission.AndPermission;
 
 public class MainActivity extends BaseActivity {
 
-    private Switch mIsDevelopSwitch;
     private EditText mUserTokenEdit;
+    private EditText mPidEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initUI() {
         super.initUI();
-        mIsDevelopSwitch = findViewById(R.id.developSwitch);
+        Switch mIsDevelopSwitch = findViewById(R.id.developSwitch);
         mIsDevelopSwitch.setChecked(LocalConfig.isDevelop(this));
         mIsDevelopSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             LocalConfig.setDevelop(this, isChecked);
@@ -44,9 +45,20 @@ public class MainActivity extends BaseActivity {
         mUserTokenEdit = findViewById(R.id.userToken);
 
         findViewById(R.id.is_in_develop).setVisibility(LocalConfig.isDevelop(this) ? View.VISIBLE : View.GONE);
-        findViewById(R.id.use_default_toke).setOnClickListener(v -> {
-            mUserTokenEdit.setText(LocalConfig.DefaultUserToken);
+        findViewById(R.id.use_default_toke).setOnClickListener(v -> mUserTokenEdit.setText(LocalConfig.DefaultUserToken));
+
+        mPidEdit = findViewById(R.id.pid);
+        findViewById(R.id.button_set_pid).setOnClickListener( v -> {
+            String pid = mPidEdit.getText().toString();
+            if (TextUtils.isEmpty(pid)) {
+                Toast.makeText(MainActivity.this, "请填写需要设置的PID", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            LocalConfig.setPid(this,pid);
+            Toast.makeText(MainActivity.this, "切换SDK ProductId后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(() -> System.exit(0), 1000);
         });
+
     }
 
     private void login() {

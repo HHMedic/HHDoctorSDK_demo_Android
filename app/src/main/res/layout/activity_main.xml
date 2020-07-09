@@ -19,6 +19,31 @@
         android:layout_marginStart="15dp"
         android:textColor="@android:color/holo_red_dark"/>
 
+    <EditText
+        android:id="@+id/pid"
+        android:layout_width="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hp_hint_pid"
+        app:layout_constraintTop_toBottomOf="@id/is_in_develop"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="12sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp"
+        android:autofillHints="userToken"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/button_set_pid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="@string/hp_button_set_pid"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@id/pid" />
+
 
     <Switch
         android:id="@+id/developSwitch"
@@ -26,7 +51,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="@string/is_develop"
-        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         android:checked="true"
         app:layout_constraintBottom_toTopOf="@id/userToken"/>
 
@@ -41,8 +67,10 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="12sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp"
+        android:autofillHints="userToken"
+        android:inputType="text" />
 
 
     <Button
@@ -50,6 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/use_default_token"
+        android:textAllCaps="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/login_button"
         app:layout_constraintTop_toBottomOf="@id/userToken" />

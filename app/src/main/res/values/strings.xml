@@ -25,4 +25,8 @@
     <string name="hp_address_manager">地址管理</string>
     <string name="hp_notice_depart">请选择给儿童看还是成人看</string>
 
+
+    <string name="hp_hint_pid">请输入您需要设定的sdk productId</string>
+    <string name="hp_button_set_pid">设置 SDK ProductID</string>
+
 </resources>
