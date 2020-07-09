@@ -12,27 +12,29 @@
         android:paddingEnd="10dp"
         android:paddingBottom="10dp">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <RelativeLayout
             android:id="@+id/title_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <Button
                 android:id="@+id/back_btn"
                 style="@style/hh_btn_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
                 android:text="@string/logout_button"
-                android:textSize="16sp"
-                android:contentDescription="@string/app_name" />
+                android:textSize="16sp" />
+
             <TextView
                 android:id="@+id/title"
-                android:textSize="24sp"
-                android:textColor="@color/colorPrimary"
-                android:text="@string/hp_main_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:text="@string/hp_main_title"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp" />
 
         </RelativeLayout>
 
@@ -40,24 +42,32 @@
             android:id="@+id/is_in_develop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tip_is_in_develop"
             android:layout_marginStart="15dp"
-            android:textColor="@android:color/holo_red_dark"/>
+            android:text="@string/tip_is_in_develop"
+            android:textColor="@android:color/holo_red_dark" />
 
         <LinearLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
             android:layout_marginTop="30dp"
             android:baselineAligned="false"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/multi_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:text="@string/hp_multi_video" />
+
+            <Button
                 android:id="@+id/child_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
                 android:text="@string/call_child"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
@@ -99,20 +109,22 @@
                     android:id="@+id/orderId"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginStart="15dp"
+                    android:layout_weight="1"
                     android:hint="@string/hp_input_hint_order_id"
-                    android:textSize="16sp" />
+                    android:inputType="text"
+                    android:textSize="16sp"
+                    android:importantForAutofill="no" />
 
                 <Button
                     android:id="@+id/view_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginEnd="15dp"
                     android:text="@string/hp_view_detail"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="20sp"
-                    android:layout_marginEnd="15dp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
 
@@ -134,8 +146,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="当前版本是测试版本"
+        android:text="@string/tip_is_in_develop"
         android:textColor="@android:color/holo_red_light"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:visibility="gone" />
 </RelativeLayout>

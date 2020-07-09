@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MedicineDemo"></activity>
+        <activity android:name=".activity.MultiVideoAct"></activity>
+        <activity android:name=".activity.MedicineDemo" />
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait">

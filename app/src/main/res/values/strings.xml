@@ -28,5 +28,9 @@
 
     <string name="hp_hint_pid">请输入您需要设定的sdk productId</string>
     <string name="hp_button_set_pid">设置 SDK ProductID</string>
-
+    <string name="hp_multi_video">多人视频：陪诊</string>
+    <string name="hp_tip_edit_user_token">请输入被邀请人的userToken</string>
+    <string name="hp_tip_edit_user_name">请输入被邀请人的姓名（选填）</string>
+    <string name="hp_tip_edit_user_photo">请输入被邀请人的头像地址（选填）</string>
+    <string name="hp_button_start_multi_video">开始多人视频：陪诊</string>
 </resources>

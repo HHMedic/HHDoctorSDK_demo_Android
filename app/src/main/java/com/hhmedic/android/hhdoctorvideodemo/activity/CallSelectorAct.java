@@ -17,7 +17,6 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
     private boolean noticeTTS;
     private EditText mOrderIdEdit;
-//    private final String userToken = "ECEEDCCD74B7D54BCF6690B7E26262B73F0D04F68EA2608F6783B874E4F50EEF";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +39,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         findViewById(R.id.view_detail).setOnClickListener(this);
         findViewById(R.id.medicine_demo).setOnClickListener(this);
         findViewById(R.id.view_all).setOnClickListener(this);
+        findViewById(R.id.multi_video).setOnClickListener(this);
         mOrderIdEdit = findViewById(R.id.orderId);
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
     }
@@ -69,6 +69,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.medicine_demo:
                 medicineDemo();
+                break;
+            case R.id.multi_video:
+                forwardMultiVideo();
                 break;
                 default:
                     break;
@@ -242,6 +245,11 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
     private void medicineDemo() {
         Intent intent = new Intent(this, MedicineDemo.class);
+        startActivity(intent);
+    }
+
+    private void forwardMultiVideo() {
+        Intent intent = new Intent(this, MultiVideoAct.class);
         startActivity(intent);
     }
 }
