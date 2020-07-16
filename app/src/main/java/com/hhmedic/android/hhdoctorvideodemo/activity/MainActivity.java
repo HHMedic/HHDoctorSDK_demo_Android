@@ -48,6 +48,7 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.use_default_toke).setOnClickListener(v -> mUserTokenEdit.setText(LocalConfig.DefaultUserToken));
 
         mPidEdit = findViewById(R.id.pid);
+        mPidEdit.setText(HHSDKConfig.pid);
         findViewById(R.id.button_set_pid).setOnClickListener( v -> {
             String pid = mPidEdit.getText().toString();
             if (TextUtils.isEmpty(pid)) {
