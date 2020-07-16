@@ -104,8 +104,8 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         HHDoctor.callForAdult(this, new HHCallListener() {
 
             @Override
-            public void onStart(String orderId) {
-                Log.i(TAG,"call onStart");
+            public void onStart() {
+
             }
 
             @Override
@@ -157,8 +157,8 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         HHDoctor.callForChild(this, new HHCallListener() {
 
             @Override
-            public void onStart(String orderId) {
-                Log.i(TAG,"call onStart");
+            public void onStart() {
+
             }
 
             @Override
@@ -244,8 +244,8 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
     }
 
     private void medicineDemo() {
-        Intent intent = new Intent(this, MedicineDemo.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, MedicineDemo.class);
+//        startActivity(intent);
     }
 
     private void forwardMultiVideo() {

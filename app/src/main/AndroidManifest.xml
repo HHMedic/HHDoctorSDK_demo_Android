@@ -11,7 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MultiVideoAct" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.MedicineDemo" />
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
@@ -33,23 +32,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.CallbackAct"
-            android:theme="@style/Callback">
-            <intent-filter>
-                <action android:name="com.hhmedic.doctor.call" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <receiver android:name=".receiver.RefuseReceiver">
-            <intent-filter>
-                <action android:name="com.hhmedic.doctor.refuse" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
         <receiver android:name=".receiver.Controller">
             <intent-filter>
                 <action android:name="com.hhmedic.doctor.robot.controller" />

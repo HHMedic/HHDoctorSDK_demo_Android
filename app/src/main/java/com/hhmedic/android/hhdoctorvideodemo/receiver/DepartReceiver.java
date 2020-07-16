@@ -30,8 +30,9 @@ public class DepartReceiver extends BroadcastReceiver
             switch (command) {
                 case Command.DEPT_ADULT:
                     HHDoctor.callForAdult(context, new HHCallListener() {
+
                         @Override
-                        public void onStart(String orderId) {
+                        public void onStart() {
 
                         }
 
@@ -78,8 +79,9 @@ public class DepartReceiver extends BroadcastReceiver
                     break;
                 case Command.DEPT_CHILD:
                     HHDoctor.callForChild(context, new HHCallListener() {
+
                         @Override
-                        public void onStart(String orderId) {
+                        public void onStart() {
 
                         }
 

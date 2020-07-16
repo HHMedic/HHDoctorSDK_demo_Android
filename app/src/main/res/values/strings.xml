@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">和缓视频医生SDK Demo</string>
+    <string name="app_name">和缓视频医生SDK TRTC Demo</string>
     <string name="user_token">UserToken:</string>
     <string name="input_user_token">请输入UserToken</string>
     <string name="is_develop">是否为测试环境</string>
