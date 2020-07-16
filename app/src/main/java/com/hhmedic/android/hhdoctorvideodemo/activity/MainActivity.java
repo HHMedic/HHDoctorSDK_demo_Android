@@ -92,6 +92,31 @@ public class MainActivity extends BaseActivity {
             Toast.makeText(this, "请输入需要登录的userToken", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        try {
+            long uuid = Long.parseLong(userToken);
+            loginWithUuid(uuid);
+        } catch (Exception ex) {
+            loginWithToken(userToken);
+        }
+
+    }
+
+    private void loginWithUuid(long uuid) {
+        HHDoctor.login(this, uuid, new HHLoginListener() {
+            @Override
+            public void onSuccess() {
+                loginForward();
+            }
+
+            @Override
+            public void onError(String s) {
+                Toast.makeText(MainActivity.this, "登录出现问题", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void loginWithToken(String userToken) {
         LocalConfig.setLoginedToken(this, userToken);
         HHDoctor.login(this, userToken, new HHLoginListener() {
             @Override
