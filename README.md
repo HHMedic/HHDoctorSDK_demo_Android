@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V2.5.8.05071050
+## 视频医生 Android SDK接入文档 V2.6.0.07091437
 ![demo](demo.gif)
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
@@ -89,7 +89,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.5.8.05071050'
+implementation 'com.hhmedic.android.sdk:hh:2.6.0.07091437'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -525,6 +525,29 @@ public static String getAllMedics(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
+##### 2.15 陪诊
+
+```
+public static void multiCall(Context context, CallType type, HHInviteUser user)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|Context context|当前上下文，一般为当前Activity|
+|CallType type|呼叫类型，其中包括儿科和全科，值分别为CallType.child和CallType.all |
+|HHInviteUser user|被邀请的陪诊人，具体用法说明如本表下方|
+
+```
+String userToken = "与和缓对接得到的被邀请用户userToken";
+String userName = "被邀请用户的昵称（名字），这个字段为选填";
+String userPhoto = "被邀请用户的头像提示，这个字段为为选填";
+HHInviteUser inviteUser = new HHInviteUser(userToken);
+inviteUser.setNickName(userName);
+inviteUser.setPhotoUrl(userPhoto);
+```
+
 #### 3. 回调说明
 
 >主要说明在各个接口用到的回调代理
@@ -700,6 +723,7 @@ https://github.com/HHMedic/DoctorVideoDemo
 
 |版本号|说明|
 |---|---|
+|2.6.0.07091437|1.升级音视频库 2. 新增陪诊功能|
 |2.5.8.05071050|1.升级音视频库 2.修复一些其他问题|
 |2.5.6.03181842|1. 优化内部逻辑 2.适配Android Q(主要是应用最新Matisse库)，但非AndroidX版本|
 |2.5.4.03011601|1. 优化内部逻辑   2.FileProvider的自定义使用，不再产生FileProvider的定义引起的冲突|
