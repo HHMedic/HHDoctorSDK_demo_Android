@@ -718,7 +718,7 @@ configurations.all {
 
 ### 四、Demo下载地址
 
-https://github.com/HHMedic/DoctorVideoDemo
+https://github.com/HHMedic/HHDoctorSDK_demo_Android
 
 ### 五、版本更新说明
 
