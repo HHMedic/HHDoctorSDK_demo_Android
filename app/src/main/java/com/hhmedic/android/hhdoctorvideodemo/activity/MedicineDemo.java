@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
-import com.hhmedic.android.sdk.medicine.HHMedicine;
+//import com.hhmedic.android.sdk.medicine.HHMedicine;
 
 public class MedicineDemo extends AppCompatActivity implements View.OnClickListener {
 
@@ -56,23 +56,23 @@ public class MedicineDemo extends AppCompatActivity implements View.OnClickListe
     }
 
     private void orderList() {
-        HHMedicine.orderList(this, LocalConfig.getLoginedToken(this));
+//        HHMedicine.orderList(this, LocalConfig.getLoginedToken(this));
     }
 
     private void orderDetail() {
-        String orderId = mOrderIdEdit.getText().toString();
-        if (orderId.isEmpty()) {
-            Toast.makeText(this, "请填写orderID再重试", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        HHMedicine.orderDetail(this, orderId, LocalConfig.getLoginedToken(this), orderId1 -> Toast.makeText(this, "支付成功了" + orderId1, Toast.LENGTH_SHORT).show());
+//        String orderId = mOrderIdEdit.getText().toString();
+//        if (orderId.isEmpty()) {
+//            Toast.makeText(this, "请填写orderID再重试", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        HHMedicine.orderDetail(this, orderId, LocalConfig.getLoginedToken(this), orderId1 -> Toast.makeText(this, "支付成功了" + orderId1, Toast.LENGTH_SHORT).show());
     }
 
     private void payDetail() {
-        HHMedicine.payDetail(this, LocalConfig.getLoginedToken(this));
+//        HHMedicine.payDetail(this, LocalConfig.getLoginedToken(this));
     }
 
     private void addressList() {
-        HHMedicine.addressList(this, LocalConfig.getLoginedToken(this));
+//        HHMedicine.addressList(this, LocalConfig.getLoginedToken(this));
     }
 }

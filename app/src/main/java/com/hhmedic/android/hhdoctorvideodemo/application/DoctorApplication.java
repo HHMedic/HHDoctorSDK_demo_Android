@@ -10,7 +10,7 @@ import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.config.DeviceType;
 import com.hhmedic.android.sdk.config.HHSDKOptions;
-import com.hhmedic.android.sdk.medicine.HHMedicine;
+//import com.hhmedic.android.sdk.medicine.HHMedicine;
 
 public class DoctorApplication extends Application {
 
@@ -30,6 +30,6 @@ public class DoctorApplication extends Application {
         options.isDebug = true;
         options.dev = LocalConfig.isDevelop(this);
         HHDoctor.init(getApplicationContext(), options);
-        HHMedicine.init();
+//        HHMedicine.init();
     }
 }

@@ -77,7 +77,7 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     implementation 'com.yanzhenjie:permission:2.0.0-rc1'
     implementation "com.hhmedic.android.sdk:hh:$doctor_sdk_version"
-    implementation "com.hhmedic.android.sdk:medicine:$sdk_version"
+//    implementation "com.hhmedic.android.sdk:medicine:$sdk_version" //已弃用
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
