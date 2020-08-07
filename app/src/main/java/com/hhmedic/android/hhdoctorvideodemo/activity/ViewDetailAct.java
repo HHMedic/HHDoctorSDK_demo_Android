@@ -2,18 +2,15 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.content.Intent;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
-import com.hhmedic.android.sdk.HHDoctor;
 
 import static android.view.KeyEvent.KEYCODE_BACK;
 

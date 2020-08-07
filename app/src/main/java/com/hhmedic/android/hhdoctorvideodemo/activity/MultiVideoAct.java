@@ -1,14 +1,14 @@
 package com.hhmedic.android.hhdoctorvideodemo.activity;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.databinding.ActivityMultiVideoBinding;
-import com.hhmedic.android.sdk.HHDoctor;
-import com.hhmedic.android.sdk.module.common.CallType;
-import com.hhmedic.android.sdk.module.video.multi.data.HHInviteUser;
+//import com.hhmedic.android.sdk.module.common.CallType;
+//import com.hhmedic.android.sdk.module.video.multi.data.HHInviteUser;
 
 public class MultiVideoAct extends BaseActivity {
 
@@ -37,9 +37,9 @@ public class MultiVideoAct extends BaseActivity {
         String userToken = mBinding.editUserToken.getText().toString();
         String userName = mBinding.editUserName.getText().toString();
         String userPhoto = mBinding.editUserPhoto.getText().toString();
-        HHInviteUser inviteUser = new HHInviteUser(userToken);
-        inviteUser.setNickName(userName);
-        inviteUser.setPhotoUrl(userPhoto);
-        HHDoctor.multiCall(this, CallType.all,inviteUser);
+//        HHInviteUser inviteUser = new HHInviteUser(userToken);
+//        inviteUser.setNickName(userName);
+//        inviteUser.setPhotoUrl(userPhoto);
+//        HHDoctor.multiCall(this, CallType.all,inviteUser);
     }
 }

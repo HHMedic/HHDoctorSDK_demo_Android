@@ -1,14 +1,13 @@
 package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.application.Command;
 import com.hhmedic.android.hhdoctorvideodemo.application.HHDemoUtils;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.listener.HHCallListener;
-import com.hhmedic.android.sdk.module.video.avchat.sound.Refuse;
 
 public class CallbackAct extends BaseActivity {
 
@@ -66,64 +65,64 @@ public class CallbackAct extends BaseActivity {
     }
 
     private void doRefuse() {
-        HHDoctor.onRefuse(this, "此处填写服务端推送的数据", new Refuse.OnCallback() {
-            @Override
-            public void onSuccess() {
-            }
-
-            @Override
-            public void onError(String s) {
-            }
-        });
+//        HHDoctor.onRefuse(this, "此处填写服务端推送的数据", new Refuse.OnCallback() {
+//            @Override
+//            public void onSuccess() {
+//            }
+//
+//            @Override
+//            public void onError(String s) {
+//            }
+//        });
     }
 
     private void doAccept() {
-        HHDoctor.onAccept(this, new HHCallListener() {
-            @Override
-            public void onStart(String orderId) {
-
-            }
-
-            @Override
-            public void onCalling() {
-
-            }
-
-            @Override
-            public void onInTheCall() {
-
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-
-            @Override
-            public void onCallSuccess() {
-
-            }
-
-            @Override
-            public void onFail(int i) {
-
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onLineUpTimeout() {
-
-            }
-
-            @Override
-            public void onLineUp() {
-
-            }
-        });
+//        HHDoctor.onAccept(this, new HHCallListener() {
+//            @Override
+//            public void onStart(String orderId) {
+//
+//            }
+//
+//            @Override
+//            public void onCalling() {
+//
+//            }
+//
+//            @Override
+//            public void onInTheCall() {
+//
+//            }
+//
+//            @Override
+//            public void onFinish() {
+//
+//            }
+//
+//            @Override
+//            public void onCallSuccess() {
+//
+//            }
+//
+//            @Override
+//            public void onFail(int i) {
+//
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//
+//            }
+//
+//            @Override
+//            public void onLineUpTimeout() {
+//
+//            }
+//
+//            @Override
+//            public void onLineUp() {
+//
+//            }
+//        });
     }
 
     private void doSelectDepart(boolean callChild) {

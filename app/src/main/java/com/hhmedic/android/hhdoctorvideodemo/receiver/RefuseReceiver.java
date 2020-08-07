@@ -8,7 +8,7 @@ import android.view.Gravity;
 import android.widget.Toast;
 
 import com.hhmedic.android.sdk.HHDoctor;
-import com.hhmedic.android.sdk.module.video.avchat.sound.Refuse;
+//import com.hhmedic.android.sdk.module.video.avchat.sound.Refuse;
 
 import com.orhanobut.logger.Logger;
 
@@ -30,17 +30,17 @@ public class RefuseReceiver extends BroadcastReceiver
     private void doRefuse(Context context,  Intent intent)
     {
         String json = intent.getStringExtra("message");
-        HHDoctor.onRefuse(context, json, new Refuse.OnCallback() {
-            @Override
-            public void onSuccess() {
-                successTips(context,"已经拒绝接听");
-            }
-
-            @Override
-            public void onError(String s) {
-
-            }
-        });
+//        HHDoctor.onRefuse(context, json, new Refuse.OnCallback() {
+//            @Override
+//            public void onSuccess() {
+//                successTips(context,"已经拒绝接听");
+//            }
+//
+//            @Override
+//            public void onError(String s) {
+//
+//            }
+//        });
     }
 
 
