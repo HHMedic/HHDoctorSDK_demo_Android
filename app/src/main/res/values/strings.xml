@@ -33,4 +33,6 @@
     <string name="hp_tip_edit_user_name">请输入被邀请人的姓名（选填）</string>
     <string name="hp_tip_edit_user_photo">请输入被邀请人的头像地址（选填）</string>
     <string name="hp_button_start_multi_video">开始多人视频：陪诊</string>
+
+    <string name="hp_button_select_user_call">选择成员呼叫</string>
 </resources>

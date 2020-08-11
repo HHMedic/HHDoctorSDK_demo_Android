@@ -40,6 +40,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         findViewById(R.id.medicine_demo).setOnClickListener(this);
         findViewById(R.id.view_all).setOnClickListener(this);
         findViewById(R.id.multi_video).setOnClickListener(this);
+        findViewById(R.id.callWithUI).setOnClickListener(this);
         mOrderIdEdit = findViewById(R.id.orderId);
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
     }
@@ -72,6 +73,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.multi_video:
                 forwardMultiVideo();
+                break;
+            case R.id.callWithUI:
+                call();
                 break;
                 default:
                     break;
@@ -251,5 +255,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
     private void forwardMultiVideo() {
         Intent intent = new Intent(this, MultiVideoAct.class);
         startActivity(intent);
+    }
+
+    private void call() {
+        HHDoctor.call(this, null);
     }
 }
