@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
@@ -17,6 +18,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
     private boolean noticeTTS;
     private EditText mOrderIdEdit;
+    private TextView mUploadCount;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,6 +45,11 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         findViewById(R.id.callWithUI).setOnClickListener(this);
         mOrderIdEdit = findViewById(R.id.orderId);
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
+        mUploadCount = findViewById(R.id.upload_count);
+
+//        HHDoctor.addUploadCallback((orderId, url) -> {
+//            mUploadCount.setText(getString(R.string.hp_upload_count,url.size()));
+//        });
     }
 
     @Override

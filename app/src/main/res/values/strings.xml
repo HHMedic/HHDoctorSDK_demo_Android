@@ -35,4 +35,6 @@
     <string name="hp_button_start_multi_video">开始多人视频：陪诊</string>
 
     <string name="hp_button_select_user_call">选择成员呼叫</string>
+
+    <string name="hp_upload_count">总共上传了%d张图片</string>
 </resources>

@@ -59,9 +59,9 @@
                 android:id="@+id/multi_video"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/hp_multi_video"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:text="@string/hp_multi_video" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/child_btn"
@@ -79,7 +79,7 @@
                 android:layout_marginTop="@dimen/dp_10"
                 android:text="@string/hp_button_select_user_call"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/all_btn"
@@ -120,9 +120,9 @@
                     android:layout_marginStart="15dp"
                     android:layout_weight="1"
                     android:hint="@string/hp_input_hint_order_id"
+                    android:importantForAutofill="no"
                     android:inputType="text"
-                    android:textSize="16sp"
-                    android:importantForAutofill="no" />
+                    android:textSize="16sp" />
 
                 <Button
                     android:id="@+id/view_detail"
@@ -144,6 +144,13 @@
                 android:text="@string/hp_medicine_demo"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/upload_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
