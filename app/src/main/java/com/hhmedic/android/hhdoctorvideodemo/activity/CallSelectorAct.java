@@ -265,6 +265,6 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
     }
 
     private void call() {
-//        HHDoctor.call(this, null);
+        HHDoctor.call(this, null);
     }
 }
