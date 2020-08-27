@@ -275,7 +275,7 @@ api 'com.huawei.android.hms:push:2.6.0.301'
 ```
 implementation 'com.google.code.gson:gson:2.8.2'
 implementation 'com.orhanobut:logger:2.2.0'
-implementation 'com.github.bumptech.glide:glide:4.8.0'
+implementation 'com.github.bumptech.glide:glide:4.9.0'
 implementation 'com.zhihu.android:matisse:0.5.1'
 implementation 'com.squareup.okhttp3:okhttp:3.x.x' //这个版本号只是一个代写
 ```
