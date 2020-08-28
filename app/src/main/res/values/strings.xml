@@ -38,4 +38,5 @@
     <string name="hp_button_select_call">选人呼叫</string>
 
     <string name="hp_switch_can_add_member">是否允许添加成员</string>
+    <string name="hp_switch_enable_multi_call">是否开启多人视频</string>
 </resources>

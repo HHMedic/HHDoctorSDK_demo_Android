@@ -36,7 +36,8 @@ public class DoctorApplication extends Application {
         HHSDKOptions options = new HHSDKOptions(pid); //productId是视频医生提供方分配的产品Id
         options.isDebug = true;
         options.dev = LocalConfig.isDevelop(this);
-        options.enableAddMember = LocalConfig.getCanAddMember(this);
+        options.enableAddMember = LocalConfig.getEnableAddMember(this);
+        options.enableMultiCall = LocalConfig.getEnableMultiCall(this);
         HHDoctor.init(getApplicationContext(), options);
 //        HHMedicine.init();
     }

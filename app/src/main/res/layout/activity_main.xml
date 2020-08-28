@@ -46,6 +46,18 @@
 
 
     <Switch
+        android:id="@+id/enable_multi_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/hp_switch_enable_multi_call"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:checked="true"
+        android:layout_marginBottom="@dimen/dp_10"
+        app:layout_constraintBottom_toTopOf="@id/can_add_member"/>
+
+    <Switch
         android:id="@+id/can_add_member"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
