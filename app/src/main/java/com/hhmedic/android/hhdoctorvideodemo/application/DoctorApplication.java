@@ -31,7 +31,7 @@ public class DoctorApplication extends Application {
 
         String pid = LocalConfig.getPid(this);
         if (TextUtils.isEmpty(pid)) {
-            pid = "9002";
+            pid = "3001";
         }
         HHSDKOptions options = new HHSDKOptions(pid); //productId是视频医生提供方分配的产品Id
         options.isDebug = true;
