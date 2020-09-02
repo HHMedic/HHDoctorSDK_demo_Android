@@ -39,9 +39,23 @@ public class MainActivity extends BaseActivity {
         mIsDevelopSwitch.setChecked(LocalConfig.isDevelop(this));
         mIsDevelopSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             LocalConfig.setDevelop(this, isChecked);
-            Toast.makeText(MainActivity.this, "切换完环境后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(() -> System.exit(0), 1000);
+            switchReload();
         });
+
+        Switch mCanAddSwitch = findViewById(R.id.can_add_member);
+        mCanAddSwitch.setChecked(LocalConfig.getEnableAddMember(this));
+        mCanAddSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableAddMember(this, isChecked);
+            switchReload();
+        });
+
+        Switch mEnableMultiCallSwitch = findViewById(R.id.enable_multi_call);
+        mEnableMultiCallSwitch.setChecked(LocalConfig.getEnableMultiCall(this));
+        mEnableMultiCallSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableMultiCall(this, isChecked);
+            switchReload();
+        });
+
         findViewById(R.id.login_button).setOnClickListener(v -> login());
         mUserTokenEdit = findViewById(R.id.userToken);
 
@@ -139,5 +153,10 @@ public class MainActivity extends BaseActivity {
     private void loginForward() {
         Intent intent = new Intent(this, CallSelectorAct.class);
         startActivity(intent);
+    }
+
+    private void switchReload() {
+        Toast.makeText(MainActivity.this, "切换设置后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(() -> System.exit(0), 1000);
     }
 }

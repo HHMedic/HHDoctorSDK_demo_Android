@@ -18,7 +18,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
     private boolean noticeTTS;
     private EditText mOrderIdEdit;
-    private TextView mUploadCount;
+//    private TextView mUploadCount;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,10 +42,12 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         findViewById(R.id.medicine_demo).setOnClickListener(this);
         findViewById(R.id.view_all).setOnClickListener(this);
         findViewById(R.id.multi_video).setOnClickListener(this);
-        findViewById(R.id.callWithUI).setOnClickListener(this);
+//        findViewById(R.id.callWithUI).setOnClickListener(this);
+        findViewById(R.id.message).setOnClickListener(this);
+        findViewById(R.id.call).setOnClickListener(this);
         mOrderIdEdit = findViewById(R.id.orderId);
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
-        mUploadCount = findViewById(R.id.upload_count);
+//        mUploadCount = findViewById(R.id.upload_count);
 
 //        HHDoctor.addUploadCallback((orderId, url) -> {
 //            mUploadCount.setText(getString(R.string.hp_upload_count,url.size()));
@@ -81,8 +83,11 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
             case R.id.multi_video:
                 forwardMultiVideo();
                 break;
-            case R.id.callWithUI:
-                call();
+            case R.id.message:
+                forwardMessage();
+                break;
+            case R.id.call:
+                selectCall();
                 break;
                 default:
                     break;
@@ -264,7 +269,56 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         startActivity(intent);
     }
 
-    private void call() {
-        HHDoctor.call(this, null);
+    private void forwardMessage() {
+        HHDoctor.message(this);
+    }
+
+    private void selectCall() {
+        HHDoctor.call(this, new HHCallListener() {
+            @Override
+            public void onStart(String orderId) {
+
+            }
+
+            @Override
+            public void onCalling() {
+
+            }
+
+            @Override
+            public void onInTheCall() {
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+
+            @Override
+            public void onCallSuccess() {
+
+            }
+
+            @Override
+            public void onFail(int code) {
+
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onLineUpTimeout() {
+
+            }
+
+            @Override
+            public void onLineUp() {
+
+            }
+        });
     }
 }

@@ -37,4 +37,10 @@
     <string name="hp_button_select_user_call">选择成员呼叫</string>
 
     <string name="hp_upload_count">总共上传了%d张图片</string>
+
+    <string name="hp_switch_can_add_member">是否允许添加成员</string>
+    <string name="hp_switch_enable_multi_call">是否开启多人视频</string>
+
+    <string name="hp_button_forward_message">进入消息界面</string>
+    <string name="hp_button_select_call">选人呼叫</string>
 </resources>

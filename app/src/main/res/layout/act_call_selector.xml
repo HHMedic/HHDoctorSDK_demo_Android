@@ -3,159 +3,166 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingStart="10dp"
-        android:paddingTop="20dp"
-        android:paddingEnd="10dp"
-        android:paddingBottom="10dp">
-
-        <RelativeLayout
-            android:id="@+id/title_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/back_btn"
-                style="@style/hh_btn_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/app_name"
-                android:text="@string/logout_button"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="@string/hp_main_title"
-                android:textColor="@color/colorPrimary"
-                android:textSize="24sp" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/is_in_develop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="@string/tip_is_in_develop"
-            android:textColor="@android:color/holo_red_dark" />
-
+        android:layout_height="match_parent">
         <LinearLayout
-            android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:baselineAligned="false"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:focusableInTouchMode="true">
 
-            <Button
-                android:id="@+id/multi_video"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hp_multi_video"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <Button
-                android:id="@+id/child_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:text="@string/call_child"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <Button
-                android:id="@+id/callWithUI"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:text="@string/hp_button_select_user_call"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <Button
-                android:id="@+id/all_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:text="@string/call_adult"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <Button
-                android:id="@+id/view_all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:text="@string/hp_view_order_list_all"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <Button
-                android:id="@+id/view_list"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:text="@string/hp_view_list"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/title_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/orderId"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_weight="1"
-                    android:hint="@string/hp_input_hint_order_id"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:textSize="16sp" />
+                android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/view_detail"
+                    android:id="@+id/back_btn"
+                    style="@style/hh_btn_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:text="@string/logout_button"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/hp_main_title"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24sp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/is_in_develop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@string/tip_is_in_develop"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <LinearLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:baselineAligned="false"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/multi_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:text="@string/hp_multi_video" />
+
+                <Button
+                    android:id="@+id/child_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_10"
-                    android:layout_marginEnd="15dp"
-                    android:text="@string/hp_view_detail"
+                    android:text="@string/call_child"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp" />
+
+
+                <Button
+                    android:id="@+id/all_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/call_adult"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/view_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/hp_view_order_list_all"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/view_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/hp_view_list"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/orderId"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_weight="1"
+                        android:hint="@string/hp_input_hint_order_id"
+                        android:inputType="text"
+                        android:textSize="16sp"
+                        android:importantForAutofill="no" />
+
+                    <Button
+                        android:id="@+id/view_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:layout_marginEnd="15dp"
+                        android:text="@string/hp_view_detail"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/medicine_demo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/hp_medicine_demo"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/hp_button_forward_message"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/hp_button_select_call"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
             </LinearLayout>
 
-
-            <Button
-                android:id="@+id/medicine_demo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:text="@string/hp_medicine_demo"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/upload_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_10"
-                android:textSize="16sp" />
-
         </LinearLayout>
-
-    </LinearLayout>
-
+    </ScrollView>
     <TextView
         android:id="@+id/is_test"
         android:layout_width="wrap_content"
