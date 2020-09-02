@@ -12,7 +12,7 @@ public class LocalConfig {
     private static final String USER_TOKEN = "user_token";
     private static final String PID = "pid";
 
-    static final String DefaultUserToken = "69831AA2CD985438D1DB957A1D079FB13F0D04F68EA2608F6783B874E4F50EEF";
+    static final String DefaultUserToken = "8DC2FD1D49451309DF7123716BFF20843F0D04F68EA2608F6783B874E4F50EEF";
     static final String DefaultCallOrderId = "1559198060885";
     static final String DefaultMedicineOrderId = "Y2019053014434215200";
 
