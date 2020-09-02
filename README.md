@@ -1,5 +1,5 @@
 ## 视频医生 Android SDK接入文档 V3.0.0.09011844
-![demo](demo.gif)
+<!--![demo](demo.gif)-->
 
 ## [查看版本更新说明](#六版本更新说明)
 
@@ -66,7 +66,7 @@ Android Studio 3.x.x版本以上版本
 
 ##### 1.2 建议接入SDK版本以及最低支持设备系统版本
 
- <span style="color:red;">*3.0.0.09011844 版本以下版本支持说明*</span>
+ <font color=red>*3.0.0.09011844 版本以下版本支持说明*</font>
 
 |配置项|版本|
 |---|---|
@@ -75,7 +75,7 @@ Android Studio 3.x.x版本以上版本
 |targetSdkVersion| 27及以上|
 |最低支持设备系统| >= 4.2 |
 
-<span style="color:red;">*3.0.0.09011844 版本以上版本支持说明*</span>
+<font color=red>*3.0.0.09011844 版本以上版本支持说明*</font>
 
 |配置项|版本|
 |---|---|
