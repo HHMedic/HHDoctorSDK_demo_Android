@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V3.0.0.09011844
+## 视频医生 Android SDK接入文档 V3.0.0.09021315
 <!--![demo](demo.gif)-->
 
 ## [查看版本更新说明](#六版本更新说明)
@@ -66,7 +66,7 @@ Android Studio 3.x.x版本以上版本
 
 ##### 1.2 建议接入SDK版本以及最低支持设备系统版本
 
- <span style="color:red;">*3.0.0.09011844 版本以下版本支持说明*</span>
+ <span style="color:red;">*3.0.0.09021315 版本以下版本支持说明*</span>
 
 |配置项|版本|
 |---|---|
@@ -75,7 +75,7 @@ Android Studio 3.x.x版本以上版本
 |targetSdkVersion| 27及以上|
 |最低支持设备系统| >= 4.2 |
 
-<span style="color:red;">*3.0.0.09011844 版本以上版本支持说明*</span>
+<span style="color:red;">*3.0.0.09021315 版本以上版本支持说明*</span>
 
 |配置项|版本|
 |---|---|
@@ -106,7 +106,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:3.0.0.09011844'
+implementation 'com.hhmedic.android.sdk:hh:3.0.0.09021315'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -415,7 +415,7 @@ public static void call(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### ~~2.5 呼叫成人医生~~（*废弃方法，在版本3.0.0.09011844及以后版本有可能删除*）
+##### ~~2.5 呼叫成人医生~~（*废弃方法，在版本3.0.0.09021315及以后版本有可能删除*）
 
 ```java
 public static void callForAdult(Context context,HHCallListener listener)
@@ -428,7 +428,7 @@ public static void callForAdult(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### ~~2.6 呼叫儿童医生~~（*废弃方法，在版本3.0.0.09011844及以后版本有可能删除*）
+##### ~~2.6 呼叫儿童医生~~（*废弃方法，在版本3.0.0.09021315及以后版本有可能删除*）
 
 ```java
 public static void callForChild(Context context,HHCallListener listener)
@@ -458,7 +458,7 @@ public static void callByToken(Context context, CallType type, String userToken,
 
 
 
-##### 2.8 医生回拨的时候接受（主要应用于音箱）（*废弃方法，在版本3.0.0.09011844及以后版本删除*）
+##### 2.8 医生回拨的时候接受（主要应用于音箱）（*废弃方法，在版本3.0.0.09021315及以后版本删除*）
 
 ```java
 public static void onAccept(Context context,HHCallListener listener)
@@ -471,7 +471,7 @@ public static void onAccept(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### 2.9 医生回拨的时候拒绝（主要应用于音箱）（*废弃方法，在版本3.0.0.09011844及以后版本删除*）
+##### 2.9 医生回拨的时候拒绝（主要应用于音箱）（*废弃方法，在版本3.0.0.09021315及以后版本删除*）
 
 ```java
 public static void onRefuse(Context context,String message,Refuse.OnCallback callback)
@@ -485,7 +485,7 @@ public static void onRefuse(Context context,String message,Refuse.OnCallback cal
 |String message|服务端推送的数据|
 |Refuse.OnCallback callback|呼叫回调|
 
-##### 2.10 挂断（主要用于智能音箱）（*废弃方法，在版本3.0.0.09011844及以后版本删除*）
+##### 2.10 挂断（主要用于智能音箱）（*废弃方法，在版本3.0.0.09021315及以后版本删除*）
 
 ```java
 public static void hangUp()
@@ -505,7 +505,7 @@ public static boolean isLogined(Context context)
 | --- | --- |
 |Context context|上下文，当前呼叫发起Activity|
 
-##### 2.12 设置视频回拨处理结果回调（*废弃方法，在版本3.0.0.09011844及以后版本删除*）
+##### 2.12 设置视频回拨处理结果回调（*废弃方法，在版本3.0.0.09021315及以后版本删除*）
 
 ```
 public static void setCallbackListener(HHCallbackListener listener)
@@ -772,7 +772,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_Android
 
 |版本号|说明|
 |---|---|
-|3.0.0.09011844|1.升级音视频库 <br/>2.新增选择成员呼叫 HHDoctor.call(Context,HHCallListener) <br/>3.新增消息界面，可展示病历药卡 HHDoctor.message(Context)|
+|3.0.0.09021315|1.升级音视频库 <br/>2.新增选择成员呼叫 HHDoctor.call(Context,HHCallListener) <br/>3.新增消息界面，可展示病历药卡 HHDoctor.message(Context)|
 |2.7.0.08201501|1.升级音视频库 <br/>2.新增选择成员呼叫 <br/>3.解决呼叫后未接通挂断时候的404错误|
 |2.6.0.07091437|1.升级音视频库 <br/>2. 新增陪诊功能|
 |2.5.8.05071050|1.升级音视频库 <br/>2.修复一些其他问题|
