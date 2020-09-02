@@ -1,11 +1,10 @@
 package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 //import com.hhmedic.android.sdk.medicine.HHMedicine;

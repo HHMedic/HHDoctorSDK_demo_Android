@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
+import com.orhanobut.logger.Logger;
 import com.yanzhenjie.permission.AndPermission;
 
 public class MainActivity extends BaseActivity {
@@ -93,28 +94,28 @@ public class MainActivity extends BaseActivity {
             return;
         }
 
-        try {
-            long uuid = Long.parseLong(userToken);
-            loginWithUuid(uuid);
-        } catch (Exception ex) {
+//        try {
+//            long uuid = Long.parseLong(userToken);
+//            loginWithUuid(uuid);
+//        } catch (Exception ex) {
             loginWithToken(userToken);
-        }
+//        }
 
     }
 
-    private void loginWithUuid(long uuid) {
-        HHDoctor.login(this, uuid, new HHLoginListener() {
-            @Override
-            public void onSuccess() {
-                loginForward();
-            }
-
-            @Override
-            public void onError(String s) {
-                Toast.makeText(MainActivity.this, "登录出现问题", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+//    private void loginWithUuid(long uuid) {
+//        HHDoctor.login(this, uuid, new HHLoginListener() {
+//            @Override
+//            public void onSuccess() {
+//                loginForward();
+//            }
+//
+//            @Override
+//            public void onError(String s) {
+//                Toast.makeText(MainActivity.this, "登录出现问题", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 
     private void loginWithToken(String userToken) {
         LocalConfig.setLoginedToken(this, userToken);
@@ -126,7 +127,8 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onError(String s) {
-                Toast.makeText(MainActivity.this, "请确保参数使用环境，不要使用非正式环境参数访问正式环境", Toast.LENGTH_SHORT).show();
+                Logger.e(s);
+                Toast.makeText(MainActivity.this, "请确保参数使用环境，不要使用非正式环境参数访问正式环境" + s, Toast.LENGTH_SHORT).show();
             }
         });
     }

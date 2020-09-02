@@ -1,18 +1,23 @@
 package com.hhmedic.android.hhdoctorvideodemo.application;
 
 import android.app.Application;
-import android.content.pm.ActivityInfo;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 
+import androidx.multidex.MultiDex;
 
 import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
 import com.hhmedic.android.sdk.HHDoctor;
-import com.hhmedic.android.sdk.config.DeviceType;
 import com.hhmedic.android.sdk.config.HHSDKOptions;
 //import com.hhmedic.android.sdk.medicine.HHMedicine;
 
 public class DoctorApplication extends Application {
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
+    }
 
     @Override
     public void onCreate() {

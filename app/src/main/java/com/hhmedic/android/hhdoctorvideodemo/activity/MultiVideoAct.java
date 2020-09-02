@@ -1,14 +1,14 @@
 package com.hhmedic.android.hhdoctorvideodemo.activity;
 
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.databinding.ActivityMultiVideoBinding;
 import com.hhmedic.android.sdk.HHDoctor;
-import com.hhmedic.android.sdk.module.common.CallType;
-import com.hhmedic.android.sdk.module.video.multi.data.HHInviteUser;
+import com.hhmedic.android.sdk.module.call.CallType;
+import com.hhmedic.android.sdk.video.multi.entity.HHInviteUser;
 
 public class MultiVideoAct extends BaseActivity {
 
