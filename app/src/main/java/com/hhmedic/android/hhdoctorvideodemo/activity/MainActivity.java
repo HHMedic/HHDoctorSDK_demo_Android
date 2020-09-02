@@ -102,7 +102,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void doLogin() {
-        String userToken = mUserTokenEdit.getText().toString(); //这个ID是和和缓对接之后得到的和缓的UserToken
+        String userToken = mUserTokenEdit.getText().toString().trim(); //这个ID是和和缓对接之后得到的和缓的UserToken
         if (userToken.isEmpty()) {
             Toast.makeText(this, "请输入需要登录的userToken", Toast.LENGTH_SHORT).show();
             return;

@@ -9,7 +9,7 @@ import com.hhmedic.android.hhdoctorvideodemo.application.SharedPreferenceUtils;
 public class LocalConfig {
 
     private static final String KEY = "isDevelop";
-    private static final String USER_TOKEN = "user_token";
+    private static final String USER_TOKEN = "demo_user_token";
     private static final String PID = "pid";
     private static final String ENABLE_ADD_MEMBER = "can_add_member";
     private static final String ENABLE_MULTI_CALL = "enable_multi_call";
@@ -27,11 +27,11 @@ public class LocalConfig {
     }
 
     static void setLoginedToken(Context context, String token) {
-        SharedPreferenceUtils.setValue(context,USER_TOKEN,token);
+        SharedPreferenceUtils.setValue(context,USER_TOKEN,token.trim());
     }
 
     static String getLoginedToken(Context context) {
-        return SharedPreferenceUtils.getStringValue(context,USER_TOKEN);
+        return SharedPreferenceUtils.getStringValue(context,USER_TOKEN).trim();
     }
 
     public static void setPid(Context context,String pid) {
