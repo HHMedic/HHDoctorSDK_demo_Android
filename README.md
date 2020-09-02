@@ -1,5 +1,7 @@
-## 视频医生 Android SDK接入文档 V2.6.0.07091437
+## 视频医生 Android SDK接入文档 V3.0.0.09011844
 ![demo](demo.gif)
+
+## [查看版本更新说明](#六版本更新说明)
 
 * [一、SDK接入引用说明](#一sdk接入引用说明)
    * [1. 建议接入环境](#1-建议接入环境)
@@ -26,18 +28,20 @@
       * [2.1 获取SDK版本号](#21-获取sdk版本号)
       * [2.2 登录](#22-登录)
       * [2.3 登出](#23-登出)
-      * [2.4 呼叫成人医生](#24-呼叫成人医生)
-      * [2.5 呼叫儿童医生](#25-呼叫儿童医生)
-      * [2.6 使用特定用户token呼叫](#26-使用特定用户token呼叫)
-      * [2.7 医生回拨的时候接受（主要应用于音箱）](#27-医生回拨的时候接受主要应用于音箱)
-      * [2.8 医生回拨的时候拒绝（主要应用于音箱）](#28-医生回拨的时候拒绝主要应用于音箱)
-      * [2.9 挂断（主要用于智能音箱）](#29-挂断主要用于智能音箱)
-      * [2.10 获取用户登录状态](#210-获取用户登录状态)
-      * [2.11 设置视频回拨处理结果回调](#211-设置视频回拨处理结果回调)
-      * [2.12 获取病历列表地址](#212-获取病历列表地址)
-      * [2.13 获取病历详情地址](#213-获取病历详情地址)
-      * [2.14 获取所有成员病历列表地址(推荐使用)](#214-获取所有成员病历列表地址推荐使用)
-      * [2.15 陪诊](#215-陪诊)
+      * [2.4 选择成员呼叫（推荐使用）](#24-选择成员呼叫（推荐使用）)
+      * [2.5 呼叫成人医生](#25-呼叫成人医生)
+      * [2.6 呼叫儿童医生](#26-呼叫儿童医生)
+      * [2.7 使用特定用户token呼叫](#27-使用特定用户token呼叫)
+      * [2.8 医生回拨的时候接受（主要应用于音箱）](#28-医生回拨的时候接受主要应用于音箱)
+      * [2.9 医生回拨的时候拒绝（主要应用于音箱）](#29-医生回拨的时候拒绝主要应用于音箱)
+      * [2.10 挂断（主要用于智能音箱）](#210-挂断主要用于智能音箱)
+      * [2.11 获取用户登录状态](#211-获取用户登录状态)
+      * [2.12 设置视频回拨处理结果回调](#212-设置视频回拨处理结果回调)
+      * [2.13 获取病历列表地址](#213-获取病历列表地址)
+      * [2.14 获取病历详情地址](#214-获取病历详情地址)
+      * [2.15 获取所有成员病历列表地址(推荐使用)](#215-获取所有成员病历列表地址推荐使用)
+      * [2.16 陪诊](#216-陪诊)
+      * [2.17 进入消息界面](#217-进入消息界面)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
@@ -47,8 +51,9 @@
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
    * [3. 如果遇到库冲突也就是duplicate某个包这说明库冲突了，这种问题可以用如下方法解决](#3-如果遇到库冲突也就是duplicate某个包这说明库冲突了这种问题可以用如下方法解决)
-* [四、Demo下载地址](#四demo下载地址)
-* [五、版本更新说明](#五版本更新说明)
+* [四、错误码整理](#四错误码整理)
+* [五、Demo下载地址](#五demo下载地址)
+* [六、版本更新说明](#六版本更新说明)
 
 
 ### 一、SDK接入引用说明
@@ -61,11 +66,22 @@ Android Studio 3.x.x版本以上版本
 
 ##### 1.2 建议接入SDK版本以及最低支持设备系统版本
 
+ <span style="color:red;">*3.0.0.09011844 版本以下版本支持说明*</span>
+
 |配置项|版本|
 |---|---|
 |compileSdkVersion| 27及以上|
 |minSdkVersion| 17及以上|
 |targetSdkVersion| 27及以上|
+|最低支持设备系统| >= 4.2 |
+
+<span style="color:red;">*3.0.0.09011844 版本以上版本支持说明*</span>
+
+|配置项|版本|
+|---|---|
+|compileSdkVersion| 28及以上|
+|minSdkVersion| 17及以上|
+|targetSdkVersion| 28及以上|
 |最低支持设备系统| >= 4.2 |
 
 #### 2. 视频医生Android SDK通过maven仓库引用来导入工程，如下
@@ -90,7 +106,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:2.6.0.07091437'
+implementation 'com.hhmedic.android.sdk:hh:3.0.0.09011844'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -273,7 +289,7 @@ api 'com.huawei.android.hms:push:2.6.0.301'
 ```
 implementation 'com.google.code.gson:gson:2.8.2'
 implementation 'com.orhanobut:logger:2.2.0'
-implementation 'com.github.bumptech.glide:glide:4.8.0'
+implementation 'com.github.bumptech.glide:glide:4.9.0'
 implementation 'com.zhihu.android:matisse:0.5.1'
 implementation 'com.squareup.okhttp3:okhttp:3.x.x' //这个版本号只是一个代写
 ```
@@ -386,7 +402,20 @@ public static void loginOut(Context context)
 | --- | --- |
 |Context context|上下文，当前操作Activity|
 
-##### 2.4 呼叫成人医生
+##### 2.4 选择成员呼叫（*推荐使用*）
+
+```java
+public static void call(Context context,HHCallListener listener)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|Context context|上下文，当前呼叫发起Activity|
+|HHCallListener listener|呼叫回调|
+
+##### ~~2.5 呼叫成人医生~~（*废弃方法，在版本3.0.0.09011844及以后版本有可能删除*）
 
 ```java
 public static void callForAdult(Context context,HHCallListener listener)
@@ -399,7 +428,7 @@ public static void callForAdult(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### 2.5 呼叫儿童医生
+##### ~~2.6 呼叫儿童医生~~（*废弃方法，在版本3.0.0.09011844及以后版本有可能删除*）
 
 ```java
 public static void callForChild(Context context,HHCallListener listener)
@@ -412,7 +441,7 @@ public static void callForChild(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### 2.6 使用特定用户token呼叫
+##### 2.7 使用特定用户token呼叫
 
 ```java
 public static void callByToken(Context context, CallType type, String userToken,HHCallListener listener)
@@ -429,7 +458,7 @@ public static void callByToken(Context context, CallType type, String userToken,
 
 
 
-##### 2.7 医生回拨的时候接受（主要应用于音箱）
+##### 2.8 医生回拨的时候接受（主要应用于音箱）（*废弃方法，在版本3.0.0.09011844及以后版本删除*）
 
 ```java
 public static void onAccept(Context context,HHCallListener listener)
@@ -442,7 +471,7 @@ public static void onAccept(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### 2.8 医生回拨的时候拒绝（主要应用于音箱）
+##### 2.9 医生回拨的时候拒绝（主要应用于音箱）（*废弃方法，在版本3.0.0.09011844及以后版本删除*）
 
 ```java
 public static void onRefuse(Context context,String message,Refuse.OnCallback callback)
@@ -456,7 +485,7 @@ public static void onRefuse(Context context,String message,Refuse.OnCallback cal
 |String message|服务端推送的数据|
 |Refuse.OnCallback callback|呼叫回调|
 
-##### 2.9 挂断（主要用于智能音箱）
+##### 2.10 挂断（主要用于智能音箱）（*废弃方法，在版本3.0.0.09011844及以后版本删除*）
 
 ```java
 public static void hangUp()
@@ -464,7 +493,7 @@ public static void hangUp()
 
 >用于视频中挂断操作
 
-##### 2.10 获取用户登录状态
+##### 2.11 获取用户登录状态
 
 ```java
 public static boolean isLogined(Context context)
@@ -476,7 +505,7 @@ public static boolean isLogined(Context context)
 | --- | --- |
 |Context context|上下文，当前呼叫发起Activity|
 
-##### 2.11 设置视频回拨处理结果回调
+##### 2.12 设置视频回拨处理结果回调（*废弃方法，在版本3.0.0.09011844及以后版本删除*）
 
 ```
 public static void setCallbackListener(HHCallbackListener listener)
@@ -488,7 +517,7 @@ public static void setCallbackListener(HHCallbackListener listener)
 | --- | --- |
 |HHCallbackListener listener|回调代理|
 
-##### 2.12 获取病历列表地址
+##### 2.13 获取病历列表地址
 ```
 public static String getMedicListUrl(Context context,String userToken)
 ```
@@ -500,7 +529,7 @@ public static String getMedicListUrl(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.13 获取病历详情地址
+##### 2.14 获取病历详情地址
 ```
 public static String getMedicDetailUrl(Context context,String userToken,String medicId)
 ```
@@ -513,7 +542,7 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
 
-##### 2.14 获取所有成员病历列表地址(*推荐使用*)
+##### 2.15 获取所有成员病历列表地址(*推荐使用*)
 
 ```
 public static String getAllMedics(Context context,String userToken)
@@ -526,7 +555,7 @@ public static String getAllMedics(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.15 陪诊
+##### 2.16 陪诊
 
 ```
 public static void multiCall(Context context, CallType type, HHInviteUser user)
@@ -548,6 +577,18 @@ HHInviteUser inviteUser = new HHInviteUser(userToken);
 inviteUser.setNickName(userName);
 inviteUser.setPhotoUrl(userPhoto);
 ```
+
+##### 2.17 进入消息界面
+
+```
+public static void message(Context context)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|Context context|当前上下文，一般为当前Activity|
 
 #### 3. 回调说明
 
@@ -715,17 +756,26 @@ configurations.all {
     }
 }
 ```
+### 四、错误码整理
 
-### 四、Demo下载地址
+|错误码|说明|
+|---|---|
+|-1||
+|-5|未登录|
+|-2||
+
+### 五、Demo下载地址
 
 https://github.com/HHMedic/HHDoctorSDK_demo_Android
 
-### 五、版本更新说明
+### 六、版本更新说明
 
 |版本号|说明|
 |---|---|
-|2.6.0.07091437|1.升级音视频库 2. 新增陪诊功能|
-|2.5.8.05071050|1.升级音视频库 2.修复一些其他问题|
+|3.0.0.09011844|1.升级音视频库 <br/>2.新增选择成员呼叫 HHDoctor.call(Context,HHCallListener) <br/>3.新增消息界面，可展示病历药卡 HHDoctor.message(Context)|
+|2.7.0.08201501|1.升级音视频库 <br/>2.新增选择成员呼叫 <br/>3.解决呼叫后未接通挂断时候的404错误|
+|2.6.0.07091437|1.升级音视频库 <br/>2. 新增陪诊功能|
+|2.5.8.05071050|1.升级音视频库 <br/>2.修复一些其他问题|
 |2.5.6.03181842|1. 优化内部逻辑 2.适配Android Q(主要是应用最新Matisse库)，但非AndroidX版本|
 |2.5.4.03011601|1. 优化内部逻辑   2.FileProvider的自定义使用，不再产生FileProvider的定义引起的冲突|
 |2.4.4.123110|新增呼叫指定用户的方法，如果没有特殊逻辑不使用这个方法，推荐使用原来呼叫方法|
