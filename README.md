@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V3.0.0.09041050
+## 视频医生 Android SDK接入文档 V3.0.0.09041452
 <!--![demo](demo.gif)-->
 
 ## [查看版本更新说明](#六版本更新说明)
@@ -106,7 +106,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:3.0.0.09041050'
+implementation 'com.hhmedic.android.sdk:hh:3.0.0.09041452'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
