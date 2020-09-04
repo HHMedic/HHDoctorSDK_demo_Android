@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V3.0.0.09041029
+## 视频医生 Android SDK接入文档 V3.0.0.09041050
 <!--![demo](demo.gif)-->
 
 ## [查看版本更新说明](#六版本更新说明)
@@ -106,7 +106,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:3.0.0.09041029'
+implementation 'com.hhmedic.android.sdk:hh:3.0.0.09041050'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -772,7 +772,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_Android
 
 |版本号|说明|
 |---|---|
-|3.0.0.09041029|1.HHSDKOptions新增enableHighQualityMusic配置，该配置解决了在一些设备视频过程设备没有声音的问题|
+|3.0.0.09041050|1.HHSDKOptions新增enableHighQualityMusic配置，该配置解决了在一些设备视频过程设备没有声音的问题|
 |3.0.0.09021723|1.升级音视频库 <br/>2.新增选择成员呼叫 HHDoctor.call(Context,HHCallListener) <br/>3.新增消息界面，可展示病历药卡 HHDoctor.message(Context)|
 |2.7.0.08201501|1.升级音视频库 <br/>2.新增选择成员呼叫 <br/>3.解决呼叫后未接通挂断时候的404错误|
 |2.6.0.07091437|1.升级音视频库 <br/>2. 新增陪诊功能|
