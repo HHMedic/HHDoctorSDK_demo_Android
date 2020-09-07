@@ -29,19 +29,20 @@
       * [2.2 登录](#22-登录)
       * [2.3 登出](#23-登出)
       * [2.4 选择成员呼叫（推荐使用）](#24-选择成员呼叫（推荐使用）)
-      * [2.5 呼叫成人医生](#25-呼叫成人医生)
-      * [2.6 呼叫儿童医生](#26-呼叫儿童医生)
-      * [2.7 使用特定用户token呼叫](#27-使用特定用户token呼叫)
-      * [2.8 医生回拨的时候接受（主要应用于音箱）](#28-医生回拨的时候接受主要应用于音箱)
-      * [2.9 医生回拨的时候拒绝（主要应用于音箱）](#29-医生回拨的时候拒绝主要应用于音箱)
-      * [2.10 挂断（主要用于智能音箱）](#210-挂断主要用于智能音箱)
-      * [2.11 获取用户登录状态](#211-获取用户登录状态)
-      * [2.12 设置视频回拨处理结果回调](#212-设置视频回拨处理结果回调)
-      * [2.13 获取病历列表地址](#213-获取病历列表地址)
-      * [2.14 获取病历详情地址](#214-获取病历详情地址)
-      * [2.15 获取所有成员病历列表地址(推荐使用)](#215-获取所有成员病历列表地址推荐使用)
-      * [2.16 陪诊](#216-陪诊)
-      * [2.17 进入消息界面](#217-进入消息界面)
+      * [2.5 选定成员呼叫](#25-选定成员呼叫)
+      * [2.6 呼叫成人医生](#26-呼叫成人医生)
+      * [2.7 呼叫儿童医生](#27-呼叫儿童医生)
+      * [2.8 使用特定用户token呼叫](#28-使用特定用户token呼叫)
+      * [2.9 医生回拨的时候接受（主要应用于音箱）](#29-医生回拨的时候接受主要应用于音箱)
+      * [2.10 医生回拨的时候拒绝（主要应用于音箱）](#210-医生回拨的时候拒绝主要应用于音箱)
+      * [2.11 挂断（主要用于智能音箱）](#211-挂断主要用于智能音箱)
+      * [2.12 获取用户登录状态](#212-获取用户登录状态)
+      * [2.13 设置视频回拨处理结果回调](#213-设置视频回拨处理结果回调)
+      * [2.14 获取病历列表地址](#214-获取病历列表地址)
+      * [2.15 获取病历详情地址](#215-获取病历详情地址)
+      * [2.16 获取所有成员病历列表地址(推荐使用)](#216-获取所有成员病历列表地址推荐使用)
+      * [2.17 陪诊](#217-陪诊)
+      * [2.18 进入消息界面](#218-进入消息界面)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
@@ -415,7 +416,21 @@ public static void call(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### ~~2.5 呼叫成人医生~~（*废弃方法，在版本3.0.0.09021723及以后版本有可能删除*）
+##### 2.5 选定成员呼叫
+
+```java
+public static void call(Context context,  String userToken,HHCallListener listener)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|Context context|上下文，当前呼叫发起Activity|
+|userToken|咨询人的userToken|
+|HHCallListener listener|呼叫回调|
+
+##### ~~2.6 呼叫成人医生~~（*废弃方法，在版本3.0.0.09021723及以后版本有可能删除*）
 
 ```java
 public static void callForAdult(Context context,HHCallListener listener)
@@ -428,7 +443,7 @@ public static void callForAdult(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### ~~2.6 呼叫儿童医生~~（*废弃方法，在版本3.0.0.09021723及以后版本有可能删除*）
+##### ~~2.7 呼叫儿童医生~~（*废弃方法，在版本3.0.0.09021723及以后版本有可能删除*）
 
 ```java
 public static void callForChild(Context context,HHCallListener listener)
@@ -441,7 +456,7 @@ public static void callForChild(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### 2.7 使用特定用户token呼叫
+##### 2.8 使用特定用户token呼叫
 
 ```java
 public static void callByToken(Context context, CallType type, String userToken,HHCallListener listener)
@@ -458,7 +473,7 @@ public static void callByToken(Context context, CallType type, String userToken,
 
 
 
-##### 2.8 医生回拨的时候接受（主要应用于音箱）（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
+##### 2.9 医生回拨的时候接受（主要应用于音箱）（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
 
 ```java
 public static void onAccept(Context context,HHCallListener listener)
@@ -471,7 +486,7 @@ public static void onAccept(Context context,HHCallListener listener)
 |Context context|上下文，当前呼叫发起Activity|
 |HHCallListener listener|呼叫回调|
 
-##### 2.9 医生回拨的时候拒绝（主要应用于音箱）（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
+##### 2.10 医生回拨的时候拒绝（主要应用于音箱）（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
 
 ```java
 public static void onRefuse(Context context,String message,Refuse.OnCallback callback)
@@ -485,7 +500,7 @@ public static void onRefuse(Context context,String message,Refuse.OnCallback cal
 |String message|服务端推送的数据|
 |Refuse.OnCallback callback|呼叫回调|
 
-##### 2.10 挂断（主要用于智能音箱）（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
+##### 2.11 挂断（主要用于智能音箱）（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
 
 ```java
 public static void hangUp()
@@ -493,7 +508,7 @@ public static void hangUp()
 
 >用于视频中挂断操作
 
-##### 2.11 获取用户登录状态
+##### 2.12 获取用户登录状态
 
 ```java
 public static boolean isLogined(Context context)
@@ -505,7 +520,7 @@ public static boolean isLogined(Context context)
 | --- | --- |
 |Context context|上下文，当前呼叫发起Activity|
 
-##### 2.12 设置视频回拨处理结果回调（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
+##### 2.13 设置视频回拨处理结果回调（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
 
 ```
 public static void setCallbackListener(HHCallbackListener listener)
@@ -517,7 +532,7 @@ public static void setCallbackListener(HHCallbackListener listener)
 | --- | --- |
 |HHCallbackListener listener|回调代理|
 
-##### 2.13 获取病历列表地址
+##### 2.14 获取病历列表地址
 ```
 public static String getMedicListUrl(Context context,String userToken)
 ```
@@ -529,7 +544,7 @@ public static String getMedicListUrl(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.14 获取病历详情地址
+##### 2.15 获取病历详情地址
 ```
 public static String getMedicDetailUrl(Context context,String userToken,String medicId)
 ```
@@ -542,7 +557,7 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
 
-##### 2.15 获取所有成员病历列表地址(*推荐使用*)
+##### 2.16 获取所有成员病历列表地址(*推荐使用*)
 
 ```
 public static String getAllMedics(Context context,String userToken)
@@ -555,7 +570,7 @@ public static String getAllMedics(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.16 陪诊
+##### 2.17 陪诊
 
 ```
 public static void multiCall(Context context, CallType type, HHInviteUser user)
@@ -578,7 +593,7 @@ inviteUser.setNickName(userName);
 inviteUser.setPhotoUrl(userPhoto);
 ```
 
-##### 2.17 进入消息界面
+##### 2.18 进入消息界面
 
 ```
 public static void message(Context context)
