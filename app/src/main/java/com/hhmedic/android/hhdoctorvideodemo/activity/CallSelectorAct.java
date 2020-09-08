@@ -3,6 +3,7 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
     private boolean noticeTTS;
     private EditText mOrderIdEdit;
+    private EditText mUserTokenEdit;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +44,8 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         findViewById(R.id.multi_video).setOnClickListener(this);
         mOrderIdEdit = findViewById(R.id.orderId);
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
+        mUserTokenEdit = findViewById(R.id.userToken);
+        findViewById(R.id.callByToken).setOnClickListener(this);
     }
 
     @Override
@@ -72,6 +76,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.multi_video:
                 forwardMultiVideo();
+                break;
+            case R.id.callByToken:
+                callByUserToken();
                 break;
                 default:
                     break;
@@ -251,5 +258,59 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
     private void forwardMultiVideo() {
         Intent intent = new Intent(this, MultiVideoAct.class);
         startActivity(intent);
+    }
+
+    private void callByUserToken() {
+        String userToken = mUserTokenEdit.getText().toString().trim();
+        if (TextUtils.isEmpty(userToken)) {
+            Toast.makeText(this, "请填写需要呼叫成员的UserToken", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        HHDoctor.call(this, userToken, new HHCallListener() {
+            @Override
+            public void onStart() {
+
+            }
+
+            @Override
+            public void onCalling() {
+
+            }
+
+            @Override
+            public void onInTheCall() {
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+
+            @Override
+            public void onCallSuccess() {
+
+            }
+
+            @Override
+            public void onFail(int i) {
+
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onLineUpTimeout() {
+
+            }
+
+            @Override
+            public void onLineUp() {
+
+            }
+        });
     }
 }
