@@ -46,6 +46,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
         mUserTokenEdit = findViewById(R.id.userToken);
         findViewById(R.id.callByToken).setOnClickListener(this);
+        findViewById(R.id.call_selector).setOnClickListener(this);
     }
 
     @Override
@@ -79,6 +80,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.callByToken:
                 callByUserToken();
+                break;
+            case R.id.call_selector:
+                callSelector();
                 break;
                 default:
                     break;
@@ -267,6 +271,55 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
             return;
         }
         HHDoctor.call(this, userToken, new HHCallListener() {
+            @Override
+            public void onStart() {
+
+            }
+
+            @Override
+            public void onCalling() {
+
+            }
+
+            @Override
+            public void onInTheCall() {
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+
+            @Override
+            public void onCallSuccess() {
+
+            }
+
+            @Override
+            public void onFail(int i) {
+
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onLineUpTimeout() {
+
+            }
+
+            @Override
+            public void onLineUp() {
+
+            }
+        });
+    }
+
+    private void callSelector() {
+        HHDoctor.call(this, new HHCallListener() {
             @Override
             public void onStart() {
 

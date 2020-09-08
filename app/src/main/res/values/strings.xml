@@ -36,5 +36,6 @@
 
     <string name="hp_input_hint_call_user_token">请输入呼叫人的userToken</string>
     <string name="hp_button_call_by_token">指定成员呼叫</string>
+    <string name="hp_button_call_selector">带UI选人呼叫</string>
 
 </resources>
