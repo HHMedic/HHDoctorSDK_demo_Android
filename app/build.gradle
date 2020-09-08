@@ -11,7 +11,7 @@ static def buildTime() {
     return df.format(new Date())
 }
 
-def doctor_sdk_version = "2.6.2.08131106"
+def doctor_sdk_version = "2.6.4.09081027"
 
 android {
     compileSdkVersion 27
@@ -20,7 +20,7 @@ android {
         minSdkVersion 17
         targetSdkVersion 27
         versionCode increasedVersionCode()
-        versionName "2.6.2.${buildTime()}"
+        versionName "2.6.4.${buildTime()}"
 
         ndk {
             //设置支持的SO库架构
