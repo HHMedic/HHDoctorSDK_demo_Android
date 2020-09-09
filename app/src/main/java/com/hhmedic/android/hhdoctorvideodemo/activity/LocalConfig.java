@@ -13,6 +13,7 @@ public class LocalConfig {
     private static final String PID = "pid";
     private static final String ENABLE_ADD_MEMBER = "can_add_member";
     private static final String ENABLE_MULTI_CALL = "enable_multi_call";
+    private static final String MESSAGE_TITLE = "message_title";
 
     static final String DefaultUserToken = "8DC2FD1D49451309DF7123716BFF20843F0D04F68EA2608F6783B874E4F50EEF";
     static final String DefaultCallOrderId = "1559198060885";
@@ -56,5 +57,13 @@ public class LocalConfig {
 
     public static Boolean getEnableMultiCall(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_MULTI_CALL, true);
+    }
+
+    public static void setMessageTitle(Context context,String title) {
+        SharedPreferenceUtils.setValue(context,MESSAGE_TITLE,title);
+    }
+
+    public static String getMessageTitle(Context context) {
+        return SharedPreferenceUtils.getStringValue(context,MESSAGE_TITLE);
     }
 }

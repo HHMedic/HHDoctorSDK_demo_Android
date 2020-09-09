@@ -43,4 +43,7 @@
 
     <string name="hp_button_forward_message">进入消息界面</string>
     <string name="hp_button_select_call">选人呼叫</string>
+
+    <string name="hp_edit_hint_message_title">请输入Message界面的title</string>
+    <string name="hp_button_set_message_title">设置Message Title</string>
 </resources>

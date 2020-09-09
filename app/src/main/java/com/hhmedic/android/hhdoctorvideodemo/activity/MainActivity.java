@@ -7,8 +7,9 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
@@ -20,6 +21,7 @@ public class MainActivity extends BaseActivity {
 
     private EditText mUserTokenEdit;
     private EditText mPidEdit;
+    private EditText mMessageTitleEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,21 +37,21 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initUI() {
         super.initUI();
-        Switch mIsDevelopSwitch = findViewById(R.id.developSwitch);
+        SwitchCompat mIsDevelopSwitch = findViewById(R.id.developSwitch);
         mIsDevelopSwitch.setChecked(LocalConfig.isDevelop(this));
         mIsDevelopSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             LocalConfig.setDevelop(this, isChecked);
             switchReload();
         });
 
-        Switch mCanAddSwitch = findViewById(R.id.can_add_member);
+        SwitchCompat mCanAddSwitch = findViewById(R.id.can_add_member);
         mCanAddSwitch.setChecked(LocalConfig.getEnableAddMember(this));
         mCanAddSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             LocalConfig.setEnableAddMember(this, isChecked);
             switchReload();
         });
 
-        Switch mEnableMultiCallSwitch = findViewById(R.id.enable_multi_call);
+        SwitchCompat mEnableMultiCallSwitch = findViewById(R.id.enable_multi_call);
         mEnableMultiCallSwitch.setChecked(LocalConfig.getEnableMultiCall(this));
         mEnableMultiCallSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             LocalConfig.setEnableMultiCall(this, isChecked);
@@ -70,8 +72,24 @@ public class MainActivity extends BaseActivity {
                 return;
             }
             LocalConfig.setPid(this,pid);
-            Toast.makeText(MainActivity.this, "切换SDK ProductId后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(() -> System.exit(0), 1000);
+            switchReload();
+//            Toast.makeText(MainActivity.this, "切换SDK ProductId后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
+//            new Handler().postDelayed(() -> System.exit(0), 1000);
+        });
+
+        mMessageTitleEdit = findViewById(R.id.message_title);
+        String message_title = LocalConfig.getMessageTitle(this);
+        if (!TextUtils.isEmpty(message_title)) {
+            mMessageTitleEdit.setText(message_title);
+        }
+        findViewById(R.id.button_set_message_title).setOnClickListener(v -> {
+            String title = mMessageTitleEdit.getText().toString();
+            if (TextUtils.isEmpty(title)) {
+                Toast.makeText(MainActivity.this, "请填写需要设置的Message 界面的Title", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            LocalConfig.setMessageTitle(this,title);
+            switchReload();
         });
 
     }
