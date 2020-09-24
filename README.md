@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V3.0.4.09231213
+## 视频医生 Android SDK接入文档 V3.0.4.09241109
 <!--![demo](demo.gif)-->
 
 ## [查看版本更新说明](#六版本更新说明)
@@ -43,6 +43,7 @@
       * [2.16 获取所有成员病历列表地址(推荐使用)](#216-获取所有成员病历列表地址推荐使用)
       * [2.17 陪诊](#217-陪诊)
       * [2.18 进入消息界面](#218-进入消息界面)
+      * [2.19 设置呼叫附加参数](#219-设置呼叫附加参数)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
@@ -107,7 +108,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:3.0.4.09231213'
+implementation 'com.hhmedic.android.sdk:hh:3.0.4.09241109'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -605,6 +606,20 @@ public static void message(Context context)
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
 
+##### 2.19 设置呼叫附加参数
+
+> 注意这个方法需要在呼叫前进行设置才会生效
+
+```java
+public static void setExtension(String ext)
+```
+
+参数说明：
+
+| 参数定义 | 说明 |
+| --- | --- |
+|String ext|文本数据，支持json格式|
+
 #### 3. 回调说明
 
 >主要说明在各个接口用到的回调代理
@@ -787,6 +802,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_Android
 
 |版本号|说明|
 |---|---|
+|3.0.4.09241109|1.新增呼叫附加数据设置方法HHDoctor.setExtension(ext)|
 |3.0.4.09231213|1.多人视频部分功能优化|
 |3.0.2.09221130|1.解决SDK包含默认图标冲突的问题 <br/>2.修复一些问题|
 |3.0.2.09091823|1.升级音视频库 <br/> 2.修复一些bug <br/> 3.HHSDKOptions新增messageTitle配置，用来配置message界面的title|
