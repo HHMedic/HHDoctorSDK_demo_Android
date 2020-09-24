@@ -69,6 +69,38 @@
         android:layout_marginStart="@dimen/dp_10"
         app:layout_constraintTop_toBottomOf="@id/message_title" />
 
+
+
+
+    <EditText
+        android:id="@+id/ext_message"
+        android:layout_width="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hp_edit_hint_ext_message"
+        app:layout_constraintTop_toBottomOf="@id/button_set_message_title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="12sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp"
+        android:autofillHints="userToken"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/button_set_ext_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="@string/hp_button_set_ext_message"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@id/ext_message" />
+
+
+
+
+
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/enable_multi_call"
         android:layout_width="wrap_content"
@@ -79,7 +111,7 @@
         android:paddingEnd="15dp"
         android:checked="true"
         android:layout_marginTop="@dimen/dp_10"
-        app:layout_constraintTop_toBottomOf="@id/button_set_message_title"/>
+        app:layout_constraintTop_toBottomOf="@id/button_set_ext_message"/>
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/can_add_member"

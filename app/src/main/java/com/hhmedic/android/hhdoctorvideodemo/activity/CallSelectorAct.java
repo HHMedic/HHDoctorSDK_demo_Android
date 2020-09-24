@@ -2,12 +2,12 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.application.HHDemoUtils;
@@ -117,6 +117,8 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
      */
     private void callAdult() {
 
+//        CallExtensionSetting.setJsonExtMessage("callAdult");
+
         HHDoctor.callForAdult(this, new HHCallListener() {
 
             @Override
@@ -170,6 +172,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
      * 呼叫儿童医生
      */
     private void callChild() {
+//        CallExtensionSetting.setJsonExtMessage("callChild");
         HHDoctor.callForChild(this, new HHCallListener() {
 
             @Override
@@ -274,6 +277,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
     }
 
     private void selectCall() {
+
+//        CallExtensionSetting.setNormalExtMessage("selectCall");
+
         HHDoctor.call(this, new HHCallListener() {
             @Override
             public void onStart(String orderId) {

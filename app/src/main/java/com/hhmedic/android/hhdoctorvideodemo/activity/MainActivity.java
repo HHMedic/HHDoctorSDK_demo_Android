@@ -22,6 +22,7 @@ public class MainActivity extends BaseActivity {
     private EditText mUserTokenEdit;
     private EditText mPidEdit;
     private EditText mMessageTitleEdit;
+    private EditText mExtMessageEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +93,16 @@ public class MainActivity extends BaseActivity {
             switchReload();
         });
 
+        mExtMessageEdit = findViewById(R.id.ext_message);
+        findViewById(R.id.button_set_ext_message).setOnClickListener( v -> {
+            String message = mExtMessageEdit.getText().toString();
+            if (TextUtils.isEmpty(message)) {
+                Toast.makeText(MainActivity.this, "请填写需要设置的呼叫传入的附加信息", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            HHDoctor.setExtension(message);
+            Toast.makeText(MainActivity.this, "设置完成", Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void login() {
