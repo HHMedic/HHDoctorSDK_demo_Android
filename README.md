@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V3.0.4.09241109
+## 视频医生 Android SDK接入文档 V3.0.4.10271705
 <!--![demo](demo.gif)-->
 
 ## [查看版本更新说明](#六版本更新说明)
@@ -108,7 +108,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:3.0.4.09241109'
+implementation 'com.hhmedic.android.sdk:hh:3.0.4.10271705'
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -322,6 +322,8 @@ HHSDKOptions options = new HHSDKOptions("sdkProductId");
 |mOrientation|屏幕方向 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT 或 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE|
 |mCoopId|渠道编号|
 |enablePush|是否开启push，默认为开启true，如果需要关闭设置为false|
+|enableMedical|是否开启个人中心的档案库显示|
+|enableActivate|是否开启个人中心激活码激活功能|
 
 ##### 1.2 音箱接入快捷获取基本配置选项方式
 
@@ -802,6 +804,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_Android
 
 |版本号|说明|
 |---|---|
+|3.0.4.10271705|1.升级音视频SDK<br/>2.新增enableMedical控制在个人中心是否开启档案库<br/>3.新增enableActivate控制在个人中心是否开启激活码激活功能|
 |3.0.4.09241109|1.新增呼叫附加数据设置方法HHDoctor.setExtension(ext)|
 |3.0.4.09231213|1.多人视频部分功能优化|
 |3.0.2.09221130|1.解决SDK包含默认图标冲突的问题 <br/>2.修复一些问题|
