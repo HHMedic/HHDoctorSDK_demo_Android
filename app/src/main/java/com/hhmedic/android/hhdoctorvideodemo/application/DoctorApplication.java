@@ -37,6 +37,8 @@ public class DoctorApplication extends Application {
         options.enableAddMember = LocalConfig.getEnableAddMember(this);
         options.enableMultiCall = LocalConfig.getEnableMultiCall(this);
         options.messageTitle = LocalConfig.getMessageTitle(this);
+        options.enableMedical = LocalConfig.getEnableMedical(this);
+        options.enableActivate = LocalConfig.getEnableActivate(this);
         HHDoctor.init(getApplicationContext(), options);
 //        HHMedicine.init();
     }

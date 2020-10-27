@@ -11,13 +11,13 @@ static def buildTime() {
     return df.format(new Date())
 }
 
-def doctor_sdk_version = "3.0.4.09241109"
+def doctor_sdk_version = "3.0.4.10271705"
 
 android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.hhmedic.app.patient.demo"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode increasedVersionCode()
         versionName "3.0.4.${buildTime()}"

@@ -59,6 +59,20 @@ public class MainActivity extends BaseActivity {
             switchReload();
         });
 
+        SwitchCompat mEnableActivate = findViewById(R.id.enable_activate);
+        mEnableActivate.setChecked(LocalConfig.getEnableActivate(this));
+        mEnableActivate.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableActivate(this, isChecked);
+            switchReload();
+        });
+
+        SwitchCompat mEnableMedical = findViewById(R.id.enable_medical);
+        mEnableMedical.setChecked(LocalConfig.getEnableMedical(this));
+        mEnableMedical.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableMedical(this, isChecked);
+            switchReload();
+        });
+
         findViewById(R.id.login_button).setOnClickListener(v -> login());
         mUserTokenEdit = findViewById(R.id.userToken);
 

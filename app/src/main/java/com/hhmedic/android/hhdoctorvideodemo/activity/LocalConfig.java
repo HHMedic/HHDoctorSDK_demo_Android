@@ -13,6 +13,9 @@ public class LocalConfig {
     private static final String PID = "pid";
     private static final String ENABLE_ADD_MEMBER = "can_add_member";
     private static final String ENABLE_MULTI_CALL = "enable_multi_call";
+    private static final String ENABLE_ACTIVATE = "enable_activate";
+    private static final String ENABLE_MEDICAL = "enable_medical";
+
     private static final String MESSAGE_TITLE = "message_title";
 
     static final String DefaultUserToken = "8DC2FD1D49451309DF7123716BFF20843F0D04F68EA2608F6783B874E4F50EEF";
@@ -57,6 +60,22 @@ public class LocalConfig {
 
     public static Boolean getEnableMultiCall(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_MULTI_CALL, true);
+    }
+
+    public static void setEnableActivate(Context context,Boolean canAddMember) {
+        SharedPreferenceUtils.setValue(context, ENABLE_ACTIVATE,canAddMember);
+    }
+
+    public static Boolean getEnableActivate(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, ENABLE_ACTIVATE, true);
+    }
+
+    public static void setEnableMedical(Context context,Boolean canAddMember) {
+        SharedPreferenceUtils.setValue(context, ENABLE_MEDICAL,canAddMember);
+    }
+
+    public static Boolean getEnableMedical(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, ENABLE_MEDICAL, true);
     }
 
     public static void setMessageTitle(Context context,String title) {
