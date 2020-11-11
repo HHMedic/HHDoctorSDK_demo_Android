@@ -1,7 +1,7 @@
 package com.hhmedic.android.hhdoctorvideodemo.activity;
 
-import android.Manifest;
 import android.content.Intent;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -16,6 +16,7 @@ import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
 import com.orhanobut.logger.Logger;
 import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.runtime.Permission;
 
 public class MainActivity extends BaseActivity {
 
@@ -27,7 +28,10 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Camera.CameraInfo info = new Camera.CameraInfo();
+        Camera.getCameraInfo(0, info);
 
+        Logger.e(info.orientation + " ============");
     }
 
     @Override
@@ -80,13 +84,13 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.use_default_toke).setOnClickListener(v -> mUserTokenEdit.setText(LocalConfig.DefaultUserToken));
 
         mPidEdit = findViewById(R.id.pid);
-        findViewById(R.id.button_set_pid).setOnClickListener( v -> {
+        findViewById(R.id.button_set_pid).setOnClickListener(v -> {
             String pid = mPidEdit.getText().toString();
             if (TextUtils.isEmpty(pid)) {
                 Toast.makeText(MainActivity.this, "请填写需要设置的PID", Toast.LENGTH_SHORT).show();
                 return;
             }
-            LocalConfig.setPid(this,pid);
+            LocalConfig.setPid(this, pid);
             switchReload();
 //            Toast.makeText(MainActivity.this, "切换SDK ProductId后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
 //            new Handler().postDelayed(() -> System.exit(0), 1000);
@@ -103,12 +107,12 @@ public class MainActivity extends BaseActivity {
                 Toast.makeText(MainActivity.this, "请填写需要设置的Message 界面的Title", Toast.LENGTH_SHORT).show();
                 return;
             }
-            LocalConfig.setMessageTitle(this,title);
+            LocalConfig.setMessageTitle(this, title);
             switchReload();
         });
 
         mExtMessageEdit = findViewById(R.id.ext_message);
-        findViewById(R.id.button_set_ext_message).setOnClickListener( v -> {
+        findViewById(R.id.button_set_ext_message).setOnClickListener(v -> {
             String message = mExtMessageEdit.getText().toString();
             if (TextUtils.isEmpty(message)) {
                 Toast.makeText(MainActivity.this, "请填写需要设置的呼叫传入的附加信息", Toast.LENGTH_SHORT).show();
@@ -120,28 +124,28 @@ public class MainActivity extends BaseActivity {
     }
 
     private void login() {
-
-        AndPermission.with(this).permission(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_PHONE_STATE,
-                Manifest.permission.CAMERA,
-                Manifest.permission.RECORD_AUDIO
-        )
-                .onGranted(permissions -> doLogin())
-
-                .onDenied(permissions -> {
-
-
-                    if (AndPermission.hasAlwaysDeniedPermission(MainActivity.this, permissions)) {
-                        // 这些权限被用户总是拒绝。
-//                        alwaysTips(permissionTips());
-                    } else {
-
-                    }
-
-                })
-                .start();
+        doLogin();
+//        AndPermission.with(this).runtime().permission(
+//                Permission.READ_EXTERNAL_STORAGE,
+//                Permission.WRITE_EXTERNAL_STORAGE,
+//                Permission.READ_PHONE_STATE,
+//                Permission.CAMERA,
+//                Permission.RECORD_AUDIO
+//        )
+//                .onGranted(permissions -> doLogin())
+//
+//                .onDenied(permissions -> {
+//
+//
+//                    if (AndPermission.hasAlwaysDeniedPermission(MainActivity.this, permissions)) {
+//                        // 这些权限被用户总是拒绝。
+////                        alwaysTips(permissionTips());
+//                    } else {
+//
+//                    }
+//
+//                })
+//                .start();
     }
 
     private void doLogin() {
@@ -155,7 +159,7 @@ public class MainActivity extends BaseActivity {
 //            long uuid = Long.parseLong(userToken);
 //            loginWithUuid(uuid);
 //        } catch (Exception ex) {
-            loginWithToken(userToken);
+        loginWithToken(userToken);
 //        }
 
     }

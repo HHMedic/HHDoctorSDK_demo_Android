@@ -2,13 +2,16 @@ package com.hhmedic.android.hhdoctorvideodemo.application;
 
 import android.app.Application;
 import android.content.Context;
+import android.hardware.Camera;
 import android.text.TextUtils;
 
 import androidx.multidex.MultiDex;
 
 import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
 import com.hhmedic.android.sdk.HHDoctor;
+import com.hhmedic.android.sdk.config.DeviceType;
 import com.hhmedic.android.sdk.config.HHSDKOptions;
+import com.orhanobut.logger.Logger;
 //import com.hhmedic.android.sdk.medicine.HHMedicine;
 
 public class DoctorApplication extends Application {
@@ -39,6 +42,8 @@ public class DoctorApplication extends Application {
         options.messageTitle = LocalConfig.getMessageTitle(this);
         options.enableMedical = LocalConfig.getEnableMedical(this);
         options.enableActivate = LocalConfig.getEnableActivate(this);
+//        options.useSampleRate16K_HZ = true;
+//        options.enableHighQualityMusic = true;
         HHDoctor.init(getApplicationContext(), options);
 //        HHMedicine.init();
     }
