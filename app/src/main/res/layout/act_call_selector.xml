@@ -13,7 +13,8 @@
             android:paddingStart="10dp"
             android:paddingTop="20dp"
             android:paddingEnd="10dp"
-            android:paddingBottom="10dp">
+            android:paddingBottom="10dp"
+            android:focusableInTouchMode="true">
 
             <RelativeLayout
                 android:id="@+id/title_layout"
@@ -55,7 +56,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
                 android:baselineAligned="false"
-                android:gravity="left"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <Button
@@ -86,45 +87,10 @@
                     android:textSize="20sp" />
 
                 <Button
-                    android:id="@+id/call_selector"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:text="@string/hp_button_call_selector"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="15dp">
-
-                    <EditText
-                        android:id="@+id/userToken"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/hp_input_hint_call_user_token"
-                        android:inputType="text"
-                        android:textSize="16sp"
-                        android:importantForAutofill="no" />
-
-                    <Button
-                        android:id="@+id/callByToken"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_10"
-                        android:layout_marginEnd="15dp"
-                        android:text="@string/hp_button_call_by_token"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-                <Button
                     android:id="@+id/view_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="@dimen/dp_10"
                     android:text="@string/hp_view_order_list_all"
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp" />
@@ -175,12 +141,28 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp" />
 
+                <Button
+                    android:id="@+id/message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/hp_button_forward_message"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/call"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="@string/hp_button_select_call"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp" />
+
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
-
     <TextView
         android:id="@+id/is_test"
         android:layout_width="wrap_content"

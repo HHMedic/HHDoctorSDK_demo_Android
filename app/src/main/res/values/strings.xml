@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">新TRTC Demo</string>
+    <string name="app_name">和缓视频医生SDK Demo</string>
     <string name="user_token">UserToken:</string>
     <string name="input_user_token">请输入UserToken</string>
     <string name="is_develop">是否为测试环境</string>
@@ -34,7 +34,21 @@
     <string name="hp_tip_edit_user_photo">请输入被邀请人的头像地址（选填）</string>
     <string name="hp_button_start_multi_video">开始多人视频：陪诊</string>
 
-    <string name="hp_input_hint_call_user_token">请输入呼叫人的userToken</string>
-    <string name="hp_button_call_by_token">指定成员呼叫</string>
-    <string name="hp_button_call_selector">带UI选人呼叫</string>
+    <string name="hp_button_select_user_call">选择成员呼叫</string>
+
+    <string name="hp_upload_count">总共上传了%d张图片</string>
+
+    <string name="hp_switch_can_add_member">是否允许添加成员</string>
+    <string name="hp_switch_enable_multi_call">是否开启多人视频</string>
+    <string name="hp_switch_enable_activate">是否开启激活码激活</string>
+    <string name="hp_switch_enable_medical">是否开启档案库</string>
+
+    <string name="hp_button_forward_message">进入消息界面</string>
+    <string name="hp_button_select_call">选人呼叫</string>
+
+    <string name="hp_edit_hint_message_title">请输入Message界面的title</string>
+    <string name="hp_button_set_message_title">设置Message Title</string>
+
+    <string name="hp_edit_hint_ext_message">请输入呼叫需传入的附加数据</string>
+    <string name="hp_button_set_ext_message">设置呼叫附加数据</string>
 </resources>

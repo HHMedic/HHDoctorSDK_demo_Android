@@ -81,7 +81,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.13.1'
-    implementation 'com.yanzhenjie:permission:2.0.0-rc1'
+    implementation 'com.yanzhenjie:permission:2.0.3'
     implementation "com.hhmedic.android.sdk:$doctor_sdk_name:$doctor_sdk_version"
 //    implementation "com.hhmedic.android.sdk:medicine:$sdk_version"
 

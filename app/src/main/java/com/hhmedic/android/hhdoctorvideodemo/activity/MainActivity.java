@@ -1,13 +1,12 @@
 package com.hhmedic.android.hhdoctorvideodemo.activity;
 
-import android.Manifest;
 import android.content.Intent;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.SwitchCompat;
@@ -15,17 +14,22 @@ import androidx.appcompat.widget.SwitchCompat;
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
-import com.yanzhenjie.permission.AndPermission;
+import com.orhanobut.logger.Logger;
 
 public class MainActivity extends BaseActivity {
 
     private EditText mUserTokenEdit;
     private EditText mPidEdit;
+    private EditText mMessageTitleEdit;
+    private EditText mExtMessageEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Camera.CameraInfo info = new Camera.CameraInfo();
+        Camera.getCameraInfo(0, info);
 
+        Logger.e(info.orientation + " ============");
     }
 
     @Override
@@ -40,9 +44,37 @@ public class MainActivity extends BaseActivity {
         mIsDevelopSwitch.setChecked(LocalConfig.isDevelop(this));
         mIsDevelopSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             LocalConfig.setDevelop(this, isChecked);
-            Toast.makeText(MainActivity.this, "切换完环境后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(() -> System.exit(0), 1000);
+            switchReload();
         });
+
+        SwitchCompat mCanAddSwitch = findViewById(R.id.can_add_member);
+        mCanAddSwitch.setChecked(LocalConfig.getEnableAddMember(this));
+        mCanAddSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableAddMember(this, isChecked);
+            switchReload();
+        });
+
+        SwitchCompat mEnableMultiCallSwitch = findViewById(R.id.enable_multi_call);
+        mEnableMultiCallSwitch.setChecked(LocalConfig.getEnableMultiCall(this));
+        mEnableMultiCallSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableMultiCall(this, isChecked);
+            switchReload();
+        });
+
+        SwitchCompat mEnableActivate = findViewById(R.id.enable_activate);
+        mEnableActivate.setChecked(LocalConfig.getEnableActivate(this));
+        mEnableActivate.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableActivate(this, isChecked);
+            switchReload();
+        });
+
+        SwitchCompat mEnableMedical = findViewById(R.id.enable_medical);
+        mEnableMedical.setChecked(LocalConfig.getEnableMedical(this));
+        mEnableMedical.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableMedical(this, isChecked);
+            switchReload();
+        });
+
         findViewById(R.id.login_button).setOnClickListener(v -> login());
         mUserTokenEdit = findViewById(R.id.userToken);
 
@@ -50,47 +82,72 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.use_default_toke).setOnClickListener(v -> mUserTokenEdit.setText(LocalConfig.DefaultUserToken));
 
         mPidEdit = findViewById(R.id.pid);
-        mPidEdit.setText(HHSDKConfig.pid);
-        findViewById(R.id.button_set_pid).setOnClickListener( v -> {
+        findViewById(R.id.button_set_pid).setOnClickListener(v -> {
             String pid = mPidEdit.getText().toString();
             if (TextUtils.isEmpty(pid)) {
                 Toast.makeText(MainActivity.this, "请填写需要设置的PID", Toast.LENGTH_SHORT).show();
                 return;
             }
-            LocalConfig.setPid(this,pid);
-            Toast.makeText(MainActivity.this, "切换SDK ProductId后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(() -> System.exit(0), 1000);
+            LocalConfig.setPid(this, pid);
+            switchReload();
+//            Toast.makeText(MainActivity.this, "切换SDK ProductId后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
+//            new Handler().postDelayed(() -> System.exit(0), 1000);
         });
 
+        mMessageTitleEdit = findViewById(R.id.message_title);
+        String message_title = LocalConfig.getMessageTitle(this);
+        if (!TextUtils.isEmpty(message_title)) {
+            mMessageTitleEdit.setText(message_title);
+        }
+        findViewById(R.id.button_set_message_title).setOnClickListener(v -> {
+            String title = mMessageTitleEdit.getText().toString();
+            if (TextUtils.isEmpty(title)) {
+                Toast.makeText(MainActivity.this, "请填写需要设置的Message 界面的Title", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            LocalConfig.setMessageTitle(this, title);
+            switchReload();
+        });
+
+        mExtMessageEdit = findViewById(R.id.ext_message);
+        findViewById(R.id.button_set_ext_message).setOnClickListener(v -> {
+            String message = mExtMessageEdit.getText().toString();
+            if (TextUtils.isEmpty(message)) {
+                Toast.makeText(MainActivity.this, "请填写需要设置的呼叫传入的附加信息", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            HHDoctor.setExtension(message);
+            Toast.makeText(MainActivity.this, "设置完成", Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void login() {
-
-        AndPermission.with(this).permission(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_PHONE_STATE,
-                Manifest.permission.CAMERA,
-                Manifest.permission.RECORD_AUDIO
-        )
-                .onGranted(permissions -> doLogin())
-
-                .onDenied(permissions -> {
-
-
-                    if (AndPermission.hasAlwaysDeniedPermission(MainActivity.this, permissions)) {
-                        // 这些权限被用户总是拒绝。
-//                        alwaysTips(permissionTips());
-                    } else {
-
-                    }
-
-                })
-                .start();
+        doLogin();
+//        AndPermission.with(this).runtime().permission(
+//                Permission.READ_EXTERNAL_STORAGE,
+//                Permission.WRITE_EXTERNAL_STORAGE,
+//                Permission.READ_PHONE_STATE,
+//                Permission.CAMERA,
+//                Permission.RECORD_AUDIO
+//        )
+//                .onGranted(permissions -> doLogin())
+//
+//                .onDenied(permissions -> {
+//
+//
+//                    if (AndPermission.hasAlwaysDeniedPermission(MainActivity.this, permissions)) {
+//                        // 这些权限被用户总是拒绝。
+////                        alwaysTips(permissionTips());
+//                    } else {
+//
+//                    }
+//
+//                })
+//                .start();
     }
 
     private void doLogin() {
-        String userToken = mUserTokenEdit.getText().toString(); //这个ID是和和缓对接之后得到的和缓的UserToken
+        String userToken = mUserTokenEdit.getText().toString().trim(); //这个ID是和和缓对接之后得到的和缓的UserToken
         if (userToken.isEmpty()) {
             Toast.makeText(this, "请输入需要登录的userToken", Toast.LENGTH_SHORT).show();
             return;
@@ -100,7 +157,7 @@ public class MainActivity extends BaseActivity {
 //            long uuid = Long.parseLong(userToken);
 //            loginWithUuid(uuid);
 //        } catch (Exception ex) {
-            loginWithToken(userToken);
+        loginWithToken(userToken);
 //        }
 
     }
@@ -129,7 +186,8 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onError(String s) {
-                Toast.makeText(MainActivity.this, "请确保参数使用环境，不要使用非正式环境参数访问正式环境", Toast.LENGTH_SHORT).show();
+                Logger.e(s);
+                Toast.makeText(MainActivity.this, "请确保参数使用环境，不要使用非正式环境参数访问正式环境" + s, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -140,5 +198,10 @@ public class MainActivity extends BaseActivity {
     private void loginForward() {
         Intent intent = new Intent(this, CallSelectorAct.class);
         startActivity(intent);
+    }
+
+    private void switchReload() {
+        Toast.makeText(MainActivity.this, "切换设置后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(() -> System.exit(0), 1000);
     }
 }

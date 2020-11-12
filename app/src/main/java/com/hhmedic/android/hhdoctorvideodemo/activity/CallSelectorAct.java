@@ -2,12 +2,12 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.application.HHDemoUtils;
@@ -18,7 +18,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
     private boolean noticeTTS;
     private EditText mOrderIdEdit;
-    private EditText mUserTokenEdit;
+//    private TextView mUploadCount;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,11 +42,16 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         findViewById(R.id.medicine_demo).setOnClickListener(this);
         findViewById(R.id.view_all).setOnClickListener(this);
         findViewById(R.id.multi_video).setOnClickListener(this);
+//        findViewById(R.id.callWithUI).setOnClickListener(this);
+        findViewById(R.id.message).setOnClickListener(this);
+        findViewById(R.id.call).setOnClickListener(this);
         mOrderIdEdit = findViewById(R.id.orderId);
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
-        mUserTokenEdit = findViewById(R.id.userToken);
-        findViewById(R.id.callByToken).setOnClickListener(this);
-        findViewById(R.id.call_selector).setOnClickListener(this);
+//        mUploadCount = findViewById(R.id.upload_count);
+
+//        HHDoctor.addUploadCallback((orderId, url) -> {
+//            mUploadCount.setText(getString(R.string.hp_upload_count,url.size()));
+//        });
     }
 
     @Override
@@ -78,13 +83,14 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
             case R.id.multi_video:
                 forwardMultiVideo();
                 break;
-            case R.id.callByToken:
-                callByUserToken();
+            case R.id.message:
+                forwardMessage();
                 break;
-            case R.id.call_selector:
-                callSelector();
-                default:
-                    break;
+            case R.id.call:
+                selectCall();
+                break;
+            default:
+                break;
         }
     }
 
@@ -111,11 +117,13 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
      */
     private void callAdult() {
 
+//        CallExtensionSetting.setJsonExtMessage("callAdult");
+
         HHDoctor.callForAdult(this, new HHCallListener() {
 
             @Override
             public void onStart(String orderId) {
-
+                Log.i(TAG,"call onStart");
             }
 
             @Override
@@ -164,11 +172,12 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
      * 呼叫儿童医生
      */
     private void callChild() {
+//        CallExtensionSetting.setJsonExtMessage("callChild");
         HHDoctor.callForChild(this, new HHCallListener() {
 
             @Override
             public void onStart(String orderId) {
-
+                Log.i(TAG,"call onStart");
             }
 
             @Override
@@ -263,64 +272,15 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         startActivity(intent);
     }
 
-    private void callByUserToken() {
-        String userToken = mUserTokenEdit.getText().toString().trim();
-        if (TextUtils.isEmpty(userToken)) {
-            Toast.makeText(this, "请填写需要呼叫成员的UserToken", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        HHDoctor.call(this, userToken, new HHCallListener() {
-
-            @Override
-            public void onStart(String orderId) {
-
-            }
-
-            @Override
-            public void onCalling() {
-
-            }
-
-            @Override
-            public void onInTheCall() {
-
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-
-            @Override
-            public void onCallSuccess() {
-
-            }
-
-            @Override
-            public void onFail(int i) {
-
-            }
-
-            @Override
-            public void onCancel() {
-
-            }
-
-            @Override
-            public void onLineUpTimeout() {
-
-            }
-
-            @Override
-            public void onLineUp() {
-
-            }
-        });
+    private void forwardMessage() {
+        HHDoctor.message(this);
     }
 
-    private void callSelector() {
-        HHDoctor.call(this, new HHCallListener() {
+    private void selectCall() {
 
+//        CallExtensionSetting.setNormalExtMessage("selectCall");
+
+        HHDoctor.call(this, new HHCallListener() {
             @Override
             public void onStart(String orderId) {
 
@@ -347,7 +307,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
             }
 
             @Override
-            public void onFail(int i) {
+            public void onFail(int code) {
 
             }
 
