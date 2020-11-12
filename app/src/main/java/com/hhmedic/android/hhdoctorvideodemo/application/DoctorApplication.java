@@ -10,6 +10,7 @@ import com.hhmedic.android.hhdoctorvideodemo.activity.HHSDKConfig;
 import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.config.HHSDKOptions;
+import com.hhmedic.android.sdk.config.MessageOptions;
 //import com.hhmedic.android.sdk.medicine.HHMedicine;
 
 public class DoctorApplication extends Application {
@@ -35,6 +36,15 @@ public class DoctorApplication extends Application {
         HHSDKOptions options = new HHSDKOptions(pid); //productId是视频医生提供方分配的产品Id
         options.isDebug = true;
         options.dev = LocalConfig.isDevelop(this);
+        options.enableAddMember = LocalConfig.getEnableAddMember(this);
+        options.messageTitle = LocalConfig.getMessageTitle(this);
+        options.enableMedical = LocalConfig.getEnableMedical(this);
+        options.enableActivate = LocalConfig.getEnableActivate(this);
+        MessageOptions messageOptions = new MessageOptions();
+        messageOptions.hideUserCenter = LocalConfig.getEnableUserCenter(this);
+        messageOptions.isFilterSummary = LocalConfig.getEnableSummaryCard(this);
+        messageOptions.isFilterMedicinal = LocalConfig.getEnableMedicalCard(this);
+        options.messageOptions = messageOptions;
         HHDoctor.init(getApplicationContext(), options);
 //        HHMedicine.init();
     }

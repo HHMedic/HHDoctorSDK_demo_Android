@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">和缓视频医生SDK Demo</string>
+    <string name="app_name">新Trtc Demo</string>
     <string name="user_token">UserToken:</string>
     <string name="input_user_token">请输入UserToken</string>
     <string name="is_develop">是否为测试环境</string>
@@ -42,6 +42,9 @@
     <string name="hp_switch_enable_multi_call">是否开启多人视频</string>
     <string name="hp_switch_enable_activate">是否开启激活码激活</string>
     <string name="hp_switch_enable_medical">是否开启档案库</string>
+    <string name="hp_switch_enable_user_center">是否隐藏个人中心</string>
+    <string name="hp_switch_enable_summary_card">是否过滤咨询总结卡片</string>
+    <string name="hp_switch_enable_medical_card">是否过滤药卡</string>
 
     <string name="hp_button_forward_message">进入消息界面</string>
     <string name="hp_button_select_call">选人呼叫</string>

@@ -54,12 +54,12 @@ public class MainActivity extends BaseActivity {
             switchReload();
         });
 
-        SwitchCompat mEnableMultiCallSwitch = findViewById(R.id.enable_multi_call);
-        mEnableMultiCallSwitch.setChecked(LocalConfig.getEnableMultiCall(this));
-        mEnableMultiCallSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableMultiCall(this, isChecked);
-            switchReload();
-        });
+//        SwitchCompat mEnableMultiCallSwitch = findViewById(R.id.enable_multi_call);
+//        mEnableMultiCallSwitch.setChecked(LocalConfig.getEnableMultiCall(this));
+//        mEnableMultiCallSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+//            LocalConfig.setEnableMultiCall(this, isChecked);
+//            switchReload();
+//        });
 
         SwitchCompat mEnableActivate = findViewById(R.id.enable_activate);
         mEnableActivate.setChecked(LocalConfig.getEnableActivate(this));
@@ -72,6 +72,27 @@ public class MainActivity extends BaseActivity {
         mEnableMedical.setChecked(LocalConfig.getEnableMedical(this));
         mEnableMedical.setOnCheckedChangeListener((buttonView, isChecked) -> {
             LocalConfig.setEnableMedical(this, isChecked);
+            switchReload();
+        });
+
+        SwitchCompat mEnableUserCenter = findViewById(R.id.enable_user_center);
+        mEnableUserCenter.setChecked(LocalConfig.getEnableUserCenter(this));
+        mEnableUserCenter.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableUserCenter(this, isChecked);
+            switchReload();
+        });
+
+        SwitchCompat mEnableSummaryCard = findViewById(R.id.enable_summary_card);
+        mEnableSummaryCard.setChecked(LocalConfig.getEnableSummaryCard(this));
+        mEnableSummaryCard.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableSummaryCard(this, isChecked);
+            switchReload();
+        });
+
+        SwitchCompat mEnableMedicalCard = findViewById(R.id.enable_medical_card);
+        mEnableMedicalCard.setChecked(LocalConfig.getEnableMedicalCard(this));
+        mEnableMedicalCard.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableMedicalCard(this, isChecked);
             switchReload();
         });
 

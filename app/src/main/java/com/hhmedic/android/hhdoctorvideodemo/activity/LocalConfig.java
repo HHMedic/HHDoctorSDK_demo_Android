@@ -15,6 +15,9 @@ public class LocalConfig {
     private static final String ENABLE_MULTI_CALL = "enable_multi_call";
     private static final String ENABLE_ACTIVATE = "enable_activate";
     private static final String ENABLE_MEDICAL = "enable_medical";
+    private static final String ENABLE_USER_CENTER = "enable_user_center";
+    private static final String ENABLE_SUMMARY_CARD = "enable_summary_card";
+    private static final String ENABLE_MEDICAL_CARD = "enable_medical_card";
 
     private static final String MESSAGE_TITLE = "message_title";
 
@@ -84,5 +87,29 @@ public class LocalConfig {
 
     public static String getMessageTitle(Context context) {
         return SharedPreferenceUtils.getStringValue(context,MESSAGE_TITLE);
+    }
+
+    public static void setEnableUserCenter(Context context,Boolean enable) {
+        SharedPreferenceUtils.setValue(context, ENABLE_USER_CENTER,enable);
+    }
+
+    public static Boolean getEnableUserCenter(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, ENABLE_USER_CENTER, true);
+    }
+
+    public static void setEnableSummaryCard(Context context,boolean enable) {
+        SharedPreferenceUtils.setValue(context, ENABLE_SUMMARY_CARD,enable);
+    }
+
+    public static Boolean getEnableSummaryCard(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, ENABLE_SUMMARY_CARD, true);
+    }
+
+    public static void setEnableMedicalCard(Context context,Boolean canAddMember) {
+        SharedPreferenceUtils.setValue(context, ENABLE_MEDICAL_CARD,canAddMember);
+    }
+
+    public static Boolean getEnableMedicalCard(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, ENABLE_MEDICAL_CARD, true);
     }
 }

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
 
@@ -100,64 +99,60 @@
 
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/enable_multi_call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
+            style="@style/config_switch"
+            android:id="@+id/can_add_member"
             android:checked="true"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:text="@string/hp_switch_enable_multi_call"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="@string/hp_switch_can_add_member"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_set_ext_message" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/can_add_member"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:checked="true"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:text="@string/hp_switch_can_add_member"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enable_multi_call" />
-
-        <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
             android:id="@+id/developSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
             android:checked="true"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:text="@string/is_develop"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/can_add_member" />
 
         <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
             android:id="@+id/enable_activate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
             android:checked="true"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:text="@string/hp_switch_enable_activate"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/developSwitch" />
 
         <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
             android:id="@+id/enable_medical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
             android:checked="true"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
             android:text="@string/hp_switch_enable_medical"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/enable_activate" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
+            android:id="@+id/enable_user_center"
+            android:checked="true"
+            android:text="@string/hp_switch_enable_user_center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enable_medical" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
+            android:id="@+id/enable_summary_card"
+            android:checked="true"
+            android:text="@string/hp_switch_enable_summary_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enable_user_center" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
+            android:id="@+id/enable_medical_card"
+            android:checked="true"
+            android:text="@string/hp_switch_enable_medical_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enable_summary_card" />
 
         <EditText
             android:id="@+id/userToken"
@@ -170,9 +165,9 @@
             android:hint="@string/input_user_token"
             android:inputType="text"
             android:textSize="12sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enable_medical" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enable_medical_card" />
 
 
         <Button
