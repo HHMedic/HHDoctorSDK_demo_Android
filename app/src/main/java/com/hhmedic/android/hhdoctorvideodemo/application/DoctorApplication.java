@@ -1,7 +1,10 @@
 package com.hhmedic.android.hhdoctorvideodemo.application;
 
 import android.app.Application;
+import android.content.Context;
 import android.text.TextUtils;
+
+import androidx.multidex.MultiDex;
 
 import com.hhmedic.android.hhdoctorvideodemo.activity.HHSDKConfig;
 import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
@@ -10,6 +13,12 @@ import com.hhmedic.android.sdk.config.HHSDKOptions;
 //import com.hhmedic.android.sdk.medicine.HHMedicine;
 
 public class DoctorApplication extends Application {
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
+    }
 
     @Override
     public void onCreate() {

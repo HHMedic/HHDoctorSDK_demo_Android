@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.SwitchCompat;
+
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
@@ -34,7 +36,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initUI() {
         super.initUI();
-        Switch mIsDevelopSwitch = findViewById(R.id.developSwitch);
+        SwitchCompat mIsDevelopSwitch = findViewById(R.id.developSwitch);
         mIsDevelopSwitch.setChecked(LocalConfig.isDevelop(this));
         mIsDevelopSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             LocalConfig.setDevelop(this, isChecked);
@@ -94,28 +96,28 @@ public class MainActivity extends BaseActivity {
             return;
         }
 
-        try {
-            long uuid = Long.parseLong(userToken);
-            loginWithUuid(uuid);
-        } catch (Exception ex) {
+//        try {
+//            long uuid = Long.parseLong(userToken);
+//            loginWithUuid(uuid);
+//        } catch (Exception ex) {
             loginWithToken(userToken);
-        }
+//        }
 
     }
 
-    private void loginWithUuid(long uuid) {
-        HHDoctor.login(this, uuid, new HHLoginListener() {
-            @Override
-            public void onSuccess() {
-                loginForward();
-            }
-
-            @Override
-            public void onError(String s) {
-                Toast.makeText(MainActivity.this, "登录出现问题", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+//    private void loginWithUuid(long uuid) {
+//        HHDoctor.login(this, uuid, new HHLoginListener() {
+//            @Override
+//            public void onSuccess() {
+//                loginForward();
+//            }
+//
+//            @Override
+//            public void onError(String s) {
+//                Toast.makeText(MainActivity.this, "登录出现问题", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 
     private void loginWithToken(String userToken) {
         LocalConfig.setLoginedToken(this, userToken);

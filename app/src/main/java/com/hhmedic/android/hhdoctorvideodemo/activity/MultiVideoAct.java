@@ -1,8 +1,8 @@
 package com.hhmedic.android.hhdoctorvideodemo.activity;
 
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.databinding.ActivityMultiVideoBinding;

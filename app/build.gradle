@@ -11,23 +11,25 @@ static def buildTime() {
     return df.format(new Date())
 }
 
-def doctor_sdk_version = "2.6.0.07071038"
+def doctor_sdk_name = "hh_trtc_dev"
+
+def doctor_sdk_version = "3.0.4.11111812"
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
-        applicationId "com.hhmedic.app.patient.trtc.demo"
-        minSdkVersion 17
-        targetSdkVersion 27
+        applicationId "com.hhmedic.app.patient.trtc.demo.new"
+        minSdkVersion 19
+        targetSdkVersion 28
         versionCode increasedVersionCode()
-        versionName "2.6.0.${buildTime()}"
-
+        versionName "3.0.4.${buildTime()}"
+        multiDexEnabled true
         ndk {
             //设置支持的SO库架构
-            abiFilters "armeabi-v7a"
+            abiFilters "armeabi-v7a","armeabi","arm64-v8a"
         }
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     packagingOptions {
@@ -55,16 +57,20 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
+
+//    dataBinding {
+//        enabled = true
+//    }
 
     android.applicationVariants.all { variant ->
 
         variant.outputs.all
                 {
 
-                    outputFileName = "hh_android_trtc_demo_${defaultConfig.versionName}.apk"
+                    outputFileName = "hh_android_trtc_new_demo_${defaultConfig.versionName}.apk"
 
                 }
     }
@@ -72,13 +78,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation 'junit:junit:4.13'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.1'
     implementation 'com.yanzhenjie:permission:2.0.0-rc1'
-    implementation "com.hhmedic.android.sdk:hh_vdoctor:$doctor_sdk_version"
+    implementation "com.hhmedic.android.sdk:$doctor_sdk_name:$doctor_sdk_version"
 //    implementation "com.hhmedic.android.sdk:medicine:$sdk_version"
 
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

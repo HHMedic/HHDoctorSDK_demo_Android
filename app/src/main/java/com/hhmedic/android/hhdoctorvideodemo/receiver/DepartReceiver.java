@@ -32,7 +32,7 @@ public class DepartReceiver extends BroadcastReceiver
                     HHDoctor.callForAdult(context, new HHCallListener() {
 
                         @Override
-                        public void onStart() {
+                        public void onStart(String orderId) {
 
                         }
 
@@ -81,7 +81,7 @@ public class DepartReceiver extends BroadcastReceiver
                     HHDoctor.callForChild(context, new HHCallListener() {
 
                         @Override
-                        public void onStart() {
+                        public void onStart(String orderId) {
 
                         }
 

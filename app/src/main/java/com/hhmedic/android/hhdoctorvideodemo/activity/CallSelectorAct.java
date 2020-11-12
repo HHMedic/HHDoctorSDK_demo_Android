@@ -2,7 +2,7 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -114,7 +114,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         HHDoctor.callForAdult(this, new HHCallListener() {
 
             @Override
-            public void onStart() {
+            public void onStart(String orderId) {
 
             }
 
@@ -167,7 +167,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         HHDoctor.callForChild(this, new HHCallListener() {
 
             @Override
-            public void onStart() {
+            public void onStart(String orderId) {
 
             }
 
@@ -270,8 +270,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
             return;
         }
         HHDoctor.call(this, userToken, new HHCallListener() {
+
             @Override
-            public void onStart() {
+            public void onStart(String orderId) {
 
             }
 
@@ -319,8 +320,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
     private void callSelector() {
         HHDoctor.call(this, new HHCallListener() {
+
             @Override
-            public void onStart() {
+            public void onStart(String orderId) {
 
             }
 
