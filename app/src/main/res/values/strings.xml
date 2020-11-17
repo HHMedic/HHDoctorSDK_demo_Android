@@ -51,4 +51,11 @@
 
     <string name="hp_edit_hint_ext_message">请输入呼叫需传入的附加数据</string>
     <string name="hp_button_set_ext_message">设置呼叫附加数据</string>
+
+    <string name="hp_buy_medicine_tips">如果使用购药功能需要向和缓sdk传入国标定位</string>
+    <string name="hp_hint_location_lng">请输入经度</string>
+    <string name="hp_hint_location_lat">请输入纬度</string>
+    <string name="hp_button_set_location">设置经纬度</string>
+    <string name="hh_location_lng">116.431941</string>
+    <string name="hh_location_lat">39.940199</string>
 </resources>

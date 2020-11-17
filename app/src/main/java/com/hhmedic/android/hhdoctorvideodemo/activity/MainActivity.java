@@ -13,10 +13,9 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
+import com.hhmedic.android.sdk.Location;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
 import com.orhanobut.logger.Logger;
-import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.runtime.Permission;
 
 public class MainActivity extends BaseActivity {
 

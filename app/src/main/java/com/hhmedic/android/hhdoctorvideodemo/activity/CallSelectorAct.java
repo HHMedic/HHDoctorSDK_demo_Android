@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.application.HHDemoUtils;
 import com.hhmedic.android.sdk.HHDoctor;
+import com.hhmedic.android.sdk.Location;
 import com.hhmedic.android.sdk.listener.HHCallListener;
 
 public class CallSelectorAct extends BaseActivity implements View.OnClickListener{
@@ -52,6 +53,10 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 //        HHDoctor.addUploadCallback((orderId, url) -> {
 //            mUploadCount.setText(getString(R.string.hp_upload_count,url.size()));
 //        });
+
+        findViewById(R.id.set_location).setOnClickListener(v -> {
+            setLocation();
+        });
     }
 
     @Override
@@ -73,7 +78,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 viewDetail();
                 break;
             case R.id.back_btn:
-                HHDoctor.loginOut(this);
+                HHDoctor.logOut(this);
                 LocalConfig.setLoginedToken(this, "");
                 finish();
                 break;
@@ -326,5 +331,20 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
             }
         });
+    }
+
+    /**
+     * 使用购药功能需要设置经纬度
+     */
+    private void setLocation() {
+        double lng = 0.0;
+        double lat = 0.0;
+        try {
+            lng = Double.parseDouble(((EditText)findViewById(R.id.lng)).getText().toString());
+            lat = Double.parseDouble(((EditText)findViewById(R.id.lat)).getText().toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Location.sendLocation(this,lng,lat);
     }
 }
