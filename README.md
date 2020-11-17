@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 V3.0.4.10271705
+## 视频医生 Android SDK接入文档 NIM(3.0.4.10271705)&TRTC(3.0.6.11161853)
 <!--![demo](demo.gif)-->
 
 ## [查看版本更新说明](#六版本更新说明)
@@ -107,8 +107,16 @@ repositories {
 
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
+NIM版本引用方式
+
 ```
 implementation 'com.hhmedic.android.sdk:hh:3.0.4.10271705'
+```
+
+TRTC版本引用方式
+
+```
+implementation "com.hhmedic.android.sdk:hh_trtc:3.0.6.11161853"
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -798,9 +806,12 @@ configurations.all {
 
 ### 五、Demo下载地址
 
-https://github.com/HHMedic/HHDoctorSDK_demo_Android
+NIM版本（原） https://github.com/HHMedic/HHDoctorSDK_demo_Android
+TRTC版本   https://github.com/HHMedic/HHDoctorSDK_demo_Android/tree/trtc
 
 ### 六、版本更新说明
+
+NIM版本更新说明
 
 |版本号|说明|
 |---|---|
@@ -835,3 +846,10 @@ https://github.com/HHMedic/HHDoctorSDK_demo_Android
 |0.1.070915| 1、版本号切换尾号为时间 2、添加铃声可控配置 3、fix bugs|
 |0.0.2| fix 直接呼叫crashbug|
 |0.0.1| 发出初版|
+
+<br/>
+TRTC版本更新说明
+
+|版本号|说明|
+|---|---|
+|3.0.6.11161853|新版TRTC首发|
