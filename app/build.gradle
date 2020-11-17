@@ -11,9 +11,9 @@ static def buildTime() {
     return df.format(new Date())
 }
 
-def doctor_sdk_name = "hh_trtc_dev"
+def doctor_sdk_name = "hh_trtc"
 
-def doctor_sdk_version = "3.0.4.11121515"
+def doctor_sdk_version = "3.0.6.11161853"
 
 android {
     compileSdkVersion 28
