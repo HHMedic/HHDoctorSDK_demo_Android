@@ -39,19 +39,11 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         findViewById(R.id.back_btn).setOnClickListener(this);
         findViewById(R.id.view_list).setOnClickListener(this);
         findViewById(R.id.view_detail).setOnClickListener(this);
-        findViewById(R.id.medicine_demo).setOnClickListener(this);
         findViewById(R.id.view_all).setOnClickListener(this);
-        findViewById(R.id.multi_video).setOnClickListener(this);
-//        findViewById(R.id.callWithUI).setOnClickListener(this);
         findViewById(R.id.message).setOnClickListener(this);
         findViewById(R.id.call).setOnClickListener(this);
         mOrderIdEdit = findViewById(R.id.orderId);
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
-//        mUploadCount = findViewById(R.id.upload_count);
-
-//        HHDoctor.addUploadCallback((orderId, url) -> {
-//            mUploadCount.setText(getString(R.string.hp_upload_count,url.size()));
-//        });
     }
 
     @Override
@@ -73,15 +65,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 viewDetail();
                 break;
             case R.id.back_btn:
-                HHDoctor.loginOut(this);
+                HHDoctor.logOut(this);
                 LocalConfig.setLoginedToken(this, "");
                 finish();
-                break;
-            case R.id.medicine_demo:
-                medicineDemo();
-                break;
-            case R.id.multi_video:
-                forwardMultiVideo();
                 break;
             case R.id.message:
                 forwardMessage();
@@ -259,16 +245,6 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         String url = HHDoctor.getMedicDetailUrl(this, LocalConfig.getLoginedToken(this), orderId);
         intent.putExtra("url", url);
         intent.putExtra("title", "病历存档详情");
-        startActivity(intent);
-    }
-
-    private void medicineDemo() {
-//        Intent intent = new Intent(this, MedicineDemo.class);
-//        startActivity(intent);
-    }
-
-    private void forwardMultiVideo() {
-        Intent intent = new Intent(this, MultiVideoAct.class);
         startActivity(intent);
     }
 
