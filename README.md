@@ -807,6 +807,7 @@ configurations.all {
 ### 五、Demo下载地址
 
 NIM版本（原） https://github.com/HHMedic/HHDoctorSDK_demo_Android
+<br/>
 TRTC版本   https://github.com/HHMedic/HHDoctorSDK_demo_Android/tree/trtc
 
 ### 六、版本更新说明
