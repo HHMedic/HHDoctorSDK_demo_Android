@@ -113,7 +113,7 @@ NIM版本引用方式
 implementation 'com.hhmedic.android.sdk:hh:3.0.4.10271705'
 ```
 
-TRTC版本引用方式
+TRTC版本引用方式（这个版本只有接入方工程中使用到了网易云信sdk的时候使用）
 
 ```
 implementation "com.hhmedic.android.sdk:hh_trtc:3.0.6.11161853"
