@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 NIM(3.0.4.10271705)&TRTC(3.0.6.11161853)
+## 视频医生 Android SDK接入文档 NIM(3.0.6.11191039)&TRTC(3.0.6.11161853)
 <!--![demo](demo.gif)-->
 
 ## [查看版本更新说明](#六版本更新说明)
@@ -110,7 +110,7 @@ repositories {
 NIM版本引用方式
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:3.0.4.10271705'
+implementation 'com.hhmedic.android.sdk:hh:3.0.6.11191039'
 ```
 
 TRTC版本引用方式（这个版本只有接入方工程中使用到了网易云信sdk的时候使用）
@@ -816,6 +816,7 @@ NIM版本更新说明
 
 |版本号|说明|
 |---|---|
+|3.0.6.11191039|1.升级音视频SDK 2.优化一些功能|
 |3.0.4.10271705|1.升级音视频SDK<br/>2.新增enableMedical控制在个人中心是否开启档案库<br/>3.新增enableActivate控制在个人中心是否开启激活码激活功能|
 |3.0.4.09241109|1.新增呼叫附加数据设置方法HHDoctor.setExtension(ext)|
 |3.0.4.09231213|1.多人视频部分功能优化|
