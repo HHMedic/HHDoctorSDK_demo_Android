@@ -1,7 +1,6 @@
 package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.content.Intent;
-import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -13,7 +12,6 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
-import com.hhmedic.android.sdk.Location;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
 import com.orhanobut.logger.Logger;
 
@@ -27,10 +25,10 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Camera.CameraInfo info = new Camera.CameraInfo();
-        Camera.getCameraInfo(0, info);
-
-        Logger.e(info.orientation + " ============");
+//        Camera.CameraInfo info = new Camera.CameraInfo();
+//        Camera.getCameraInfo(0, info);
+//
+//        Logger.e(info.orientation + " ============");
     }
 
     @Override
