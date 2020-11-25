@@ -154,6 +154,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/enable_summary_card" />
 
+
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
+            android:id="@+id/enable_vip_info"
+            android:checked="true"
+            android:text="@string/hp_switch_enable_vip_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enable_medical_card" />
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
+            android:id="@+id/can_add_member_in_doc"
+            android:checked="true"
+            android:text="@string/hp_switch_can_add_member_in_doc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enable_vip_info" />
+
         <EditText
             android:id="@+id/userToken"
             android:layout_width="0dp"
@@ -167,7 +185,7 @@
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enable_medical_card" />
+            app:layout_constraintTop_toBottomOf="@id/can_add_member_in_doc" />
 
 
         <Button

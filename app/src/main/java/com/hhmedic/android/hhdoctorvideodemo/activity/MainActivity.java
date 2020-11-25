@@ -96,6 +96,23 @@ public class MainActivity extends BaseActivity {
             switchReload();
         });
 
+
+
+        SwitchCompat mEnableVipInfo = findViewById(R.id.enable_vip_info);
+        mEnableVipInfo.setChecked(LocalConfig.getEnableVipInfo(this));
+        mEnableVipInfo.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableVipInfo(this, isChecked);
+            switchReload();
+        });
+
+
+        SwitchCompat mEnableAddMemberInDoc = findViewById(R.id.can_add_member_in_doc);
+        mEnableAddMemberInDoc.setChecked(LocalConfig.getEnableAddMemberInDoc(this));
+        mEnableAddMemberInDoc.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableAddMemberInDoc(this, isChecked);
+            switchReload();
+        });
+
         findViewById(R.id.login_button).setOnClickListener(v -> login());
         mUserTokenEdit = findViewById(R.id.userToken);
 

@@ -9,8 +9,10 @@ import androidx.multidex.MultiDex;
 import com.hhmedic.android.hhdoctorvideodemo.activity.HHSDKConfig;
 import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
 import com.hhmedic.android.sdk.HHDoctor;
+import com.hhmedic.android.sdk.VideoSetting;
 import com.hhmedic.android.sdk.config.HHSDKOptions;
 import com.hhmedic.android.sdk.config.MessageOptions;
+import com.tencent.trtc.TRTCCloudDef;
 //import com.hhmedic.android.sdk.medicine.HHMedicine;
 
 public class DoctorApplication extends Application {
@@ -40,12 +42,15 @@ public class DoctorApplication extends Application {
         options.messageTitle = LocalConfig.getMessageTitle(this);
         options.enableMedical = LocalConfig.getEnableMedical(this);
         options.enableActivate = LocalConfig.getEnableActivate(this);
+        options.enableVipInfo = LocalConfig.getEnableVipInfo(this);
+        options.enableAddMemberInDoc = LocalConfig.getEnableAddMemberInDoc(this);
         MessageOptions messageOptions = new MessageOptions();
         messageOptions.hideUserCenter = LocalConfig.getEnableUserCenter(this);
         messageOptions.isFilterSummary = LocalConfig.getEnableSummaryCard(this);
         messageOptions.isFilterMedicinal = LocalConfig.getEnableMedicalCard(this);
         options.messageOptions = messageOptions;
         HHDoctor.init(getApplicationContext(), options);
+
 //        HHMedicine.init();
     }
 }

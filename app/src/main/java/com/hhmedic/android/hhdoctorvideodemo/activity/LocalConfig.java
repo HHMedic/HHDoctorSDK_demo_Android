@@ -19,6 +19,10 @@ public class LocalConfig {
     private static final String ENABLE_SUMMARY_CARD = "enable_summary_card";
     private static final String ENABLE_MEDICAL_CARD = "enable_medical_card";
 
+    private static final String ENABLE_VIP_INFO = "enable_vip_info";
+
+    private static final String ENABLE_ADD_MEMBER_IN_DOC  = "can_add_member_in_doc";
+
     private static final String MESSAGE_TITLE = "message_title";
 
     static final String DefaultUserToken = "8DC2FD1D49451309DF7123716BFF20843F0D04F68EA2608F6783B874E4F50EEF";
@@ -111,5 +115,27 @@ public class LocalConfig {
 
     public static Boolean getEnableMedicalCard(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_MEDICAL_CARD, true);
+    }
+
+
+
+    public static void setEnableVipInfo(Context context,Boolean canShowVipInfo){
+
+        SharedPreferenceUtils.setValue(context, ENABLE_VIP_INFO,canShowVipInfo);
+    }
+
+    public static Boolean getEnableVipInfo(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, ENABLE_VIP_INFO, true);
+    }
+
+
+
+    public static void setEnableAddMemberInDoc(Context context,Boolean canShowVipInfo){
+
+        SharedPreferenceUtils.setValue(context, ENABLE_ADD_MEMBER_IN_DOC,canShowVipInfo);
+    }
+
+    public static Boolean getEnableAddMemberInDoc(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, ENABLE_ADD_MEMBER_IN_DOC, true);
     }
 }

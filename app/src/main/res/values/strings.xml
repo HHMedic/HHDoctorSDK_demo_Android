@@ -38,6 +38,8 @@
 
     <string name="hp_upload_count">总共上传了%d张图片</string>
 
+    <string name="hp_switch_can_add_member_in_doc">是否允许档案库添加成员</string>
+
     <string name="hp_switch_can_add_member">是否允许添加成员</string>
     <string name="hp_switch_enable_multi_call">是否开启多人视频</string>
     <string name="hp_switch_enable_activate">是否开启激活码激活</string>
@@ -45,6 +47,9 @@
     <string name="hp_switch_enable_user_center">是否隐藏个人中心</string>
     <string name="hp_switch_enable_summary_card">是否过滤咨询总结卡片</string>
     <string name="hp_switch_enable_medical_card">是否过滤药卡</string>
+
+    <string name="hp_switch_enable_vip_info">是否显示会员信息</string>
+
 
     <string name="hp_button_forward_message">进入消息界面</string>
     <string name="hp_button_select_call">选人呼叫</string>
