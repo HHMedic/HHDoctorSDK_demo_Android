@@ -13,7 +13,7 @@ static def buildTime() {
 
 def doctor_sdk_name = "hh_trtc"
 
-def doctor_sdk_version = "3.0.6.11241619"
+def doctor_sdk_version = "3.0.6.12022116"
 
 android {
     compileSdkVersion 28
@@ -22,7 +22,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode increasedVersionCode()
-        versionName "3.0.4.${buildTime()}"
+        versionName "3.0.6.${buildTime()}"
         multiDexEnabled true
         ndk {
             //设置支持的SO库架构
@@ -83,8 +83,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
     implementation 'com.yanzhenjie:permission:2.0.3'
     implementation "com.hhmedic.android.sdk:$doctor_sdk_name:$doctor_sdk_version"
-//    implementation "com.hhmedic.android.sdk:medicine:$sdk_version"
-
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

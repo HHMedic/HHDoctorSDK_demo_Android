@@ -141,6 +141,58 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp" />
 
+                <TextView
+                    android:id="@+id/medicine_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hp_buy_medicine_tips"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="start"
+                    android:textColor="@color/hp_notify_red"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/lng"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:autofillHints="userToken"
+                        android:hint="@string/hp_hint_location_lng"
+                        android:inputType="text"
+                        android:layout_weight="1"
+                        android:text="@string/hh_location_lng"
+                        android:textSize="12sp"
+                        />
+
+                    <EditText
+                        android:id="@+id/lat"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:autofillHints="userToken"
+                        android:hint="@string/hp_hint_location_lat"
+                        android:inputType="text"
+                        android:layout_weight="1"
+                        android:text="@string/hh_location_lat"
+                        android:textSize="12sp"
+                        />
+
+                    <Button
+                        android:id="@+id/set_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hp_button_set_location"
+                        android:minHeight="0dp"
+                        android:textAllCaps="false"
+                        />
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>

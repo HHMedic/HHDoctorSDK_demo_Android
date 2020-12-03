@@ -9,11 +9,8 @@ import androidx.multidex.MultiDex;
 import com.hhmedic.android.hhdoctorvideodemo.activity.HHSDKConfig;
 import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
 import com.hhmedic.android.sdk.HHDoctor;
-import com.hhmedic.android.sdk.VideoSetting;
 import com.hhmedic.android.sdk.config.HHSDKOptions;
 import com.hhmedic.android.sdk.config.MessageOptions;
-import com.tencent.trtc.TRTCCloudDef;
-//import com.hhmedic.android.sdk.medicine.HHMedicine;
 
 public class DoctorApplication extends Application {
 
@@ -50,7 +47,5 @@ public class DoctorApplication extends Application {
         messageOptions.isFilterMedicinal = LocalConfig.getEnableMedicalCard(this);
         options.messageOptions = messageOptions;
         HHDoctor.init(getApplicationContext(), options);
-
-//        HHMedicine.init();
     }
 }

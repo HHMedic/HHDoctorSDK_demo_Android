@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.application.HHDemoUtils;
 import com.hhmedic.android.sdk.HHDoctor;
+import com.hhmedic.android.sdk.Location;
 import com.hhmedic.android.sdk.listener.HHCallListener;
 
 public class CallSelectorAct extends BaseActivity implements View.OnClickListener{
@@ -44,6 +45,10 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         findViewById(R.id.call).setOnClickListener(this);
         mOrderIdEdit = findViewById(R.id.orderId);
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
+
+        findViewById(R.id.set_location).setOnClickListener(v -> {
+            setLocation();
+        });
     }
 
     @Override
@@ -302,5 +307,21 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
             }
         });
+    }
+
+    /**
+     * 使用购药功能需要设置经纬度
+     */
+    private void setLocation() {
+        double lng = 0.0;
+        double lat = 0.0;
+        try {
+            lng = Double.parseDouble(((EditText)findViewById(R.id.lng)).getText().toString());
+            lat = Double.parseDouble(((EditText)findViewById(R.id.lat)).getText().toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Location.sendLocation(this,lng,lat);
+        Toast.makeText(this, "经纬度已经发送", Toast.LENGTH_SHORT).show();
     }
 }
