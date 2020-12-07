@@ -43,6 +43,7 @@
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
+      * [3.3 呼叫回调扩展（HHCallExListener）继承自HHCallListener](#33-呼叫回调扩展（HHCallExListener）继承自HHCallListener)
 * [三、常见问题](#三常见问题)
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
@@ -595,7 +596,7 @@ public interface HHCallListener
     void onCalling();
 
     /**
-     * 通话中
+     * 通话中（该回调方法在3.0.0*版本以后废弃请使用HHCallExListener中的onDoctorAgree回调方法替代）
      */
     void onInTheCall();
 
@@ -636,6 +637,26 @@ public interface HHCallListener
      */
 
     void onLineUp();
+}
+```
+
+##### 3.3 呼叫回调扩展（HHCallExListener）继承自HHCallListener
+
+```java
+public interface HHCallExListener extends HHCallListener {
+
+    /**
+    * 返回呼叫医生信息
+    **/
+    void onLoadDoctor(HHCallInfo callInfo);
+
+    /**
+    * 医生接听进入通话
+    **/
+    void onDoctorAgree();
+
+    
+    void onCallError(String error);
 }
 ```
 
