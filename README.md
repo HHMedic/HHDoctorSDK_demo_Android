@@ -43,7 +43,7 @@
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
-      * [3.3 呼叫回调扩展（HHCallExListener）继承自HHCallListener](#33-呼叫回调扩展（HHCallExListener）继承自HHCallListener)
+      * [3.3 呼叫回调扩展（HHCallExListener）继承自HHCallListener](#33-呼叫回调扩展HHCallExListener继承自HHCallListener)
 * [三、常见问题](#三常见问题)
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
