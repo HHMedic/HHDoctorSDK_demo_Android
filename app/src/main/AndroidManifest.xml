@@ -10,6 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
         <activity android:name=".activity.MultiVideoAct" android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.MainActivity"

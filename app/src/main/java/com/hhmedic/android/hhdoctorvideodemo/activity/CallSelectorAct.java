@@ -3,6 +3,7 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,13 +14,18 @@ import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.hhdoctorvideodemo.application.HHDemoUtils;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.Location;
+import com.hhmedic.android.sdk.listener.HHCallExListener;
 import com.hhmedic.android.sdk.listener.HHCallListener;
+import com.hhmedic.android.sdk.listener.HangUpListener;
+import com.hhmedic.android.sdk.model.HHCallInfo;
+import com.hhmedic.android.sdk.module.video.hangup.HangUp;
+import com.orhanobut.logger.Logger;
 
 public class CallSelectorAct extends BaseActivity implements View.OnClickListener{
 
     private boolean noticeTTS;
     private EditText mOrderIdEdit;
-//    private TextView mUploadCount;
+    private ChatFrontPop mPop;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,8 +52,12 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         mOrderIdEdit = findViewById(R.id.orderId);
         mOrderIdEdit.setText(LocalConfig.DefaultCallOrderId);
 
-        findViewById(R.id.set_location).setOnClickListener(v -> {
-            setLocation();
+        findViewById(R.id.set_location).setOnClickListener(v -> setLocation());
+        findViewById(R.id.hang_up).setOnClickListener(v -> {
+            HangUp.doHangup(() -> {
+                Logger.e("do hangup listener =============");
+                Toast.makeText(this, "已经触发挂断回调", Toast.LENGTH_SHORT).show();
+            });
         });
     }
 
@@ -110,7 +120,22 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
 //        CallExtensionSetting.setJsonExtMessage("callAdult");
 
-        HHDoctor.callForAdult(this, new HHCallListener() {
+        HHDoctor.callForAdult(this, new HHCallExListener() {
+
+            @Override
+            public void onLoadDoctor(HHCallInfo callInfo) {
+
+            }
+
+            @Override
+            public void onDoctorAgree() {
+                testFrontView();
+            }
+
+            @Override
+            public void onCallError(String error) {
+
+            }
 
             @Override
             public void onStart(String orderId) {
@@ -279,7 +304,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
             @Override
             public void onFinish() {
-
+                removeTestFrontView();
             }
 
             @Override
@@ -289,12 +314,12 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
             @Override
             public void onFail(int code) {
-
+                removeTestFrontView();
             }
 
             @Override
             public void onCancel() {
-
+                removeTestFrontView();
             }
 
             @Override
@@ -323,5 +348,20 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
         }
         Location.sendLocation(this,lng,lat);
         Toast.makeText(this, "经纬度已经发送", Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void testFrontView() {
+        ChatFrontPop pop = new ChatFrontPop(this);
+        View parent = HHDoctor.getChatParentView();
+        pop.showAtLocation(parent, Gravity.NO_GRAVITY,0,0);
+        mPop = pop;
+    }
+
+    private void removeTestFrontView() {
+        if (mPop != null) {
+            mPop.dismiss();
+            mPop = null;
+        }
     }
 }

@@ -66,4 +66,5 @@
     <string name="hp_button_set_location">设置经纬度</string>
     <string name="hh_location_lng">116.431941</string>
     <string name="hh_location_lat">39.940199</string>
+    <string name="button_close">测试挂断</string>
 </resources>
