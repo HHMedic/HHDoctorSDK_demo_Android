@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 NIM(3.0.6.11191039)&TRTC(3.0.6.11161853)
+## 视频医生 Android SDK接入文档 NIM(3.0.6.12031620)&TRTC(3.0.6.12022116)
 <!--![demo](demo.gif)-->
 
 ## [查看版本更新说明](#六版本更新说明)
@@ -33,22 +33,17 @@
       * [2.6 呼叫成人医生](#26-呼叫成人医生)
       * [2.7 呼叫儿童医生](#27-呼叫儿童医生)
       * [2.8 使用特定用户token呼叫](#28-使用特定用户token呼叫)
-      * [2.9 医生回拨的时候接受（主要应用于音箱）](#29-医生回拨的时候接受主要应用于音箱)
-      * [2.10 医生回拨的时候拒绝（主要应用于音箱）](#210-医生回拨的时候拒绝主要应用于音箱)
-      * [2.11 挂断（主要用于智能音箱）](#211-挂断主要用于智能音箱)
-      * [2.12 获取用户登录状态](#212-获取用户登录状态)
-      * [2.13 设置视频回拨处理结果回调](#213-设置视频回拨处理结果回调)
-      * [2.14 获取病历列表地址](#214-获取病历列表地址)
-      * [2.15 获取病历详情地址](#215-获取病历详情地址)
-      * [2.16 获取所有成员病历列表地址(推荐使用)](#216-获取所有成员病历列表地址推荐使用)
-      * [2.17 陪诊](#217-陪诊)
-      * [2.18 进入消息界面](#218-进入消息界面)
-      * [2.19 设置呼叫附加参数](#219-设置呼叫附加参数)
+      * [2.9 获取用户登录状态](#29-获取用户登录状态)
+      * [2.10 获取病历列表地址](#210-获取病历列表地址)
+      * [2.11 获取病历详情地址](#211-获取病历详情地址)
+      * [2.12 获取所有成员病历列表地址(推荐使用)](#212-获取所有成员病历列表地址推荐使用)
+      * [2.13 陪诊](#213-陪诊)
+      * [2.14 进入消息界面](#214-进入消息界面)
+      * [2.15 设置呼叫附加参数](#215-设置呼叫附加参数)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
-      * [3.3 拒绝回调](#33-拒绝回调)
-      * [3.4 视频回拨处理结果回调](#34-视频回拨处理结果回调)
+      * [3.3 呼叫回调扩展（HHCallExListener）继承自HHCallListener](#33-呼叫回调扩展HHCallExListener继承自HHCallListener)
 * [三、常见问题](#三常见问题)
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
@@ -110,13 +105,13 @@ repositories {
 NIM版本引用方式
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:3.0.6.11191039'
+implementation 'com.hhmedic.android.sdk:hh:3.0.6.12031620'
 ```
 
 TRTC版本引用方式（这个版本只有接入方工程中使用到了网易云信sdk的时候使用）
 
 ```
-implementation "com.hhmedic.android.sdk:hh_trtc:3.0.6.11161853"
+implementation "com.hhmedic.android.sdk:hh_trtc:3.0.6.12022116"
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -333,27 +328,7 @@ HHSDKOptions options = new HHSDKOptions("sdkProductId");
 |enableMedical|是否开启个人中心的档案库显示|
 |enableActivate|是否开启个人中心激活码激活功能|
 
-##### 1.2 音箱接入快捷获取基本配置选项方式
-
-```java
-public static HHSDKOptions defaultSoundOption(String sdkProductId)
-```
-
-通过如下方式可以快速获取音箱接入配置
-
-```java
-HHSDKOptions.defaultSoundOption("sdkProductId")
-```
-
->其他特殊设置需要按照1.1中表格列出的参数就行设置，这种获取默认参数的方式只是获取的基本参数。
-
-<span style="color:red;">
-
-注意：音箱接入一般都是横屏模式，如果使用默认获取方法获取配置后不需要再单独配置屏幕方向；音箱默认配置默认关闭拍照功能；音箱默认配置已经指定了mDeviceType为音箱类型（DeviceType.SOUND）这个也无需修改。
-
-</span>
-
-##### 1.3 SDK初始化
+##### 1.2 SDK初始化
 
 >SDK初始化最好是放到自定义的Application中去初始化。
 
@@ -369,7 +344,7 @@ options.pushConfig = new HHPushConfig() //这里是需要实例化然后补充�
 HHDoctor.init(getApplicationContext(),options);
 ```
 
-##### 1.4 SDK使用到的主要权限说明
+##### 1.3 SDK使用到的主要权限说明
 
 | 权限 | 说明 |
 | --- | --- |
@@ -482,44 +457,7 @@ public static void callByToken(Context context, CallType type, String userToken,
 |String userToken|用户token，对接和缓服务获得|
 |HHCallListener listener|呼叫回调|
 
-
-
-##### 2.9 医生回拨的时候接受（主要应用于音箱）（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
-
-```java
-public static void onAccept(Context context,HHCallListener listener)
-```
-
-参数说明：
-
-| 参数定义 | 说明 |
-| --- | --- |
-|Context context|上下文，当前呼叫发起Activity|
-|HHCallListener listener|呼叫回调|
-
-##### 2.10 医生回拨的时候拒绝（主要应用于音箱）（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
-
-```java
-public static void onRefuse(Context context,String message,Refuse.OnCallback callback)
-```
-
-参数说明：
-
-| 参数定义 | 说明 |
-| --- | --- |
-|Context context|上下文，当前呼叫发起Activity|
-|String message|服务端推送的数据|
-|Refuse.OnCallback callback|呼叫回调|
-
-##### 2.11 挂断（主要用于智能音箱）（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
-
-```java
-public static void hangUp()
-```
-
->用于视频中挂断操作
-
-##### 2.12 获取用户登录状态
+##### 2.9 获取用户登录状态
 
 ```java
 public static boolean isLogined(Context context)
@@ -531,19 +469,7 @@ public static boolean isLogined(Context context)
 | --- | --- |
 |Context context|上下文，当前呼叫发起Activity|
 
-##### 2.13 设置视频回拨处理结果回调（*废弃方法，在版本3.0.0.09021723及以后版本删除*）
-
-```
-public static void setCallbackListener(HHCallbackListener listener)
-```
-
-参数说明：
-
-| 参数定义 | 说明 |
-| --- | --- |
-|HHCallbackListener listener|回调代理|
-
-##### 2.14 获取病历列表地址
+##### 2.10 获取病历列表地址
 ```
 public static String getMedicListUrl(Context context,String userToken)
 ```
@@ -555,7 +481,7 @@ public static String getMedicListUrl(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.15 获取病历详情地址
+##### 2.11 获取病历详情地址
 ```
 public static String getMedicDetailUrl(Context context,String userToken,String medicId)
 ```
@@ -568,7 +494,7 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
 
-##### 2.16 获取所有成员病历列表地址(*推荐使用*)
+##### 2.12 获取所有成员病历列表地址(*推荐使用*)
 
 ```
 public static String getAllMedics(Context context,String userToken)
@@ -581,7 +507,7 @@ public static String getAllMedics(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.17 陪诊
+##### 2.13 陪诊
 
 ```
 public static void multiCall(Context context, CallType type, HHInviteUser user)
@@ -604,7 +530,7 @@ inviteUser.setNickName(userName);
 inviteUser.setPhotoUrl(userPhoto);
 ```
 
-##### 2.18 进入消息界面
+##### 2.14 进入消息界面
 
 ```
 public static void message(Context context)
@@ -616,7 +542,7 @@ public static void message(Context context)
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
 
-##### 2.19 设置呼叫附加参数
+##### 2.15 设置呼叫附加参数
 
 > 注意这个方法需要在呼叫前进行设置才会生效
 
@@ -670,7 +596,7 @@ public interface HHCallListener
     void onCalling();
 
     /**
-     * 通话中
+     * 通话中（该回调方法在3.0.0*版本以后废弃请使用HHCallExListener中的onDoctorAgree回调方法替代）
      */
     void onInTheCall();
 
@@ -714,38 +640,25 @@ public interface HHCallListener
 }
 ```
 
-##### 3.3 拒绝回调
+##### 3.3 呼叫回调扩展（HHCallExListener）继承自HHCallListener
 
 ```java
-public interface OnCallback
-    {
-        /**
-         * 拒绝成功
-         */
-        void onSuccess();
+public interface HHCallExListener extends HHCallListener {
 
-        /**
-         * 拒绝出现问题
-         * @param 发生的错误
-         */
-        void onError(String tips);
-    }
-```
+    /**
+    * 返回呼叫医生信息
+    **/
+    void onLoadDoctor(HHCallInfo callInfo);
 
-##### 3.4 视频回拨处理结果回调
+    /**
+    * 医生接听进入通话
+    **/
+    void onDoctorAgree();
 
-```java
-public interface HHCallbackListener {
-
-    //拒绝接听
-    void onRefuse();
-
-    //接听
-    void onAccept();
-
+    
+    void onCallError(String error);
 }
 ```
-
 
 ### 三、常见问题
 
@@ -816,6 +729,7 @@ NIM版本更新说明
 
 |版本号|说明|
 |---|---|
+|3.0.6.12031620|1.优化混淆规则|
 |3.0.6.11191039|1.升级音视频SDK 2.优化一些功能|
 |3.0.4.10271705|1.升级音视频SDK<br/>2.新增enableMedical控制在个人中心是否开启档案库<br/>3.新增enableActivate控制在个人中心是否开启激活码激活功能|
 |3.0.4.09241109|1.新增呼叫附加数据设置方法HHDoctor.setExtension(ext)|
@@ -854,4 +768,5 @@ TRTC版本更新说明
 
 |版本号|说明|
 |---|---|
+|3.0.6.12022116|优化混淆规则|
 |3.0.6.11161853|新版TRTC首发|
