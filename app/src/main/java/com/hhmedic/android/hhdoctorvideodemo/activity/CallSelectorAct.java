@@ -129,7 +129,8 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 
             @Override
             public void onDoctorAgree() {
-                testFrontView();
+
+//                testFrontView();
             }
 
             @Override
