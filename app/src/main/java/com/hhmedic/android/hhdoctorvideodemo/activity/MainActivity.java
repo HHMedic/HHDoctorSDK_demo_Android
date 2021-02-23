@@ -53,12 +53,12 @@ public class MainActivity extends BaseActivity {
             switchReload();
         });
 
-//        SwitchCompat mEnableMultiCallSwitch = findViewById(R.id.enable_multi_call);
-//        mEnableMultiCallSwitch.setChecked(LocalConfig.getEnableMultiCall(this));
-//        mEnableMultiCallSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-//            LocalConfig.setEnableMultiCall(this, isChecked);
-//            switchReload();
-//        });
+        SwitchCompat mEnableMultiCallSwitch = findViewById(R.id.enable_multi_call);
+        mEnableMultiCallSwitch.setChecked(LocalConfig.getEnableMultiCall(this));
+        mEnableMultiCallSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableMultiCall(this, isChecked);
+            switchReload();
+        });
 
         SwitchCompat mEnableActivate = findViewById(R.id.enable_activate);
         mEnableActivate.setChecked(LocalConfig.getEnableActivate(this));

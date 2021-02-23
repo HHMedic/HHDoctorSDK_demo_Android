@@ -41,6 +41,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
     protected void initUI() {
         super.initUI();
         findViewById(R.id.is_in_develop).setVisibility(LocalConfig.isDevelop(this) ? View.VISIBLE : View.GONE);
+        findViewById(R.id.multi_video).setOnClickListener(this);
         findViewById(R.id.all_btn).setOnClickListener(this);
         findViewById(R.id.child_btn).setOnClickListener(this);
         findViewById(R.id.back_btn).setOnClickListener(this);
@@ -89,6 +90,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.call:
                 selectCall();
+                break;
+            case R.id.multi_video:
+                forwardMultiVideo();
                 break;
             default:
                 break;
@@ -237,6 +241,11 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
                 Log.i(TAG,"call onLineUp");
             }
         });
+    }
+
+    private void forwardMultiVideo() {
+        Intent intent = new Intent(this, MultiVideoAct.class);
+        startActivity(intent);
     }
 
     /**

@@ -60,6 +60,14 @@
                 android:orientation="vertical">
 
                 <Button
+                    android:id="@+id/multi_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:text="@string/hp_multi_video" />
+
+                <Button
                     android:id="@+id/child_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

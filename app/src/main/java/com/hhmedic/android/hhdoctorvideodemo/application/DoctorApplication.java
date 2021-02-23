@@ -41,6 +41,7 @@ public class DoctorApplication extends Application {
         options.isDebug = true;
         options.dev = LocalConfig.isDevelop(this);
         options.enableAddMember = LocalConfig.getEnableAddMember(this);
+        options.enableMultiCall = LocalConfig.getEnableMultiCall(this);
         options.messageTitle = LocalConfig.getMessageTitle(this);
         options.enableMedical = LocalConfig.getEnableMedical(this);
         options.enableActivate = LocalConfig.getEnableActivate(this);
@@ -53,9 +54,9 @@ public class DoctorApplication extends Application {
         messageOptions.isFilterMedicinal = LocalConfig.getEnableMedicalCard(this);
         options.messageOptions = messageOptions;
 
-        VideoSetting.setEnableGSENSORMode(false);
+//        VideoSetting.setEnableGSENSORMode(false);
 
-        VideoSetting.setRemoteRotation(TRTCCloudDef.TRTC_VIDEO_ROTATION_90);
+//        VideoSetting.setRemoteRotation(TRTCCloudDef.TRTC_VIDEO_ROTATION_90);
 
         HHDoctor.init(getApplicationContext(), options);
     }

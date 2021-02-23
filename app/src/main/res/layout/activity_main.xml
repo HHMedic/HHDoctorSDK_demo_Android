@@ -87,6 +87,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_set_message_title" />
 
+
         <Button
             android:id="@+id/button_set_ext_message"
             android:layout_width="wrap_content"
@@ -99,12 +100,24 @@
 
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/enable_multi_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:checked="true"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/hp_switch_enable_multi_call"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_set_ext_message" />
+
+        <androidx.appcompat.widget.SwitchCompat
             style="@style/config_switch"
             android:id="@+id/can_add_member"
             android:checked="true"
             android:text="@string/hp_switch_can_add_member"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_set_ext_message" />
+            app:layout_constraintTop_toBottomOf="@id/enable_multi_call" />
 
         <androidx.appcompat.widget.SwitchCompat
             style="@style/config_switch"
