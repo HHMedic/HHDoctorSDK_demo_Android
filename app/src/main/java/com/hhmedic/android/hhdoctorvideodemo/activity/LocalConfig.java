@@ -18,7 +18,7 @@ public class LocalConfig {
 
     private static final String MESSAGE_TITLE = "message_title";
 
-    static final String DefaultUserToken = "8DC2FD1D49451309DF7123716BFF20843F0D04F68EA2608F6783B874E4F50EEF";
+    static final String DefaultUserToken = "ADA30C693C69A30E652F4FEE4F1C8025BB7A1F1299CAF508460D59212594CED3";//"8DC2FD1D49451309DF7123716BFF20843F0D04F68EA2608F6783B874E4F50EEF";
     static final String DefaultCallOrderId = "1559198060885";
     static final String DefaultMedicineOrderId = "Y2019053014434215200";
 

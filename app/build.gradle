@@ -11,7 +11,7 @@ static def buildTime() {
     return df.format(new Date())
 }
 
-def doctor_sdk_version = "3.0.6.12031620"
+def doctor_sdk_version = "3.0.8.01181815"
 
 android {
     compileSdkVersion 28
@@ -20,7 +20,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode increasedVersionCode()
-        versionName "3.0.6.${buildTime()}"
+        versionName "3.0.8.${buildTime()}"
 
         ndk {
             //设置支持的SO库架构
@@ -77,6 +77,7 @@ dependencies {
     implementation 'com.yanzhenjie:permission:2.0.3'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation "com.hhmedic.android.sdk:hh:$doctor_sdk_version"
+//    implementation "com.hhmedic.android.sdk:hh_dev:3.0.8.01181709"
 //    implementation "com.hhmedic.android.sdk:medicine:$sdk_version" //已弃用
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
