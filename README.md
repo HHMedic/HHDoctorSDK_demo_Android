@@ -1,5 +1,8 @@
-## 视频医生 Android SDK接入文档 NIM(3.0.6.12031620)&TRTC(3.0.6.12022116)
+## 视频医生 Android SDK接入文档 NIM(3.0.8.01181815)&TRTC(3.0.8.01061149)
 <!--![demo](demo.gif)-->
+
+[接入过程遇到的问题及解决方案的汇总参考](QA.md)
+[TRTC版本SDK接入遇到的图像方向问题及解决方案](TRTC_Rotation.md)
 
 ## [查看版本更新说明](#六版本更新说明)
 
@@ -105,13 +108,13 @@ repositories {
 NIM版本引用方式
 
 ```
-implementation 'com.hhmedic.android.sdk:hh:3.0.6.12031620'
+implementation 'com.hhmedic.android.sdk:hh:3.0.8.01181815'
 ```
 
 TRTC版本引用方式（这个版本只有接入方工程中使用到了网易云信sdk的时候使用）
 
 ```
-implementation "com.hhmedic.android.sdk:hh_trtc:3.0.6.12022116"
+implementation "com.hhmedic.android.sdk:hh_trtc:3.0.8.01061149"
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -729,6 +732,7 @@ NIM版本更新说明
 
 |版本号|说明|
 |---|---|
+|3.0.8.01181815|音视频优化|
 |3.0.6.12031620|1.优化混淆规则|
 |3.0.6.11191039|1.升级音视频SDK 2.优化一些功能|
 |3.0.4.10271705|1.升级音视频SDK<br/>2.新增enableMedical控制在个人中心是否开启档案库<br/>3.新增enableActivate控制在个人中心是否开启激活码激活功能|
@@ -768,5 +772,6 @@ TRTC版本更新说明
 
 |版本号|说明|
 |---|---|
+|3.0.8.01061149|音视频优化|
 |3.0.6.12022116|优化混淆规则|
 |3.0.6.11161853|新版TRTC首发|
