@@ -18,7 +18,7 @@ repositories {
 
 在app moudule的build.gradle文件中引用和缓视频医生SDK，如下：
 
-implementation 'com.hhmedic.android.sdk:hh:3.0.8.01181815'
+implementation 'com.hhmedic.android.sdk:hh_trtc:3.0.8.01061149'
 ```
 
 ### 二、 初始化SDK
