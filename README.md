@@ -59,4 +59,8 @@ HHDoctor.message(this); //this指的是上下文Context
 
 ### 五、Demo及详细文档
 
+Demo
+https://github.com/HHMedic/HHDoctorSDK_demo_Android/tree/trtc
+
+详细接入文档
 https://github.com/HHMedic/HHDoctorSDK_demo_Android/blob/trtc/Document.md
