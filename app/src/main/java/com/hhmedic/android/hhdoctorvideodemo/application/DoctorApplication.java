@@ -10,6 +10,7 @@ import com.hhmedic.android.hhdoctorvideodemo.activity.HHSDKConfig;
 import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.VideoSetting;
+import com.hhmedic.android.sdk.config.HHConfig;
 import com.hhmedic.android.sdk.config.HHSDKOptions;
 import com.hhmedic.android.sdk.config.MessageOptions;
 import com.tencent.bugly.Bugly;
@@ -47,11 +48,16 @@ public class DoctorApplication extends Application {
         options.enableActivate = LocalConfig.getEnableActivate(this);
         options.enableVipInfo = LocalConfig.getEnableVipInfo(this);
         options.enableAddMemberInDoc = LocalConfig.getEnableAddMemberInDoc(this);
+
+        options.enableCloseCamera = LocalConfig.getHideCameraControl(this);
+        options.isCloseCameraCall = LocalConfig.getCloseCameraCall(this);
+
 //        options.localRenderRotation = TRTCCloudDef.TRTC_VIDEO_ROTATION_90;
         MessageOptions messageOptions = new MessageOptions();
         messageOptions.hideUserCenter = LocalConfig.getEnableUserCenter(this);
         messageOptions.isFilterSummary = LocalConfig.getEnableSummaryCard(this);
         messageOptions.isFilterMedicinal = LocalConfig.getEnableMedicalCard(this);
+        messageOptions.enableBuyService = LocalConfig.getEnableCanBuy(this);
         options.messageOptions = messageOptions;
 
 //        VideoSetting.setEnableGSENSORMode(false);

@@ -13,16 +13,16 @@ static def buildTime() {
 
 def doctor_sdk_name = "hh_trtc"
 
-def doctor_sdk_version = "3.0.8.01061149"
+def doctor_sdk_version = "3.1.2.04011456"//"3.0.8.01061149"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.hhmedic.app.patient.trtc.demo.new"
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode increasedVersionCode()
-        versionName "3.0.6.${buildTime()}"
+        versionName "3.1.2.${buildTime()}"
         multiDexEnabled true
         ndk {
             //设置支持的SO库架构

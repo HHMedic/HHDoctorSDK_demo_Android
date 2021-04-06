@@ -23,9 +23,15 @@ public class LocalConfig {
 
     private static final String ENABLE_ADD_MEMBER_IN_DOC  = "can_add_member_in_doc";
 
+    private static final String ENABLE_CAN_BUY  = "can_buy";
+
+    private static final String HIDE_CAMERA_CONTROL = "hide_camera_control";
+
+    private static final String CLOSE_CAMERA_CALL = "close_camera_call";
+
     private static final String MESSAGE_TITLE = "message_title";
 
-    static final String DefaultUserToken = "8DC2FD1D49451309DF7123716BFF20843F0D04F68EA2608F6783B874E4F50EEF";
+    static final String DefaultUserToken = "69831AA2CD985438D1DB957A1D079FB13F0D04F68EA2608F6783B874E4F50EEF";
     static final String DefaultCallOrderId = "1559198060885";
     static final String DefaultMedicineOrderId = "Y2019053014434215200";
 
@@ -137,5 +143,32 @@ public class LocalConfig {
 
     public static Boolean getEnableAddMemberInDoc(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_ADD_MEMBER_IN_DOC, true);
+    }
+
+    public static void setEnableCanBuy(Context context,Boolean canShowVipInfo){
+
+        SharedPreferenceUtils.setValue(context, ENABLE_CAN_BUY,canShowVipInfo);
+    }
+
+    public static Boolean getEnableCanBuy(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, ENABLE_CAN_BUY, true);
+    }
+
+    public static void setHideCameraControl(Context context,Boolean canShowVipInfo){
+
+        SharedPreferenceUtils.setValue(context, HIDE_CAMERA_CONTROL,canShowVipInfo);
+    }
+
+    public static Boolean getHideCameraControl(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, HIDE_CAMERA_CONTROL, false);
+    }
+
+    public static void setCloseCameraCall(Context context,Boolean canShowVipInfo){
+
+        SharedPreferenceUtils.setValue(context, CLOSE_CAMERA_CALL,canShowVipInfo);
+    }
+
+    public static Boolean getCloseCameraCall(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, CLOSE_CAMERA_CALL, false);
     }
 }

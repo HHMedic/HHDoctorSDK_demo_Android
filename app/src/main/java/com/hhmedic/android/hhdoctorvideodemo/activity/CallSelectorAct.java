@@ -16,16 +16,18 @@ import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.Location;
 import com.hhmedic.android.sdk.listener.HHCallExListener;
 import com.hhmedic.android.sdk.listener.HHCallListener;
-import com.hhmedic.android.sdk.listener.HangUpListener;
 import com.hhmedic.android.sdk.model.HHCallInfo;
 import com.hhmedic.android.sdk.module.video.hangup.HangUp;
 import com.orhanobut.logger.Logger;
+
+import java.util.Timer;
 
 public class CallSelectorAct extends BaseActivity implements View.OnClickListener{
 
     private boolean noticeTTS;
     private EditText mOrderIdEdit;
     private ChatFrontPop mPop;
+    private Timer mTimer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -13,6 +13,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
+import com.hhmedic.android.sdk.module.call.CallNotify;
 import com.orhanobut.logger.Logger;
 
 public class MainActivity extends BaseActivity {
@@ -109,6 +110,27 @@ public class MainActivity extends BaseActivity {
         mEnableAddMemberInDoc.setChecked(LocalConfig.getEnableAddMemberInDoc(this));
         mEnableAddMemberInDoc.setOnCheckedChangeListener((buttonView, isChecked) -> {
             LocalConfig.setEnableAddMemberInDoc(this, isChecked);
+            switchReload();
+        });
+
+        SwitchCompat mEnableCanBuy = findViewById(R.id.can_buy);
+        mEnableCanBuy.setChecked(LocalConfig.getEnableCanBuy(this));
+        mEnableCanBuy.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setEnableCanBuy(this, isChecked);
+            switchReload();
+        });
+
+        SwitchCompat mHideCameraControl = findViewById(R.id.hide_camera_control);
+        mHideCameraControl.setChecked(LocalConfig.getHideCameraControl(this));
+        mHideCameraControl.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setHideCameraControl(this, isChecked);
+            switchReload();
+        });
+
+        SwitchCompat mCloseCameraCall = findViewById(R.id.close_camera_call);
+        mCloseCameraCall.setChecked(LocalConfig.getCloseCameraCall(this));
+        mCloseCameraCall.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setCloseCameraCall(this, isChecked);
             switchReload();
         });
 

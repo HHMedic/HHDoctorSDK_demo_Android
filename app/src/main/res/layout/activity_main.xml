@@ -185,6 +185,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/enable_vip_info" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
+            android:id="@+id/can_buy"
+            android:checked="true"
+            android:text="@string/hp_switch_can_buy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/can_add_member_in_doc" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
+            android:id="@+id/hide_camera_control"
+            android:checked="true"
+            android:text="@string/hp_switch_hide_camera_control"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/can_buy" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            style="@style/config_switch"
+            android:id="@+id/close_camera_call"
+            android:checked="true"
+            android:text="@string/hp_switch_close_camera_call"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hide_camera_control" />
+
         <EditText
             android:id="@+id/userToken"
             android:layout_width="0dp"
@@ -198,7 +222,7 @@
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/can_add_member_in_doc" />
+            app:layout_constraintTop_toBottomOf="@id/close_camera_call" />
 
 
         <Button
