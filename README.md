@@ -64,3 +64,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_Android/tree/trtc
 
 详细接入文档
 https://github.com/HHMedic/HHDoctorSDK_demo_Android/blob/trtc/Document.md
+
+TRTC版本接入图像旋转问题及解决方案整理
+https://github.com/HHMedic/HHDoctorSDK_demo_Android/blob/trtc/Rotation.md
+
