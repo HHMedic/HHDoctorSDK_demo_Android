@@ -11,16 +11,16 @@ static def buildTime() {
     return df.format(new Date())
 }
 
-def doctor_sdk_version = "2.6.4.09081027"
+def doctor_sdk_version = "2.9.0.05111021"
 
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.hhmedic.app.patient.trtc.demo"
+        applicationId "com.hhmedic.app.patient.trtc.hengtian"
         minSdkVersion 17
         targetSdkVersion 27
         versionCode increasedVersionCode()
-        versionName "2.6.4.${buildTime()}"
+        versionName "2.9.0.${buildTime()}"
 
         ndk {
             //设置支持的SO库架构
@@ -64,7 +64,7 @@ android {
         variant.outputs.all
                 {
 
-                    outputFileName = "hh_android_trtc_demo_${defaultConfig.versionName}.apk"
+                    outputFileName = "hh_android_trtc_hengtian_${defaultConfig.versionName}.apk"
 
                 }
     }
@@ -76,7 +76,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.13'
     implementation 'com.yanzhenjie:permission:2.0.0-rc1'
-    implementation "com.hhmedic.android.sdk:hh_vdoctor_dev:$doctor_sdk_version"
+    implementation "com.hhmedic.android.sdk:hh_vdoctor_hengtian:$doctor_sdk_version"
 //    implementation "com.hhmedic.android.sdk:medicine:$sdk_version"
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
