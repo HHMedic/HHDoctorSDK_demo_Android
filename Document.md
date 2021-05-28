@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 NIM(3.0.8.01181815)&TRTC(3.1.2.04011456)
+## 视频医生 Android SDK接入文档 (3.1.2.04011456)
 <!--![demo](demo.gif)-->
 
 [接入过程遇到的问题及解决方案的汇总参考](QA.md)
@@ -15,7 +15,6 @@
       * [2.2 在build.gradle文件中dependencies中配置库的引用](#22-在buildgradle文件中dependencies中配置库的引用)
       * [2.3 配置NDK架构选择，必须进行对应配置](#23-配置ndk架构选择必须进行对应配置)
       * [2.4 java8支持的配置，必须配置](#24-java8支持的配置必须配置)
-      * [2.5 packageingOptions配置，必须配置](#25-packageingoptions配置必须配置)
     * [3. 推送相关配置](#3-推送相关配置)
         * [3.1 申请华为和小米的推送](#31-申请华为和小米的推送)
         * [3.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：](#32-另外我们需要在配置文件androidmanifestxml文件配置push相关配置如下)
@@ -33,16 +32,14 @@
       * [2.3 登出](#23-登出)
       * [2.4 选择成员呼叫（推荐使用）](#24-选择成员呼叫（推荐使用）)
       * [2.5 选定成员呼叫](#25-选定成员呼叫)
-      * [2.6 呼叫成人医生](#26-呼叫成人医生)
-      * [2.7 呼叫儿童医生](#27-呼叫儿童医生)
-      * [2.8 使用特定用户token呼叫](#28-使用特定用户token呼叫)
-      * [2.9 获取用户登录状态](#29-获取用户登录状态)
-      * [2.10 获取病历列表地址](#210-获取病历列表地址)
-      * [2.11 获取病历详情地址](#211-获取病历详情地址)
-      * [2.12 获取所有成员病历列表地址(推荐使用)](#212-获取所有成员病历列表地址推荐使用)
-      * [2.13 陪诊](#213-陪诊)
-      * [2.14 进入消息界面](#214-进入消息界面)
-      * [2.15 设置呼叫附加参数](#215-设置呼叫附加参数)
+      * [2.6 使用特定用户token呼叫](#26-使用特定用户token呼叫)
+      * [2.7 获取用户登录状态](#27-获取用户登录状态)
+      * [2.8 获取病历列表地址](#28-获取病历列表地址)
+      * [2.9 获取病历详情地址](#29-获取病历详情地址)
+      * [2.10 获取所有成员病历列表地址(推荐使用)](#210-获取所有成员病历列表地址推荐使用)
+      * [2.11 陪诊](#211-陪诊)
+      * [2.12 进入消息界面](#212-进入消息界面)
+      * [2.13 设置呼叫附加参数](#213-设置呼叫附加参数)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
@@ -65,17 +62,6 @@
 Android Studio 3.x.x版本以上版本
 
 ##### 1.2 建议接入SDK版本以及最低支持设备系统版本
-
- <span style="color:red;">*3.0.0.09021723 版本以下版本支持说明*</span>
-
-|配置项|版本|
-|---|---|
-|compileSdkVersion| 27及以上|
-|minSdkVersion| 17及以上|
-|targetSdkVersion| 27及以上|
-|最低支持设备系统| >= 4.2 |
-
-<span style="color:red;">*3.0.0.09021723 版本以上版本支持说明*</span>
 
 |配置项|版本|
 |---|---|
@@ -105,14 +91,6 @@ repositories {
 
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
-NIM版本引用方式
-
-```
-implementation 'com.hhmedic.android.sdk:hh:3.0.8.01181815'
-```
-
-TRTC版本引用方式（这个版本只有接入方工程中使用到了网易云信sdk的时候使用）
-
 ```
 implementation "com.hhmedic.android.sdk:hh_trtc:3.1.2.04011456"
 ```
@@ -134,16 +112,6 @@ ndk {
 compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
-}
-```
-
-##### 2.5 packageingOptions配置，必须配置
-
-```
-packagingOptions {
-   pickFirst 'lib/armeabi-v7a/libsecsdk.so'
-   pickFirst 'lib/arm64-v8a/libsecsdk.so'
-   pickFirst 'lib/armeabi/libsecsdk.so'
 }
 ```
 
@@ -336,10 +304,9 @@ HHSDKOptions options = new HHSDKOptions("sdkProductId");
 >SDK初始化最好是放到自定义的Application中去初始化。
 
 ```java
-HHSDKOptions options = ...;//这里可以自行初始化，可以是音箱默认配置获取也可以直接初始化
+HHSDKOptions options = ...;
 options.isDebug = true;
-options.mDeviceType = DeviceType.NORMAL;//如果是使用音箱默认配置不需要配置这个
-options.mImei = "设备编号";
+options.mDeviceType = DeviceType.NORMAL;
 options.dev = true;
 options.isOpenCamera = false;
 options.mOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
@@ -383,7 +350,7 @@ public static void login(Context context,String userToken,HHLoginListener listen
 ##### 2.3 登出
 
 ```java
-public static void loginOut(Context context)
+public static void logOut(Context context)
 ```
 
 参数说明：
@@ -419,33 +386,7 @@ public static void call(Context context,  String userToken,HHCallListener listen
 |userToken|咨询人的userToken|
 |HHCallListener listener|呼叫回调|
 
-##### ~~2.6 呼叫成人医生~~（*废弃方法，在版本3.0.0.09021723及以后版本有可能删除*）
-
-```java
-public static void callForAdult(Context context,HHCallListener listener)
-```
-
-参数说明：
-
-| 参数定义 | 说明 |
-| --- | --- |
-|Context context|上下文，当前呼叫发起Activity|
-|HHCallListener listener|呼叫回调|
-
-##### ~~2.7 呼叫儿童医生~~（*废弃方法，在版本3.0.0.09021723及以后版本有可能删除*）
-
-```java
-public static void callForChild(Context context,HHCallListener listener)
-```
-
-参数说明：
-
-| 参数定义 | 说明 |
-| --- | --- |
-|Context context|上下文，当前呼叫发起Activity|
-|HHCallListener listener|呼叫回调|
-
-##### 2.8 使用特定用户token呼叫
+##### 2.6 使用特定用户token呼叫
 
 ```java
 public static void callByToken(Context context, CallType type, String userToken,HHCallListener listener)
@@ -460,7 +401,7 @@ public static void callByToken(Context context, CallType type, String userToken,
 |String userToken|用户token，对接和缓服务获得|
 |HHCallListener listener|呼叫回调|
 
-##### 2.9 获取用户登录状态
+##### 2.7 获取用户登录状态
 
 ```java
 public static boolean isLogined(Context context)
@@ -472,7 +413,7 @@ public static boolean isLogined(Context context)
 | --- | --- |
 |Context context|上下文，当前呼叫发起Activity|
 
-##### 2.10 获取病历列表地址
+##### 2.8 获取病历列表地址
 ```
 public static String getMedicListUrl(Context context,String userToken)
 ```
@@ -484,7 +425,7 @@ public static String getMedicListUrl(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.11 获取病历详情地址
+##### 2.9 获取病历详情地址
 ```
 public static String getMedicDetailUrl(Context context,String userToken,String medicId)
 ```
@@ -497,7 +438,7 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
 
-##### 2.12 获取所有成员病历列表地址(*推荐使用*)
+##### 2.10 获取所有成员病历列表地址(*推荐使用*)
 
 ```
 public static String getAllMedics(Context context,String userToken)
@@ -510,7 +451,7 @@ public static String getAllMedics(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.13 陪诊
+##### 2.11 陪诊
 
 ```
 public static void multiCall(Context context, CallType type, HHInviteUser user)
@@ -533,7 +474,7 @@ inviteUser.setNickName(userName);
 inviteUser.setPhotoUrl(userPhoto);
 ```
 
-##### 2.14 进入消息界面
+##### 2.12 进入消息界面
 
 ```
 public static void message(Context context)
@@ -545,7 +486,7 @@ public static void message(Context context)
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
 
-##### 2.15 设置呼叫附加参数
+##### 2.13 设置呼叫附加参数
 
 > 注意这个方法需要在呼叫前进行设置才会生效
 
@@ -722,53 +663,11 @@ configurations.all {
 
 ### 五、Demo下载地址
 
-NIM版本（原） https://github.com/HHMedic/HHDoctorSDK_demo_Android
-<br/>
-TRTC版本   https://github.com/HHMedic/HHDoctorSDK_demo_Android/tree/trtc
+https://github.com/HHMedic/HHDoctorSDK_demo_Android/tree/trtc
 
 ### 六、版本更新说明
 
-NIM版本更新说明
-
-|版本号|说明|
-|---|---|
-|3.0.8.01181815|音视频优化|
-|3.0.6.12031620|1.优化混淆规则|
-|3.0.6.11191039|1.升级音视频SDK 2.优化一些功能|
-|3.0.4.10271705|1.升级音视频SDK<br/>2.新增enableMedical控制在个人中心是否开启档案库<br/>3.新增enableActivate控制在个人中心是否开启激活码激活功能|
-|3.0.4.09241109|1.新增呼叫附加数据设置方法HHDoctor.setExtension(ext)|
-|3.0.4.09231213|1.多人视频部分功能优化|
-|3.0.2.09221130|1.解决SDK包含默认图标冲突的问题 <br/>2.修复一些问题|
-|3.0.2.09091823|1.升级音视频库 <br/> 2.修复一些bug <br/> 3.HHSDKOptions新增messageTitle配置，用来配置message界面的title|
-|3.0.0.09041452|1.HHSDKOptions新增enableHighQualityMusic配置，该配置解决了在一些设备视频过程设备没有声音的问题|
-|3.0.0.09021723|1.升级音视频库 <br/>2.新增选择成员呼叫 HHDoctor.call(Context,HHCallListener) <br/>3.新增消息界面，可展示病历药卡 HHDoctor.message(Context)|
-|2.7.0.08201501|1.升级音视频库 <br/>2.新增选择成员呼叫 <br/>3.解决呼叫后未接通挂断时候的404错误|
-|2.6.0.07091437|1.升级音视频库 <br/>2. 新增陪诊功能|
-|2.5.8.05071050|1.升级音视频库 <br/>2.修复一些其他问题|
-|2.5.6.03181842|1. 优化内部逻辑 2.适配Android Q(主要是应用最新Matisse库)，但非AndroidX版本|
-|2.5.4.03011601|1. 优化内部逻辑   2.FileProvider的自定义使用，不再产生FileProvider的定义引起的冲突|
-|2.4.4.123110|新增呼叫指定用户的方法，如果没有特殊逻辑不使用这个方法，推荐使用原来呼叫方法|
-|2.4.4.120214|优化音频|
-|2.2.8.112818|优化了在一些智能设备音频发送|
-|2.2.6|支持64位|
-|2.2.4|1.fix bugs 2.优化视频流畅度|
-|2.1.0|1.fix bugs 2.废弃uuid登录接口 3.新增使用userToken登录接口|
-|2.0.6.8.042215|1.fix bugs 2.新增查看所有成员病历接口getAllMedics|
-|2.0.6.6|1.HHCallListener中onStart接口添加orderId回传 2.api "com.netease.nimlib:push:6.1.0"配置去除，转移到sdk中管理|
-|2.0.6.4|视频优化|
-|2.0.6.3|新增获取病历列表以及病历详情的地址的接口，可以通过WebView通过获取到url进行病历的展示，本版本还去除了volley库的引用以及去除阿里的utdid的引用，如果之前有因为冲突重新使用不带utdid的AlipaySDK的可以重新使用带带utidid的AlipaySDK|
-|2.0.4|utdid回退添加，如果遇到冲突请按说明解决|
-|2.0.3|fix bugs|
-|2.0.1|1、添加获取用户登录状态接口HHDoctor.isLogined 2、添加设置回拨处理状态处理回调设置 HHDoctor.setCallbackListener|
-|2.0.0|HHSDKOptions添加默认摄像头选择配置videoDefaultFrontCamera，默认开启前置摄像头，特殊情况摄像头在设备上相反的情况下可以取反|
-|0.1.071815| 更新配置可以去除maven { url "https://jitpack.io" }这个配置|
-|0.1.071810| 1、新增评价功能 2、fix bugs|
-|0.1.070915| 1、版本号切换尾号为时间 2、添加铃声可控配置 3、fix bugs|
-|0.0.2| fix 直接呼叫crashbug|
-|0.0.1| 发出初版|
-
-<br/>
-TRTC版本更新说明
+版本更新说明
 
 |版本号|说明|
 |---|---|
