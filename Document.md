@@ -15,11 +15,7 @@
       * [2.2 在build.gradle文件中dependencies中配置库的引用](#22-在buildgradle文件中dependencies中配置库的引用)
       * [2.3 配置NDK架构选择，必须进行对应配置](#23-配置ndk架构选择必须进行对应配置)
       * [2.4 java8支持的配置，必须配置](#24-java8支持的配置必须配置)
-    * [3. 推送相关配置](#3-推送相关配置)
-        * [3.1 申请华为和小米的推送](#31-申请华为和小米的推送)
-        * [3.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：](#32-另外我们需要在配置文件androidmanifestxml文件配置push相关配置如下)
-        * [3.3 我们提供push相关jar包](#33-我们提供push相关jar包)
-    * [4. 我们用到的常用第三方库以及库的版本](#4-我们用到的常用第三方库以及库的版本)
+    * [3. 我们用到的常用第三方库以及库的版本](#3-我们用到的常用第三方库以及库的版本)
 * [二、SDK接入引用说明](#二sdk接入引用说明)
    * [1. SDK初始化](#1-sdk初始化)
       * [1.1 SDK配置选项 HHSDKOptions](#11-sdk配置选项-hhsdkoptions)
@@ -32,14 +28,13 @@
       * [2.3 登出](#23-登出)
       * [2.4 选择成员呼叫（推荐使用）](#24-选择成员呼叫推荐使用)
       * [2.5 选定成员呼叫](#25-选定成员呼叫)
-      * [2.6 使用特定用户token呼叫](#26-使用特定用户token呼叫)
-      * [2.7 获取用户登录状态](#27-获取用户登录状态)
-      * [2.8 获取病历列表地址](#28-获取病历列表地址)
-      * [2.9 获取病历详情地址](#29-获取病历详情地址)
-      * [2.10 获取所有成员病历列表地址(推荐使用)](#210-获取所有成员病历列表地址推荐使用)
-      * [2.11 陪诊](#211-陪诊)
-      * [2.12 进入消息界面](#212-进入消息界面)
-      * [2.13 设置呼叫附加参数](#213-设置呼叫附加参数)
+      * [2.6 获取用户登录状态](#26-获取用户登录状态)
+      * [2.7 获取病历列表地址](#27-获取病历列表地址)
+      * [2.8 获取病历详情地址](#28-获取病历详情地址)
+      * [2.9 获取所有成员病历列表地址(推荐使用)](#29-获取所有成员病历列表地址推荐使用)
+      * [2.10 陪诊](#210-陪诊)
+      * [2.11 进入消息界面](#211-进入消息界面)
+      * [2.12 设置呼叫附加参数](#212-设置呼叫附加参数)
    * [3. 回调说明](#3-回调说明)
       * [3.1 登录回调（HHLoginListener）](#31-登录回调hhloginlistener)
       * [3.2 呼叫回调（HHCallListener）](#32-呼叫回调hhcalllistener)
@@ -48,6 +43,10 @@
    * [1. AndroidManifest合并冲突问题](#1-androidmanifest合并冲突问题)
    * [2. error:style attribute '@android:attr/windowEnterAnimation' not found](#2-errorstyle-attribute-androidattrwindowenteranimation-not-found)
    * [3. 如果遇到库冲突也就是duplicate某个包这说明库冲突了，这种问题可以用如下方法解决](#3-如果遇到库冲突也就是duplicate某个包这说明库冲突了这种问题可以用如下方法解决)
+   * [4. 推送相关配置](#4-推送相关配置)
+      * [4.1 申请华为和小米的推送](#41-申请华为和小米的推送)
+      * [4.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：](#42-另外我们需要在配置文件androidmanifestxml文件配置push相关配置如下)
+      * [4.3 我们提供push相关jar包](#43-我们提供push相关jar包)
 * [四、错误码整理](#四错误码整理)
 * [五、Demo下载地址](#五demo下载地址)
 * [六、版本更新说明](#六版本更新说明)
@@ -115,152 +114,6 @@ compileOptions {
 }
 ```
 
-#### 3. 推送相关配置
-
-> 如果需要使用SDK的push功能，需要进行相应文件和配置的添加，主要是小米和华为推送SDK包添加，以及推送参数的申请，小米
-推送需要接入方提供AppSecret和包名给我们，华为需要接入方提供AppID和AppSecret以及包名给我们，我们使用这些参数去生成对应SDK中需要配置的参数。
-
-##### 3.1 申请华为和小米的推送
-
-- 需要将小米的AppSecret提供
-- 需要将华为的AppId和AppSecret提供
-
-    > 我们使用这些以上提供的数据来生成我们需要的参数,注意如下两个参数均需视频医生提供方来生成。另外需要提供唤醒的时候应该跳到哪个界面的配置，通知的图标配置，小米推送的AppId和小米推送的AppKey。如下：
-    
-    ```java
-    public class HHPushConfig {
-    
-        /**
-         * 通知栏提醒的响应intent的activity类型。<br>
-         * 可以为null。如果未提供，将使用包的launcher的入口intent的activity。
-         */
-        public Class<? extends Activity> notificationEntrance;
-    
-        /**
-         * 状态栏提醒的小图标的资源ID。<br>
-         * 如果不提供，使用app的icon
-         */
-        public int notificationSmallIconId;
-    
-    
-        /**
-         * 小米推送 appId
-         */
-        public String xmAppId;
-    
-        /**
-         * 小米推送 appKey
-         */
-        public String xmAppKey;
-    
-        public String xmCertificateName; //这个参数是由小米提供的参数生成
-        
-        public String hwCertificateName; //这个是由华为提供的参数生成
-        
-        public String vivoCertificateName; //这个是由vivo提供的参数生成
-    }
-
-    ```
-    
-    ##### 3.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：
-    
-    ```xml
-    //小米push相关
-    
-    <!-- 小米push permission -->
-
-        <permission android:name="{这里需要替换成你的包名}.permission.MIPUSH_RECEIVE"
-        android:protectionLevel="signature" />
-        <uses-permission android:name="{这里需要替换成你的包名}.permission.MIPUSH_RECEIVE" />
-
-    <!-- end-->
-    
-    <!-- 小米 推送-->
-
-        <!-- 小米推送配置 -->
-        <!--配置的service和receiver-->
-        <service
-            android:name="com.xiaomi.push.service.XMPushService"
-            android:process=":mixpush"
-            android:enabled="true"
-            />
-        <service
-            android:name="com.xiaomi.push.service.XMJobService"
-            android:enabled="true"
-            android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            android:process=":mixpush" />
-        <!--注：此service必须在3.0.1版本以后（包括3.0.1版本）加入-->
-        <service
-            android:enabled="true"
-            android:exported="true"
-            android:name="com.xiaomi.mipush.sdk.PushMessageHandler" />
-
-        <service android:enabled="true"
-            android:name="com.xiaomi.mipush.sdk.MessageHandleService" />
-        <!--注：此service必须在2.2.5版本以后（包括2.2.5版本）加入-->
-        <receiver
-            android:exported="true"
-            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver" >
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:exported="false"
-            android:process=":mixpush"
-            android:name="com.xiaomi.push.service.receivers.PingReceiver" >
-            <intent-filter>
-                <action android:name="com.xiaomi.push.PING_TIMER" />
-            </intent-filter>
-        </receiver>
-
-
-
-        <receiver
-            android:name="com.netease.nimlib.mixpush.mi.MiPushReceiver"
-            android:exported="true">
-            <intent-filter android:priority="0x7fffffff">
-                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
-                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
-                <action android:name="com.xiaomi.mipush.ERROR"/>
-            </intent-filter>
-        </receiver>
-
-        <!-- 小米 end -->
-    
-    
-    
-    
-    //华为push相关
-        <meta-data
-            android:name="com.huawei.hms.client.appid"
-            android:value="华为的AppID" />
-        <provider
-            android:name="com.huawei.hms.update.provider.UpdateProvider"
-            android:authorities="{这里需要替换成自己的包名，不用带大括号}.hms.update.provider"
-            android:exported="false"
-            android:grantUriPermissions="true"/>
-
-    ```
-
-##### 3.3 我们提供push相关jar包
-
-> jar包由我们发送给接入方
-
-需要额外添加gradle引用
-
-```
-api 'com.huawei.android.hms:push:2.6.0.301'
-```
-
-如果使用华为的push需要添加混淆配置
-
-```
--keep class com.huawei.hms.**{*;}
-```
-
 #### 4. 我们用到的常用第三方库以及库的版本
 ```
 implementation 'com.google.code.gson:gson:2.8.6'
@@ -294,7 +147,6 @@ HHSDKOptions options = new HHSDKOptions("sdkProductId");
 |dev|是否开始测试服模式，开启后连接测试服|
 |isOpenCamera|视频过程中是否开启拍照|
 |mOrientation|屏幕方向 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT 或 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE|
-|mCoopId|渠道编号|
 |enablePush|是否开启push，默认为开启true，如果需要关闭设置为false|
 |enableMedical|是否开启个人中心的档案库显示|
 |enableActivate|是否开启个人中心激活码激活功能|
@@ -386,22 +238,7 @@ public static void call(Context context,  String userToken,HHCallListener listen
 |userToken|咨询人的userToken|
 |HHCallListener listener|呼叫回调|
 
-##### 2.6 使用特定用户token呼叫
-
-```java
-public static void callByToken(Context context, CallType type, String userToken,HHCallListener listener)
-```
-
-参数说明：
-
-| 参数定义 | 说明 |
-| --- | --- |
-|Context context|上下文，当前呼叫发起Activity|
-|CallType type|呼叫类型|
-|String userToken|用户token，对接和缓服务获得|
-|HHCallListener listener|呼叫回调|
-
-##### 2.7 获取用户登录状态
+##### 2.6 获取用户登录状态
 
 ```java
 public static boolean isLogined(Context context)
@@ -413,7 +250,7 @@ public static boolean isLogined(Context context)
 | --- | --- |
 |Context context|上下文，当前呼叫发起Activity|
 
-##### 2.8 获取病历列表地址
+##### 2.7 获取病历列表地址
 ```
 public static String getMedicListUrl(Context context,String userToken)
 ```
@@ -425,7 +262,7 @@ public static String getMedicListUrl(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.9 获取病历详情地址
+##### 2.8 获取病历详情地址
 ```
 public static String getMedicDetailUrl(Context context,String userToken,String medicId)
 ```
@@ -438,7 +275,7 @@ public static String getMedicDetailUrl(Context context,String userToken,String m
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 |String medicId |病历存档ID,这个存档ID由视频医生提供方同步到接入方的存档ID|
 
-##### 2.10 获取所有成员病历列表地址(*推荐使用*)
+##### 2.9 获取所有成员病历列表地址(*推荐使用*)
 
 ```
 public static String getAllMedics(Context context,String userToken)
@@ -451,7 +288,7 @@ public static String getAllMedics(Context context,String userToken)
 |Context context|当前上下文，一般为当前Activity|
 |String userToken|由视频医生提供方分配给第三方的用户安全标志，userToken为与视频医生提供方对接得到的用户安全标志|
 
-##### 2.11 陪诊
+##### 2.10 陪诊
 
 ```
 public static void multiCall(Context context, CallType type, HHInviteUser user)
@@ -474,7 +311,7 @@ inviteUser.setNickName(userName);
 inviteUser.setPhotoUrl(userPhoto);
 ```
 
-##### 2.12 进入消息界面
+##### 2.11 进入消息界面
 
 ```
 public static void message(Context context)
@@ -486,7 +323,7 @@ public static void message(Context context)
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
 
-##### 2.13 设置呼叫附加参数
+##### 2.12 设置呼叫附加参数
 
 > 注意这个方法需要在呼叫前进行设置才会生效
 
@@ -653,6 +490,154 @@ configurations.all {
     }
 }
 ```
+
+#### 4. 推送相关配置
+
+> 如果需要使用SDK的push功能，需要进行相应文件和配置的添加，主要是小米和华为推送SDK包添加，以及推送参数的申请，小米
+推送需要接入方提供AppSecret和包名给我们，华为需要接入方提供AppID和AppSecret以及包名给我们，我们使用这些参数去生成对应SDK中需要配置的参数。
+
+##### 4.1 申请华为和小米的推送
+
+- 需要将小米的AppSecret提供
+- 需要将华为的AppId和AppSecret提供
+
+    > 我们使用这些以上提供的数据来生成我们需要的参数,注意如下两个参数均需视频医生提供方来生成。另外需要提供唤醒的时候应该跳到哪个界面的配置，通知的图标配置，小米推送的AppId和小米推送的AppKey。如下：
+    
+    ```java
+    public class HHPushConfig {
+    
+        /**
+         * 通知栏提醒的响应intent的activity类型。<br>
+         * 可以为null。如果未提供，将使用包的launcher的入口intent的activity。
+         */
+        public Class<? extends Activity> notificationEntrance;
+    
+        /**
+         * 状态栏提醒的小图标的资源ID。<br>
+         * 如果不提供，使用app的icon
+         */
+        public int notificationSmallIconId;
+    
+    
+        /**
+         * 小米推送 appId
+         */
+        public String xmAppId;
+    
+        /**
+         * 小米推送 appKey
+         */
+        public String xmAppKey;
+    
+        public String xmCertificateName; //这个参数是由小米提供的参数生成
+        
+        public String hwCertificateName; //这个是由华为提供的参数生成
+        
+        public String vivoCertificateName; //这个是由vivo提供的参数生成
+    }
+
+    ```
+    
+    ##### 4.2 另外我们需要在配置文件AndroidManifest.xml文件配置push相关配置，如下：
+    
+    ```xml
+    //小米push相关
+    
+    <!-- 小米push permission -->
+
+        <permission android:name="{这里需要替换成你的包名}.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+        <uses-permission android:name="{这里需要替换成你的包名}.permission.MIPUSH_RECEIVE" />
+
+    <!-- end-->
+    
+    <!-- 小米 推送-->
+
+        <!-- 小米推送配置 -->
+        <!--配置的service和receiver-->
+        <service
+            android:name="com.xiaomi.push.service.XMPushService"
+            android:process=":mixpush"
+            android:enabled="true"
+            />
+        <service
+            android:name="com.xiaomi.push.service.XMJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":mixpush" />
+        <!--注：此service必须在3.0.1版本以后（包括3.0.1版本）加入-->
+        <service
+            android:enabled="true"
+            android:exported="true"
+            android:name="com.xiaomi.mipush.sdk.PushMessageHandler" />
+
+        <service android:enabled="true"
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService" />
+        <!--注：此service必须在2.2.5版本以后（包括2.2.5版本）加入-->
+        <receiver
+            android:exported="true"
+            android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:exported="false"
+            android:process=":mixpush"
+            android:name="com.xiaomi.push.service.receivers.PingReceiver" >
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER" />
+            </intent-filter>
+        </receiver>
+
+
+
+        <receiver
+            android:name="com.netease.nimlib.mixpush.mi.MiPushReceiver"
+            android:exported="true">
+            <intent-filter android:priority="0x7fffffff">
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 小米 end -->
+    
+    
+    
+    
+    //华为push相关
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="华为的AppID" />
+        <provider
+            android:name="com.huawei.hms.update.provider.UpdateProvider"
+            android:authorities="{这里需要替换成自己的包名，不用带大括号}.hms.update.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"/>
+
+    ```
+
+##### 4.3 我们提供push相关jar包
+
+> jar包由我们发送给接入方
+
+需要额外添加gradle引用
+
+```
+api 'com.huawei.android.hms:push:2.6.0.301'
+```
+
+如果使用华为的push需要添加混淆配置
+
+```
+-keep class com.huawei.hms.**{*;}
+```
+
+
 ### 四、错误码整理
 
 |错误码|说明|
