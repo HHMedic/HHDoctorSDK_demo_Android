@@ -114,7 +114,7 @@ compileOptions {
 }
 ```
 
-#### 4. 我们用到的常用第三方库以及库的版本
+#### 3. 我们用到的常用第三方库以及库的版本
 ```
 implementation 'com.google.code.gson:gson:2.8.6'
 implementation 'com.orhanobut:logger:2.2.0'
