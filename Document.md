@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 (3.1.6.08191852)
+## 视频医生 Android SDK接入文档 (3.1.6.09131705)
 <!--![demo](demo.gif)-->
 
 [接入过程遇到的问题及解决方案的汇总参考](QA.md)
@@ -91,7 +91,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation "com.hhmedic.android.sdk:hh_trtc:3.1.6.08191852"
+implementation "com.hhmedic.android.sdk:hh_trtc:3.1.6.09131705"
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -656,6 +656,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_Android/tree/trtc
 
 |版本号|说明|
 |---|---|
+|3.1.6.09131705|优化文案格式化|
 |3.1.6.08191852|增加绿通、挂号、重疾、护理挂号服务|
 |3.1.2.04011456|音视频优化|
 |3.0.8.01061149|音视频优化|
