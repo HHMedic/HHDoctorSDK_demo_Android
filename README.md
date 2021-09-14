@@ -1,4 +1,4 @@
-## 和缓视频医生Android SDK对接文档 3.1.6.09131705（快速接入版本）
+## 和缓视频医生Android SDK对接文档 3.1.6.09141533（快速接入版本）
 
 ### 一、引入SDK
 
@@ -18,7 +18,7 @@ repositories {
 
 在app moudule的build.gradle文件中引用和缓视频医生SDK，如下：
 
-implementation 'com.hhmedic.android.sdk:hh_trtc:3.1.6.09131705'
+implementation 'com.hhmedic.android.sdk:hh_trtc:3.1.6.09141533'
 ```
 
 ### 二、 初始化SDK
