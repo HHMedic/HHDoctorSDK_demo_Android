@@ -13,7 +13,7 @@ static def buildTime() {
 
 def doctor_sdk_name = "hh_trtc"
 
-def doctor_sdk_version = "3.1.6.09131705"
+def doctor_sdk_version = "3.1.6.09141533"
 
 android {
     compileSdkVersion 29
