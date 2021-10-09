@@ -656,7 +656,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_Android/tree/trtc
 
 |版本号|说明|
 |---|---|
-|3.1.6.10081541|兼容Android Q读取照片问题|
+|3.1.6.10081541|兼容Android Q读取照片问题，如果targetSDKVersion设置的29 需要在AndroidManifest开启uestLegacyExternalStorage设置为true|
 |3.1.6.09141533|解决一些layout相关问题|
 |3.1.6.09131705|优化文案格式化|
 |3.1.6.08191852|增加绿通、挂号、重疾、护理挂号服务|
