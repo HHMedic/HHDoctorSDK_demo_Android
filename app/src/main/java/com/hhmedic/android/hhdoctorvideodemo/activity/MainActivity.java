@@ -2,34 +2,25 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.widget.SwitchCompat;
-
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
-import com.hhmedic.android.sdk.module.call.CallNotify;
 import com.orhanobut.logger.Logger;
 
 public class MainActivity extends BaseActivity {
 
     private EditText mUserTokenEdit;
-    private EditText mPidEdit;
-    private EditText mMessageTitleEdit;
-    private EditText mExtMessageEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        Camera.CameraInfo info = new Camera.CameraInfo();
-//        Camera.getCameraInfo(0, info);
-//
-//        Logger.e(info.orientation + " ============");
     }
 
     @Override
@@ -40,144 +31,16 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initUI() {
         super.initUI();
-        SwitchCompat mIsDevelopSwitch = findViewById(R.id.developSwitch);
-        mIsDevelopSwitch.setChecked(LocalConfig.isDevelop(this));
-        mIsDevelopSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setDevelop(this, isChecked);
-            switchReload();
-        });
 
-        SwitchCompat mCanAddSwitch = findViewById(R.id.can_add_member);
-        mCanAddSwitch.setChecked(LocalConfig.getEnableAddMember(this));
-        mCanAddSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableAddMember(this, isChecked);
-            switchReload();
-        });
+        initActionBar(findViewById(R.id.toolbar));
 
-        SwitchCompat mEnableMultiCallSwitch = findViewById(R.id.enable_multi_call);
-        mEnableMultiCallSwitch.setChecked(LocalConfig.getEnableMultiCall(this));
-        mEnableMultiCallSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableMultiCall(this, isChecked);
-            switchReload();
-        });
-
-        SwitchCompat mEnableActivate = findViewById(R.id.enable_activate);
-        mEnableActivate.setChecked(LocalConfig.getEnableActivate(this));
-        mEnableActivate.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableActivate(this, isChecked);
-            switchReload();
-        });
-
-        SwitchCompat mEnableMedical = findViewById(R.id.enable_medical);
-        mEnableMedical.setChecked(LocalConfig.getEnableMedical(this));
-        mEnableMedical.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableMedical(this, isChecked);
-            switchReload();
-        });
-
-        SwitchCompat mEnableUserCenter = findViewById(R.id.enable_user_center);
-        mEnableUserCenter.setChecked(LocalConfig.getEnableUserCenter(this));
-        mEnableUserCenter.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableUserCenter(this, isChecked);
-            switchReload();
-        });
-
-        SwitchCompat mEnableSummaryCard = findViewById(R.id.enable_summary_card);
-        mEnableSummaryCard.setChecked(LocalConfig.getEnableSummaryCard(this));
-        mEnableSummaryCard.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableSummaryCard(this, isChecked);
-            switchReload();
-        });
-
-        SwitchCompat mEnableMedicalCard = findViewById(R.id.enable_medical_card);
-        mEnableMedicalCard.setChecked(LocalConfig.getEnableMedicalCard(this));
-        mEnableMedicalCard.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableMedicalCard(this, isChecked);
-            switchReload();
-        });
-
-
-
-        SwitchCompat mEnableVipInfo = findViewById(R.id.enable_vip_info);
-        mEnableVipInfo.setChecked(LocalConfig.getEnableVipInfo(this));
-        mEnableVipInfo.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableVipInfo(this, isChecked);
-            switchReload();
-        });
-
-
-        SwitchCompat mEnableAddMemberInDoc = findViewById(R.id.can_add_member_in_doc);
-        mEnableAddMemberInDoc.setChecked(LocalConfig.getEnableAddMemberInDoc(this));
-        mEnableAddMemberInDoc.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableAddMemberInDoc(this, isChecked);
-            switchReload();
-        });
-
-        SwitchCompat mEnableCanBuy = findViewById(R.id.can_buy);
-        mEnableCanBuy.setChecked(LocalConfig.getEnableCanBuy(this));
-        mEnableCanBuy.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setEnableCanBuy(this, isChecked);
-            switchReload();
-        });
-
-        SwitchCompat mHideCameraControl = findViewById(R.id.hide_camera_control);
-        mHideCameraControl.setChecked(LocalConfig.getHideCameraControl(this));
-        mHideCameraControl.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setHideCameraControl(this, isChecked);
-            switchReload();
-        });
-
-        SwitchCompat mCloseCameraCall = findViewById(R.id.close_camera_call);
-        mCloseCameraCall.setChecked(LocalConfig.getCloseCameraCall(this));
-        mCloseCameraCall.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            LocalConfig.setCloseCameraCall(this, isChecked);
-            switchReload();
-        });
+        setTitle(R.string.login_button);
 
         findViewById(R.id.login_button).setOnClickListener(v -> login());
         mUserTokenEdit = findViewById(R.id.userToken);
 
         findViewById(R.id.is_in_develop).setVisibility(LocalConfig.isDevelop(this) ? View.VISIBLE : View.GONE);
         findViewById(R.id.use_default_toke).setOnClickListener(v -> mUserTokenEdit.setText(LocalConfig.DefaultUserToken));
-
-        mPidEdit = findViewById(R.id.pid);
-        findViewById(R.id.button_set_pid).setOnClickListener(v -> {
-            String pid = mPidEdit.getText().toString();
-            if (TextUtils.isEmpty(pid)) {
-                Toast.makeText(MainActivity.this, "请填写需要设置的PID", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            LocalConfig.setPid(this, pid);
-            switchReload();
-//            Toast.makeText(MainActivity.this, "切换SDK ProductId后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
-//            new Handler().postDelayed(() -> System.exit(0), 1000);
-        });
-
-        mMessageTitleEdit = findViewById(R.id.message_title);
-        String message_title = LocalConfig.getMessageTitle(this);
-        if (!TextUtils.isEmpty(message_title)) {
-            mMessageTitleEdit.setText(message_title);
-        }
-        findViewById(R.id.button_set_message_title).setOnClickListener(v -> {
-            String title = mMessageTitleEdit.getText().toString();
-            if (TextUtils.isEmpty(title)) {
-                Toast.makeText(MainActivity.this, "请填写需要设置的Message 界面的Title", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            LocalConfig.setMessageTitle(this, title);
-            switchReload();
-        });
-
-        mExtMessageEdit = findViewById(R.id.ext_message);
-        findViewById(R.id.button_set_ext_message).setOnClickListener(v -> {
-            String message = mExtMessageEdit.getText().toString();
-            if (TextUtils.isEmpty(message)) {
-                Toast.makeText(MainActivity.this, "请填写需要设置的呼叫传入的附加信息", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            HHDoctor.setExtension(message);
-            Toast.makeText(MainActivity.this, "设置完成", Toast.LENGTH_SHORT).show();
-        });
     }
 
     private void login() {
@@ -259,8 +122,21 @@ public class MainActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    private void switchReload() {
-        Toast.makeText(MainActivity.this, "切换设置后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(() -> System.exit(0), 1000);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main_setting_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.setting:
+                Intent settingIntent = new Intent(this, SettingAct.class);
+                startActivity(settingIntent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

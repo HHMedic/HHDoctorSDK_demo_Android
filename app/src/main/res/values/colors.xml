@@ -3,4 +3,12 @@
     <color name="colorPrimary">#0c92f0</color>
     <color name="colorPrimaryDark">#ff0082de</color>
     <color name="colorAccent">#ff1482f0</color>
+
+    <color name="hp_color">#ff0592f5</color>
+
+    <color name="hp_vip_black_bg">#ff424559</color>
+
+    <color name="uikit_line_color">#ffd2d2d2</color>
+
+    <color name="hh_toolbar_bottom_line">#ffe4e4e4</color>
 </resources>

@@ -3,11 +3,19 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsTranslucent">false</item>
     </style>
 
+    <style name="PageTheme" parent="AppTheme">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@android:color/black</item>
+<!--        <item name="android:windowIsTranslucent">true</item>-->
+    </style>
 
     <style name="Callback" parent="AppTheme">
 
@@ -18,17 +26,34 @@
     </style>
 
     <style name="Toolbar" parent="Theme.AppCompat.Light">
-
-        <item name="actionMenuTextColor">@android:color/white</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
+<!--        <item name="android:fitsSystemWindows">true</item>-->
+        <item name="actionMenuTextColor">@android:color/black</item>
+        <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlNormal">@android:color/black</item>
 
     </style>
 
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="hh_line">
+
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/uikit_line_color</item>
+
+    </style>
+
+    <style name="hh_toolbar_line" parent="hh_line">
+
+        <item name="android:background">@color/hh_toolbar_bottom_line</item>
+
+        <item name="android:layout_height">2px</item>
+
     </style>
 
     <style name="input_title">
@@ -44,5 +69,19 @@
         <item name="android:layout_marginTop">@dimen/dp_10</item>
         <item name="android:paddingStart">15dp</item>
         <item name="android:paddingEnd">15dp</item>
+    </style>
+
+    <style name="demo_blue_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/dp_10</item>
+        <item name="android:paddingStart">@dimen/dp_10</item>
+        <item name="android:paddingEnd">@dimen/dp_10</item>
+        <item name="android:background">@drawable/hp_blue_btn_bg</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingTop">@dimen/dp_6</item>
+        <item name="android:paddingBottom">@dimen/dp_6</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 </resources>

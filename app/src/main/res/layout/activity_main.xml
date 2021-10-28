@@ -1,248 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <include layout="@layout/demo_toolbar"/>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_15">
 
-
-        <TextView
-            android:id="@+id/is_in_develop"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="50dp"
-            android:text="@string/tip_is_in_develop"
-            android:textColor="@android:color/holo_red_dark"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/pid"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:autofillHints="userToken"
-            android:hint="@string/hp_hint_pid"
-            android:inputType="text"
-            android:textSize="12sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/is_in_develop" />
+            <TextView
+                android:id="@+id/is_in_develop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@string/tip_is_in_develop"
+                android:textColor="@android:color/holo_red_dark"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button_set_pid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
-            android:text="@string/hp_button_set_pid"
-            android:textAllCaps="false"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pid" />
+<!--            <EditText-->
+<!--                android:id="@+id/pid"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginEnd="15dp"-->
+<!--                android:autofillHints="userToken"-->
+<!--                android:hint="@string/hp_hint_pid"-->
+<!--                android:inputType="text"-->
+<!--                android:textSize="12sp"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/is_in_develop" />-->
 
-        <EditText
-            android:id="@+id/message_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:autofillHints="userToken"
-            android:hint="@string/hp_edit_hint_message_title"
-            android:inputType="text"
-            android:textSize="12sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_set_pid" />
+<!--            <Button-->
+<!--                android:id="@+id/button_set_pid"-->
+<!--                style="@style/demo_blue_button"-->
+<!--                android:text="@string/hp_button_set_pid"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/pid" />-->
 
-        <Button
-            android:id="@+id/button_set_message_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
-            android:text="@string/hp_button_set_message_title"
-            android:textAllCaps="false"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/message_title" />
+<!--            <EditText-->
+<!--                android:id="@+id/message_title"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginEnd="15dp"-->
+<!--                android:autofillHints="userToken"-->
+<!--                android:hint="@string/hp_edit_hint_message_title"-->
+<!--                android:inputType="text"-->
+<!--                android:textSize="12sp"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/button_set_pid" />-->
 
-
-        <EditText
-            android:id="@+id/ext_message"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:autofillHints="userToken"
-            android:hint="@string/hp_edit_hint_ext_message"
-            android:inputType="text"
-            android:textSize="12sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_set_message_title" />
+<!--            <Button-->
+<!--                android:id="@+id/button_set_message_title"-->
+<!--                style="@style/demo_blue_button"-->
+<!--                android:text="@string/hp_button_set_message_title"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/message_title" />-->
 
 
-        <Button
-            android:id="@+id/button_set_ext_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
-            android:text="@string/hp_button_set_ext_message"
-            android:textAllCaps="false"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ext_message" />
+<!--            <EditText-->
+<!--                android:id="@+id/ext_message"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginEnd="15dp"-->
+<!--                android:autofillHints="userToken"-->
+<!--                android:hint="@string/hp_edit_hint_ext_message"-->
+<!--                android:inputType="text"-->
+<!--                android:textSize="12sp"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/button_set_message_title" />-->
 
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/enable_multi_call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
-            android:checked="true"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:text="@string/hp_switch_enable_multi_call"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_set_ext_message" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/can_add_member"
-            android:checked="true"
-            android:text="@string/hp_switch_can_add_member"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enable_multi_call" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/developSwitch"
-            android:checked="true"
-            android:text="@string/is_develop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/can_add_member" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/enable_activate"
-            android:checked="true"
-            android:text="@string/hp_switch_enable_activate"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/developSwitch" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/enable_medical"
-            android:checked="true"
-            android:text="@string/hp_switch_enable_medical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enable_activate" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/enable_user_center"
-            android:checked="true"
-            android:text="@string/hp_switch_enable_user_center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enable_medical" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/enable_summary_card"
-            android:checked="true"
-            android:text="@string/hp_switch_enable_summary_card"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enable_user_center" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/enable_medical_card"
-            android:checked="true"
-            android:text="@string/hp_switch_enable_medical_card"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enable_summary_card" />
+<!--            <Button-->
+<!--                android:id="@+id/button_set_ext_message"-->
+<!--                style="@style/demo_blue_button"-->
+<!--                android:text="@string/hp_button_set_ext_message"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/ext_message" />-->
 
 
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/enable_vip_info"
-            android:checked="true"
-            android:text="@string/hp_switch_enable_vip_info"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enable_medical_card" />
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/enable_multi_call"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/dp_10"-->
+<!--                android:checked="true"-->
+<!--                android:paddingStart="15dp"-->
+<!--                android:paddingEnd="15dp"-->
+<!--                android:text="@string/hp_switch_enable_multi_call"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/button_set_ext_message" />-->
+
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/can_add_member"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_can_add_member"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/enable_multi_call" />-->
+
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/developSwitch"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/is_develop"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/can_add_member" />-->
+
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/enable_activate"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_enable_activate"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/developSwitch" />-->
+
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/enable_medical"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_enable_medical"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/enable_activate" />-->
+
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/enable_user_center"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_enable_user_center"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/enable_medical" />-->
+
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/enable_summary_card"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_enable_summary_card"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/enable_user_center" />-->
+
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/enable_medical_card"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_enable_medical_card"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/enable_summary_card" />-->
 
 
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/can_add_member_in_doc"
-            android:checked="true"
-            android:text="@string/hp_switch_can_add_member_in_doc"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/enable_vip_info" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/can_buy"
-            android:checked="true"
-            android:text="@string/hp_switch_can_buy"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/can_add_member_in_doc" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/hide_camera_control"
-            android:checked="true"
-            android:text="@string/hp_switch_hide_camera_control"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/can_buy" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            style="@style/config_switch"
-            android:id="@+id/close_camera_call"
-            android:checked="true"
-            android:text="@string/hp_switch_close_camera_call"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hide_camera_control" />
-
-        <EditText
-            android:id="@+id/userToken"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:autofillHints="userToken"
-            android:hint="@string/input_user_token"
-            android:inputType="text"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/close_camera_call" />
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/enable_vip_info"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_enable_vip_info"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/enable_medical_card" />-->
 
 
-        <Button
-            android:id="@+id/use_default_toke"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/use_default_token"
-            android:textAllCaps="false"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/login_button"
-            app:layout_constraintTop_toBottomOf="@id/userToken" />
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/can_add_member_in_doc"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_can_add_member_in_doc"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/enable_vip_info" />-->
 
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login_button"
-            app:layout_constraintLeft_toRightOf="@id/use_default_toke"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userToken" />
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/can_buy"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_can_buy"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/can_add_member_in_doc" />-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/hide_camera_control"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_hide_camera_control"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/can_buy" />-->
+
+<!--            <androidx.appcompat.widget.SwitchCompat-->
+<!--                android:id="@+id/close_camera_call"-->
+<!--                style="@style/config_switch"-->
+<!--                android:checked="true"-->
+<!--                android:text="@string/hp_switch_close_camera_call"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/hide_camera_control" />-->
+
+            <EditText
+                android:id="@+id/userToken"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:autofillHints="userToken"
+                android:hint="@string/input_user_token"
+                android:inputType="text"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/is_in_develop" />
+
+
+            <Button
+                android:id="@+id/use_default_toke"
+                style="@style/demo_blue_button"
+                android:text="@string/use_default_token"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/login_button"
+                app:layout_constraintTop_toBottomOf="@id/userToken" />
+
+            <Button
+                android:id="@+id/login_button"
+                style="@style/demo_blue_button"
+                android:text="@string/login_button"
+                app:layout_constraintLeft_toRightOf="@id/use_default_toke"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/userToken" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</LinearLayout>

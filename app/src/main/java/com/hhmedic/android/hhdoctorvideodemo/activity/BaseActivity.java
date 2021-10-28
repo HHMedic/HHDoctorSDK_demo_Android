@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -17,12 +17,14 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         if (!useDataBinding() && contentViewId() != 0) {
             setContentView(contentViewId());
-            initUI();
         }
+        QMUIStatusBarHelper.setStatusBarLightMode(this);
+        QMUIStatusBarHelper.translucent(this);
+        initUI();
     }
 
     protected int contentViewId() {

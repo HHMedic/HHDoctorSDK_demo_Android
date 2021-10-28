@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/demo_toolbar" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,31 +22,31 @@
             android:paddingEnd="10dp"
             android:paddingBottom="10dp">
 
-            <RelativeLayout
-                android:id="@+id/title_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <!--            <RelativeLayout-->
+            <!--                android:id="@+id/title_layout"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
 
-                <Button
-                    android:id="@+id/back_btn"
-                    style="@style/hh_btn_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/app_name"
-                    android:text="@string/logout_button"
-                    android:textSize="16sp" />
+            <!--                <Button-->
+            <!--                    android:id="@+id/back_btn"-->
+            <!--                    style="@style/hh_btn_style"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:contentDescription="@string/app_name"-->
+            <!--                    android:text="@string/logout_button"-->
+            <!--                    android:textSize="16sp" />-->
 
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:text="@string/hp_main_title"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="24sp" />
+            <!--                <TextView-->
+            <!--                    android:id="@+id/title"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_centerHorizontal="true"-->
+            <!--                    android:layout_centerVertical="true"-->
+            <!--                    android:text="@string/hp_main_title"-->
+            <!--                    android:textColor="@color/colorPrimary"-->
+            <!--                    android:textSize="24sp" />-->
 
-            </RelativeLayout>
+            <!--            </RelativeLayout>-->
 
             <TextView
                 android:id="@+id/is_in_develop"
@@ -57,98 +62,91 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
                 android:baselineAligned="false"
-                android:gravity="center_horizontal"
+                android:gravity="start"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/multi_video"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/hp_multi_video"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20sp" />
+                <!--                <Button-->
+                <!--                    android:id="@+id/multi_video"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="@string/hp_multi_video"-->
+                <!--                    android:textColor="@color/colorPrimary"-->
+                <!--                    android:textSize="20sp" />-->
 
-                <Button
-                    android:id="@+id/child_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:text="@string/call_child"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20sp" />
+                <!--                <Button-->
+                <!--                    android:id="@+id/child_btn"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/dp_10"-->
+                <!--                    android:text="@string/call_child"-->
+                <!--                    android:textColor="@color/colorPrimary"-->
+                <!--                    android:textSize="20sp" />-->
 
 
-                <Button
-                    android:id="@+id/all_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:text="@string/call_adult"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20sp" />
+                <!--                <Button-->
+                <!--                    android:id="@+id/all_btn"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/dp_10"-->
+                <!--                    android:text="@string/call_adult"-->
+                <!--                    android:textColor="@color/colorPrimary"-->
+                <!--                    android:textSize="20sp" />-->
 
-                <Button
-                    android:id="@+id/view_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:text="@string/hp_view_order_list_all"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20sp" />
+                <!--                <Button-->
+                <!--                    android:id="@+id/view_all"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/dp_10"-->
+                <!--                    android:text="@string/hp_view_order_list_all"-->
+                <!--                    android:textColor="@color/colorPrimary"-->
+                <!--                    android:textSize="20sp" />-->
 
-                <Button
-                    android:id="@+id/view_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:text="@string/hp_view_list"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20sp" />
+                <!--                <Button-->
+                <!--                    android:id="@+id/view_list"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/dp_10"-->
+                <!--                    android:text="@string/hp_view_list"-->
+                <!--                    android:textColor="@color/colorPrimary"-->
+                <!--                    android:textSize="20sp" />-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="horizontal">-->
 
-                    <EditText
-                        android:id="@+id/orderId"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_weight="1"
-                        android:hint="@string/hp_input_hint_order_id"
-                        android:importantForAutofill="no"
-                        android:inputType="text"
-                        android:textSize="16sp" />
+                <!--                    <EditText-->
+                <!--                        android:id="@+id/orderId"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_marginStart="15dp"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:hint="@string/hp_input_hint_order_id"-->
+                <!--                        android:importantForAutofill="no"-->
+                <!--                        android:inputType="text"-->
+                <!--                        android:textSize="16sp" />-->
 
-                    <Button
-                        android:id="@+id/view_detail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_10"
-                        android:layout_marginEnd="15dp"
-                        android:text="@string/hp_view_detail"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="20sp" />
-                </LinearLayout>
+                <!--                    <Button-->
+                <!--                        android:id="@+id/view_detail"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_marginTop="@dimen/dp_10"-->
+                <!--                        android:layout_marginEnd="15dp"-->
+                <!--                        android:text="@string/hp_view_detail"-->
+                <!--                        android:textColor="@color/colorPrimary"-->
+                <!--                        android:textSize="20sp" />-->
+                <!--                </LinearLayout>-->
 
                 <Button
                     android:id="@+id/message"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:text="@string/hp_button_forward_message"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20sp" />
+                    style="@style/demo_blue_button"
+                    android:text="@string/hp_button_forward_message" />
 
                 <Button
                     android:id="@+id/call"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/demo_blue_button"
                     android:layout_marginTop="@dimen/dp_10"
-                    android:text="@string/hp_button_select_call"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20sp" />
+                    android:text="@string/hp_button_select_call" />
 
                 <TextView
                     android:id="@+id/medicine_tips"
@@ -162,14 +160,14 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10">
 
                     <EditText
                         android:id="@+id/lng"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:autofillHints="userToken"
@@ -183,7 +181,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
                         android:layout_marginEnd="15dp"
                         android:layout_weight="1"
                         android:autofillHints="userToken"
@@ -194,31 +191,19 @@
 
                     <Button
                         android:id="@+id/set_location"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/demo_blue_button"
                         android:minHeight="0dp"
-                        android:text="@string/hp_button_set_location"
-                        android:textAllCaps="false" />
+                        android:text="@string/hp_button_set_location" />
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/hang_up"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minHeight="0dp"
-                    android:text="@string/button_close"
-                    android:textAllCaps="false" />
+                <!--                <Button-->
+                <!--                    android:id="@+id/hang_up"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:minHeight="0dp"-->
+                <!--                    android:text="@string/button_close"-->
+                <!--                    android:textAllCaps="false" />-->
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/is_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/tip_is_in_develop"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="18sp"
-        android:visibility="gone" />
-</RelativeLayout>
+</LinearLayout>

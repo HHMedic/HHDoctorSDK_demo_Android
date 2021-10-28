@@ -13,7 +13,9 @@ static def buildTime() {
 
 def doctor_sdk_name = "hh_trtc"
 
-def doctor_sdk_version = "3.1.6.10221100 "
+def doctor_sdk_version = "3.1.6.10221100"
+
+def qmui_version = '2.0.0-alpha11'
 
 android {
     compileSdkVersion 29
@@ -81,6 +83,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.13.1'
+    api "com.qmuiteam:qmui:$qmui_version"
     implementation 'com.yanzhenjie:permission:2.0.3'
     implementation "com.hhmedic.android.sdk:$doctor_sdk_name:$doctor_sdk_version"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
