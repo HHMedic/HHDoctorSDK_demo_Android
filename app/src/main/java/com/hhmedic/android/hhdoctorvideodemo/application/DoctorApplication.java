@@ -9,12 +9,9 @@ import androidx.multidex.MultiDex;
 import com.hhmedic.android.hhdoctorvideodemo.activity.HHSDKConfig;
 import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
 import com.hhmedic.android.sdk.HHDoctor;
-import com.hhmedic.android.sdk.VideoSetting;
-import com.hhmedic.android.sdk.config.HHConfig;
 import com.hhmedic.android.sdk.config.HHSDKOptions;
 import com.hhmedic.android.sdk.config.MessageOptions;
 import com.tencent.bugly.Bugly;
-import com.tencent.trtc.TRTCCloudDef;
 
 public class DoctorApplication extends Application {
 
@@ -27,43 +24,43 @@ public class DoctorApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        initSDK();
+        initSDK(getApplicationContext());
 
         Bugly.init(getApplicationContext(), "f9b08d0fa3", false);
     }
 
-    private void initSDK() {
+    public static void initSDK(Context context) {
 
-        String pid = LocalConfig.getPid(this);
+        String pid = LocalConfig.getPid(context);
         if (TextUtils.isEmpty(pid)) {
             pid = HHSDKConfig.pid;
         }
         HHSDKOptions options = new HHSDKOptions(pid); //productId是视频医生提供方分配的产品Id
         options.isDebug = true;
-        options.dev = LocalConfig.isDevelop(this);
-        options.enableAddMember = LocalConfig.getEnableAddMember(this);
-        options.enableMultiCall = LocalConfig.getEnableMultiCall(this);
-        options.messageTitle = LocalConfig.getMessageTitle(this);
-        options.enableMedical = LocalConfig.getEnableMedical(this);
-        options.enableActivate = LocalConfig.getEnableActivate(this);
-        options.enableVipInfo = LocalConfig.getEnableVipInfo(this);
-        options.enableAddMemberInDoc = LocalConfig.getEnableAddMemberInDoc(this);
+        options.dev = LocalConfig.isDevelop(context);
+        options.enableAddMember = LocalConfig.getEnableAddMember(context);
+        options.enableMultiCall = LocalConfig.getEnableMultiCall(context);
+        options.messageTitle = LocalConfig.getMessageTitle(context);
+        options.enableMedical = LocalConfig.getEnableMedical(context);
+        options.enableActivate = LocalConfig.getEnableActivate(context);
+        options.enableVipInfo = LocalConfig.getEnableVipInfo(context);
+        options.enableAddMemberInDoc = LocalConfig.getEnableAddMemberInDoc(context);
 
-        options.enableCloseCamera = LocalConfig.getHideCameraControl(this);
-        options.isCloseCameraCall = LocalConfig.getCloseCameraCall(this);
+        options.enableCloseCamera = LocalConfig.getHideCameraControl(context);
+        options.isCloseCameraCall = LocalConfig.getCloseCameraCall(context);
 
 //        options.localRenderRotation = TRTCCloudDef.TRTC_VIDEO_ROTATION_90;
         MessageOptions messageOptions = new MessageOptions();
-        messageOptions.hideUserCenter = LocalConfig.getEnableUserCenter(this);
-        messageOptions.isFilterSummary = LocalConfig.getEnableSummaryCard(this);
-        messageOptions.isFilterMedicinal = LocalConfig.getEnableMedicalCard(this);
-        messageOptions.enableBuyService = LocalConfig.getEnableCanBuy(this);
+        messageOptions.hideUserCenter = LocalConfig.getEnableUserCenter(context);
+        messageOptions.isFilterSummary = LocalConfig.getEnableSummaryCard(context);
+        messageOptions.isFilterMedicinal = LocalConfig.getEnableMedicalCard(context);
+        messageOptions.enableBuyService = LocalConfig.getEnableCanBuy(context);
         options.messageOptions = messageOptions;
 
 //        VideoSetting.setEnableGSENSORMode(false);
 
 //        VideoSetting.setRemoteRotation(TRTCCloudDef.TRTC_VIDEO_ROTATION_90);
 
-        HHDoctor.init(getApplicationContext(), options);
+        HHDoctor.init(context, options);
     }
 }

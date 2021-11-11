@@ -10,6 +10,7 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
+import com.hhmedic.android.hhdoctorvideodemo.application.DoctorApplication;
 import com.hhmedic.android.hhdoctorvideodemo.databinding.ActivitySettingLayoutBinding;
 import com.hhmedic.android.sdk.HHDoctor;
 
@@ -164,8 +165,10 @@ public class SettingAct extends BaseActivity {
     }
 
     private void switchReload() {
-        Toast.makeText(SettingAct.this, "切换设置后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(() -> System.exit(0), 1000);
+//        Toast.makeText(SettingAct.this, "切换设置后需要重启打开APP才会生效", Toast.LENGTH_SHORT).show();
+//        new Handler().postDelayed(() -> System.exit(0), 1000);
+        DoctorApplication.initSDK(getApplicationContext());
+        Toast.makeText(SettingAct.this, "设置参数已经生效", Toast.LENGTH_SHORT).show();
     }
 
     @Override
