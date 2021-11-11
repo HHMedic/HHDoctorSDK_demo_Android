@@ -129,6 +129,8 @@ public class SettingAct extends BaseActivity {
 
         findViewById(R.id.is_in_develop).setVisibility(LocalConfig.isDevelop(this) ? View.VISIBLE : View.GONE);
 
+        mBinding.pid.setText(LocalConfig.getPid(this));
+
         mBinding.buttonSetPid.setOnClickListener(v -> {
             String pid = mBinding.pid.getText().toString();
             if (TextUtils.isEmpty(pid)) {
