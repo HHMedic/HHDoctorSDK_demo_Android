@@ -334,7 +334,7 @@ public static void setExtension(String ext)
 
 | 参数定义 | 说明 |
 | --- | --- |
-|String ext|文本数据，支持json格式|
+|String ext|文本数据，不支持json格式，最长长度支持64位|
 
 #### 3. 回调说明
 
