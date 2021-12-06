@@ -147,7 +147,6 @@ HHSDKOptions options = new HHSDKOptions("sdkProductId");
 |dev|是否开始测试服模式，开启后连接测试服|
 |isOpenCamera|视频过程中是否开启拍照|
 |mOrientation|屏幕方向 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT 或 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE|
-|enablePush|是否开启push，默认为开启true，如果需要关闭设置为false|
 |enableMedical|是否开启个人中心的档案库显示|
 |enableActivate|是否开启个人中心激活码激活功能|
 
@@ -335,7 +334,7 @@ public static void setExtension(String ext)
 
 | 参数定义 | 说明 |
 | --- | --- |
-|String ext|文本数据，支持json格式|
+|String ext|文本数据，不支持json格式，最长长度支持64位|
 
 #### 3. 回调说明
 
