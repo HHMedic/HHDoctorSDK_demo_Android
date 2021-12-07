@@ -1,4 +1,4 @@
-## 和缓视频医生Android SDK对接文档 3.1.6.10221100（快速接入版本）
+## 和缓视频医生Android SDK对接文档 3.1.8.12071542（快速接入版本）
 
 ### 一、引入SDK
 
@@ -18,7 +18,7 @@ repositories {
 
 在app moudule的build.gradle文件中引用和缓视频医生SDK，如下：
 
-implementation 'com.hhmedic.android.sdk:hh_trtc:3.1.6.10221100'
+implementation 'com.hhmedic.android.sdk:hh_trtc:3.1.8.12071542'
 ```
 
 ### 二、 初始化SDK
@@ -67,3 +67,5 @@ https://github.com/HHMedic/HHDoctorSDK_demo_Android/blob/trtc/Document.md
 
 TRTC版本接入图像旋转问题及解决方案整理
 https://github.com/HHMedic/HHDoctorSDK_demo_Android/blob/trtc/Rotation.md
+
+**注意如果需要对APP瘦身一定保留引用和缓视频SDK后出现的pic_error_78219.png这张图片，这张图片有特殊用途，删除会造成SDK不可用。**
