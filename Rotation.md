@@ -1,5 +1,17 @@
 ## TRTC版本接入图像旋转问题及解决方案整理
 
+如果是硬件设备接入请注意以下提示：
+> 由于硬件设备的摄像头采集方向不确定，在接入过程会遇到设备横屏情况下采集图像根据设备的默认方向（竖向）进行裁剪造成图像在和缓工作台显示为裁剪后的图像，如果遇到这种情况可以有限先不设置远程图像方向，优先考虑设置图像采集方向（设置为横屏采集）来尝试，具体设置如下：
+
+```
+//SDK初始化首先先声明一个如下配置
+TRTCCloudDef.TRTCVideoEncParam encParam = new TRTCCloudDef.TRTCVideoEncParam();
+// videoResolutionMode 设置为横屏
+encParam.videoResolutionMode = TRTCCloudDef.TRTC_VIDEO_RESOLUTION_MODE_LANDSCAPE; 
+//再使用VideoSetting中的setVideoEncParam这个方法设置进去就可以.
+VideoSetting.setVideoEncParam(setVideoEncParam)
+```
+
 ### 一、本地预览图像方向不正问题及解决方案
 
 **本地预览图像在一些特殊设备上会出现方向不正的问题，遇到这类问题需要通过初始化参数来对图像做一些调整，调整方式如下。**
