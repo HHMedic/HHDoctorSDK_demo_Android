@@ -2,17 +2,21 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
 import com.orhanobut.logger.Logger;
+
+import java.util.HashMap;
 
 public class MainActivity extends BaseActivity {
 
@@ -41,31 +45,12 @@ public class MainActivity extends BaseActivity {
 
         findViewById(R.id.is_in_develop).setVisibility(LocalConfig.isDevelop(this) ? View.VISIBLE : View.GONE);
         findViewById(R.id.use_default_toke).setOnClickListener(v -> mUserTokenEdit.setText(LocalConfig.DefaultUserToken));
+
+        findViewById(R.id.login_third_button).setOnClickListener(view -> loginWithThirdId());
     }
 
     private void login() {
         doLogin();
-//        AndPermission.with(this).runtime().permission(
-//                Permission.READ_EXTERNAL_STORAGE,
-//                Permission.WRITE_EXTERNAL_STORAGE,
-//                Permission.READ_PHONE_STATE,
-//                Permission.CAMERA,
-//                Permission.RECORD_AUDIO
-//        )
-//                .onGranted(permissions -> doLogin())
-//
-//                .onDenied(permissions -> {
-//
-//
-//                    if (AndPermission.hasAlwaysDeniedPermission(MainActivity.this, permissions)) {
-//                        // 这些权限被用户总是拒绝。
-////                        alwaysTips(permissionTips());
-//                    } else {
-//
-//                    }
-//
-//                })
-//                .start();
     }
 
     private void doLogin() {
@@ -75,28 +60,8 @@ public class MainActivity extends BaseActivity {
             return;
         }
 
-//        try {
-//            long uuid = Long.parseLong(userToken);
-//            loginWithUuid(uuid);
-//        } catch (Exception ex) {
         loginWithToken(userToken);
-//        }
-
     }
-
-//    private void loginWithUuid(long uuid) {
-//        HHDoctor.login(this, uuid, new HHLoginListener() {
-//            @Override
-//            public void onSuccess() {
-//                loginForward();
-//            }
-//
-//            @Override
-//            public void onError(String s) {
-//                Toast.makeText(MainActivity.this, "登录出现问题", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
 
     private void loginWithToken(String userToken) {
         LocalConfig.setLoginedToken(this, userToken);
@@ -113,6 +78,35 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+
+
+    private void loginWithThirdId() {
+
+        String uid = ((EditText)findViewById(R.id.uid)).getText().toString().trim();
+        String time = ((EditText)findViewById(R.id.time)).getText().toString().trim();
+        String secret = ((EditText)findViewById(R.id.secret)).getText().toString().trim();
+        if (TextUtils.isEmpty(uid) || TextUtils.isEmpty(time) || TextUtils.isEmpty(secret)) {
+            Toast.makeText(this, "请输入所必须的参数再进行登录操作", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        HashMap<String,Object> hashMap = new HashMap<>();
+        hashMap.put("uid",uid);
+        hashMap.put("time", time);
+        hashMap.put("secret", secret);
+        HHDoctor.loginForThirdId(this, hashMap, new HHLoginListener() {
+            @Override
+            public void onSuccess() {
+                loginForward();
+            }
+
+            @Override
+            public void onError(String tips) {
+                Logger.e(tips);
+                Toast.makeText(MainActivity.this, tips, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     /**
      * 跳转选择呼叫类型界面

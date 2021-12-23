@@ -81,4 +81,14 @@
     <string name="activity_setting_title">SDK参数配置</string>
 
     <string name="button_clear_listener">延时60s清除Listener</string>
+
+    <string name="login_for_third_id_info">以下为使用loginForThirdId接口登录区域</string>
+
+    <string name="button_login_third_id">使用三方信息登录</string>
+
+    <string name="place_holder_uid">请输入第三方uid</string>
+
+    <string name="place_holder_time">请输入第三方time</string>
+
+    <string name="place_holder_secret">请输入第三方secret</string>
 </resources>
