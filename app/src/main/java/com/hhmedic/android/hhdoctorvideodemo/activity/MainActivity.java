@@ -96,7 +96,7 @@ public class MainActivity extends BaseActivity {
         HHDoctor.loginForThirdId(this, hashMap, new HHLoginListener() {
             @Override
             public void onSuccess() {
-                loginForward();
+//                loginForward();
             }
 
             @Override
