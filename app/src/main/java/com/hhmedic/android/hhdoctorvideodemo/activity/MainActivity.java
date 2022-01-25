@@ -1,5 +1,6 @@
 package com.hhmedic.android.hhdoctorvideodemo.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,11 +9,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hhmedic.android.hhdoctorvideodemo.R;
 import com.hhmedic.android.sdk.HHDoctor;
+import com.hhmedic.android.sdk.config.HHSDKOptions;
+import com.hhmedic.android.sdk.config.MessageOptions;
 import com.hhmedic.android.sdk.listener.HHLoginListener;
 import com.orhanobut.logger.Logger;
 
@@ -47,6 +49,8 @@ public class MainActivity extends BaseActivity {
         findViewById(R.id.use_default_toke).setOnClickListener(v -> mUserTokenEdit.setText(LocalConfig.DefaultUserToken));
 
         findViewById(R.id.login_third_button).setOnClickListener(view -> loginWithThirdId());
+
+        findViewById(R.id.init_sdk).setOnClickListener(view -> initSDK());
     }
 
     private void login() {
@@ -107,6 +111,9 @@ public class MainActivity extends BaseActivity {
         });
     }
 
+    private void initSDK() {
+        initSDK(this);
+    }
 
     /**
      * 跳转选择呼叫类型界面
@@ -132,5 +139,43 @@ public class MainActivity extends BaseActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public static void initSDK(Context context) {
+
+        String pid = LocalConfig.getPid(context);
+        if (TextUtils.isEmpty(pid)) {
+            pid = HHSDKConfig.pid;
+        }
+        HHSDKOptions options = new HHSDKOptions(pid); //productId是视频医生提供方分配的产品Id
+        options.isDebug = true;
+        options.dev = LocalConfig.isDevelop(context);
+        options.enableAddMember = LocalConfig.getEnableAddMember(context);
+        options.enableMultiCall = LocalConfig.getEnableMultiCall(context);
+        options.messageTitle = LocalConfig.getMessageTitle(context);
+        options.enableMedical = LocalConfig.getEnableMedical(context);
+        options.enableActivate = LocalConfig.getEnableActivate(context);
+        options.enableVipInfo = LocalConfig.getEnableVipInfo(context);
+        options.enableAddMemberInDoc = LocalConfig.getEnableAddMemberInDoc(context);
+
+        options.enableCloseCamera = LocalConfig.getHideCameraControl(context);
+        options.isCloseCameraCall = LocalConfig.getCloseCameraCall(context);
+
+        options.isCloseMoreFunc = LocalConfig.getCloseMoreFunc(context);
+
+//        options.localRenderRotation = TRTCCloudDef.TRTC_VIDEO_ROTATION_90;
+        MessageOptions messageOptions = new MessageOptions();
+        messageOptions.hideUserCenter = LocalConfig.getEnableUserCenter(context);
+        messageOptions.isFilterSummary = LocalConfig.getEnableSummaryCard(context);
+        messageOptions.isFilterMedicinal = LocalConfig.getEnableMedicalCard(context);
+        messageOptions.enableBuyService = LocalConfig.getEnableCanBuy(context);
+        options.messageOptions = messageOptions;
+
+
+//        VideoSetting.setEnableGSENSORMode(false);
+
+//        VideoSetting.setRemoteRotation(TRTCCloudDef.TRTC_VIDEO_ROTATION_90);
+
+        HHDoctor.init(context, options);
     }
 }

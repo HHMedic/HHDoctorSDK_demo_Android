@@ -127,6 +127,13 @@ public class SettingAct extends BaseActivity {
             switchReload();
         });
 
+        SwitchCompat mCloseMoreFunc = mBinding.closeMoreFunc;
+        mCloseMoreFunc.setChecked(LocalConfig.getCloseMoreFunc(this));
+        mCloseMoreFunc.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            LocalConfig.setCloseMoreFunc(this, isChecked);
+            switchReload();
+        });
+
         findViewById(R.id.is_in_develop).setVisibility(LocalConfig.isDevelop(this) ? View.VISIBLE : View.GONE);
 
         mBinding.pid.setText(LocalConfig.getPid(this));

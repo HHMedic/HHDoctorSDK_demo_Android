@@ -48,6 +48,8 @@
 
     <string name="hp_switch_close_camera_call">关闭摄像头呼叫</string>
 
+    <string name="hp_switch_close_more_func">关闭首届面更多功能入口</string>
+
     <string name="hp_switch_can_add_member">允许添加成员</string>
     <string name="hp_switch_enable_multi_call">开启多人视频</string>
     <string name="hp_switch_enable_activate">开启激活码激活</string>
@@ -91,4 +93,6 @@
     <string name="place_holder_time">请输入第三方time</string>
 
     <string name="place_holder_secret">请输入第三方secret</string>
+
+    <string name="init_sdk">初始化SDK</string>
 </resources>

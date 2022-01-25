@@ -29,6 +29,8 @@ public class LocalConfig {
 
     private static final String CLOSE_CAMERA_CALL = "close_camera_call";
 
+    private static final String CLOSE_MORE_FUNC = "close_more_func";
+
     private static final String MESSAGE_TITLE = "message_title";
 
     static final String DefaultUserToken = "64FF786AE1D0A319EB92840A39B108143F0D04F68EA2608F6783B874E4F50EEF";
@@ -39,7 +41,7 @@ public class LocalConfig {
         SharedPreferenceUtils.setValue(context,KEY,isDevelop);
     }
 
-    public static Boolean isDevelop(Context context) {
+    public static boolean isDevelop(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context,KEY,true);
     }
 
@@ -63,31 +65,31 @@ public class LocalConfig {
         SharedPreferenceUtils.setValue(context, ENABLE_ADD_MEMBER,canAddMember);
     }
 
-    public static Boolean getEnableAddMember(Context context) {
+    public static boolean getEnableAddMember(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_ADD_MEMBER, true);
     }
 
-    public static void setEnableMultiCall(Context context,Boolean canAddMember) {
+    public static void setEnableMultiCall(Context context,boolean canAddMember) {
         SharedPreferenceUtils.setValue(context, ENABLE_MULTI_CALL,canAddMember);
     }
 
-    public static Boolean getEnableMultiCall(Context context) {
+    public static boolean getEnableMultiCall(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_MULTI_CALL, true);
     }
 
-    public static void setEnableActivate(Context context,Boolean canAddMember) {
+    public static void setEnableActivate(Context context,boolean canAddMember) {
         SharedPreferenceUtils.setValue(context, ENABLE_ACTIVATE,canAddMember);
     }
 
-    public static Boolean getEnableActivate(Context context) {
+    public static boolean getEnableActivate(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_ACTIVATE, true);
     }
 
-    public static void setEnableMedical(Context context,Boolean canAddMember) {
+    public static void setEnableMedical(Context context,boolean canAddMember) {
         SharedPreferenceUtils.setValue(context, ENABLE_MEDICAL,canAddMember);
     }
 
-    public static Boolean getEnableMedical(Context context) {
+    public static boolean getEnableMedical(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_MEDICAL, true);
     }
 
@@ -99,11 +101,11 @@ public class LocalConfig {
         return SharedPreferenceUtils.getStringValue(context,MESSAGE_TITLE);
     }
 
-    public static void setEnableUserCenter(Context context,Boolean enable) {
+    public static void setEnableUserCenter(Context context,boolean enable) {
         SharedPreferenceUtils.setValue(context, ENABLE_USER_CENTER,enable);
     }
 
-    public static Boolean getEnableUserCenter(Context context) {
+    public static boolean getEnableUserCenter(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_USER_CENTER, true);
     }
 
@@ -111,11 +113,11 @@ public class LocalConfig {
         SharedPreferenceUtils.setValue(context, ENABLE_SUMMARY_CARD,enable);
     }
 
-    public static Boolean getEnableSummaryCard(Context context) {
+    public static boolean getEnableSummaryCard(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_SUMMARY_CARD, true);
     }
 
-    public static void setEnableMedicalCard(Context context,Boolean canAddMember) {
+    public static void setEnableMedicalCard(Context context,boolean canAddMember) {
         SharedPreferenceUtils.setValue(context, ENABLE_MEDICAL_CARD,canAddMember);
     }
 
@@ -125,50 +127,58 @@ public class LocalConfig {
 
 
 
-    public static void setEnableVipInfo(Context context,Boolean canShowVipInfo){
+    public static void setEnableVipInfo(Context context,boolean canShowVipInfo){
 
         SharedPreferenceUtils.setValue(context, ENABLE_VIP_INFO,canShowVipInfo);
     }
 
-    public static Boolean getEnableVipInfo(Context context) {
+    public static boolean getEnableVipInfo(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_VIP_INFO, true);
     }
 
 
 
-    public static void setEnableAddMemberInDoc(Context context,Boolean canShowVipInfo){
+    public static void setEnableAddMemberInDoc(Context context,boolean canShowVipInfo){
 
         SharedPreferenceUtils.setValue(context, ENABLE_ADD_MEMBER_IN_DOC,canShowVipInfo);
     }
 
-    public static Boolean getEnableAddMemberInDoc(Context context) {
+    public static boolean getEnableAddMemberInDoc(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_ADD_MEMBER_IN_DOC, true);
     }
 
-    public static void setEnableCanBuy(Context context,Boolean canShowVipInfo){
+    public static void setEnableCanBuy(Context context,boolean canShowVipInfo){
 
         SharedPreferenceUtils.setValue(context, ENABLE_CAN_BUY,canShowVipInfo);
     }
 
-    public static Boolean getEnableCanBuy(Context context) {
+    public static boolean getEnableCanBuy(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, ENABLE_CAN_BUY, true);
     }
 
-    public static void setHideCameraControl(Context context,Boolean canShowVipInfo){
+    public static void setHideCameraControl(Context context,boolean canShowVipInfo){
 
         SharedPreferenceUtils.setValue(context, HIDE_CAMERA_CONTROL,canShowVipInfo);
     }
 
-    public static Boolean getHideCameraControl(Context context) {
+    public static boolean getHideCameraControl(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, HIDE_CAMERA_CONTROL, false);
     }
 
-    public static void setCloseCameraCall(Context context,Boolean canShowVipInfo){
+    public static void setCloseCameraCall(Context context,boolean canShowVipInfo){
 
         SharedPreferenceUtils.setValue(context, CLOSE_CAMERA_CALL,canShowVipInfo);
     }
 
-    public static Boolean getCloseCameraCall(Context context) {
+    public static boolean getCloseCameraCall(Context context) {
         return SharedPreferenceUtils.getBooleanValue(context, CLOSE_CAMERA_CALL, false);
+    }
+
+    public static void setCloseMoreFunc(Context context, boolean close) {
+        SharedPreferenceUtils.setValue(context, CLOSE_MORE_FUNC, close);
+    }
+
+    public static boolean getCloseMoreFunc(Context context) {
+        return SharedPreferenceUtils.getBooleanValue(context, CLOSE_MORE_FUNC, false);
     }
 }

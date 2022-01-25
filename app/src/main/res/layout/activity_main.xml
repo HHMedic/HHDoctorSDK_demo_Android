@@ -132,6 +132,16 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/secret"
                 android:layout_marginTop="@dimen/dp_15"/>
+
+            <Button
+                android:id="@+id/init_sdk"
+                style="@style/demo_blue_button"
+                android:text="@string/init_sdk"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/login_third_button"
+                android:layout_marginTop="@dimen/dp_15"
+                android:visibility="gone"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

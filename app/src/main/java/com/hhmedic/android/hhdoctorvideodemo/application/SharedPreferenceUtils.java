@@ -23,7 +23,7 @@ public class SharedPreferenceUtils {
         return getSharePreference(context).getString(key,"");
     }
 
-    public static Boolean getBooleanValue(Context context,String key,Boolean defaultValue) {
+    public static boolean getBooleanValue(Context context,String key,boolean defaultValue) {
         return getSharePreference(context).getBoolean(key, defaultValue);
     }
 

@@ -212,6 +212,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/hide_camera_control" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/close_more_func"
+                    style="@style/config_switch"
+                    android:checked="true"
+                    android:text="@string/hp_switch_close_more_func"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/close_camera_call" />
+
                 <!--                <EditText-->
                 <!--                    android:id="@+id/userToken"-->
                 <!--                    android:layout_width="0dp"-->
