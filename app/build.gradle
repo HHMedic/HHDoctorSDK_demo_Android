@@ -11,20 +11,20 @@ static def buildTime() {
     return df.format(new Date())
 }
 
-def doctor_sdk_name = "hh_trtc"
+def doctor_sdk_name = "hh_trtc_dev"
 
-def doctor_sdk_version = "3.2.0.01131726"
+def doctor_sdk_version = "3.4.0.02111256"
 
 def qmui_version = '2.0.0-alpha11'
 
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.hhmedic.app.patient.trtc.demo.new"
+        applicationId "com.hhmedic.android.sdktest"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode increasedVersionCode()
-        versionName "3.2.0.${buildTime()}"
+        versionName "3.4.0.${buildTime()}"
         multiDexEnabled true
         ndk {
             //设置支持的SO库架构
@@ -86,6 +86,7 @@ dependencies {
     api "com.qmuiteam:qmui:$qmui_version"
     implementation 'com.yanzhenjie:permission:2.0.3'
     implementation "com.hhmedic.android.sdk:$doctor_sdk_name:$doctor_sdk_version"
+    implementation 'com.hhmedic.android.sdk:facesdk:3.2.0.02101137'
     implementation 'com.zhihu.android:matisse:0.5.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

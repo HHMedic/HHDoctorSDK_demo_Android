@@ -6,6 +6,7 @@ import android.text.TextUtils;
 
 import androidx.multidex.MultiDex;
 
+import com.hh.android.sdk.face.HHFaceVerify;
 import com.hhmedic.android.hhdoctorvideodemo.activity.HHSDKConfig;
 import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
 import com.hhmedic.android.sdk.HHDoctor;
@@ -32,6 +33,7 @@ public class DoctorApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        HHFaceVerify.initFaceSdk(this);
         initSDK(getApplicationContext());
 //        initTim();
         Bugly.init(getApplicationContext(), "f9b08d0fa3", false);
