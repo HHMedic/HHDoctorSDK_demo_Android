@@ -13,7 +13,7 @@ static def buildTime() {
 
 def doctor_sdk_name = "hh_trtc_dev"
 
-def doctor_sdk_version = "3.4.0.02111256"
+def doctor_sdk_version = "3.4.0.02111810"
 
 def qmui_version = '2.0.0-alpha11'
 
