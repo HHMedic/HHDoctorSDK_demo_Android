@@ -24,7 +24,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 29
         versionCode increasedVersionCode()
-        versionName "3.2.0.${buildTime()}"
+        versionName "3.4.0.${buildTime()}"
         multiDexEnabled true
         ndk {
             //设置支持的SO库架构
