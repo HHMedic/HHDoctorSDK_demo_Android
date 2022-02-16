@@ -11,15 +11,7 @@ import com.hhmedic.android.hhdoctorvideodemo.activity.LocalConfig;
 import com.hhmedic.android.sdk.HHDoctor;
 import com.hhmedic.android.sdk.config.HHSDKOptions;
 import com.hhmedic.android.sdk.config.MessageOptions;
-import com.orhanobut.logger.Logger;
 import com.tencent.bugly.Bugly;
-import com.tencent.imsdk.v2.V2TIMAdvancedMsgListener;
-import com.tencent.imsdk.v2.V2TIMCallback;
-import com.tencent.imsdk.v2.V2TIMManager;
-import com.tencent.imsdk.v2.V2TIMMessage;
-import com.tencent.imsdk.v2.V2TIMSDKConfig;
-import com.tencent.imsdk.v2.V2TIMSDKListener;
-import com.tencent.imsdk.v2.V2TIMUserFullInfo;
 
 public class DoctorApplication extends Application {
 
@@ -59,18 +51,12 @@ public class DoctorApplication extends Application {
 
         options.isCloseMoreFunc = LocalConfig.getCloseMoreFunc(context);
 
-//        options.localRenderRotation = TRTCCloudDef.TRTC_VIDEO_ROTATION_90;
         MessageOptions messageOptions = new MessageOptions();
         messageOptions.hideUserCenter = LocalConfig.getEnableUserCenter(context);
         messageOptions.isFilterSummary = LocalConfig.getEnableSummaryCard(context);
         messageOptions.isFilterMedicinal = LocalConfig.getEnableMedicalCard(context);
         messageOptions.enableBuyService = LocalConfig.getEnableCanBuy(context);
         options.messageOptions = messageOptions;
-
-
-//        VideoSetting.setEnableGSENSORMode(false);
-
-//        VideoSetting.setRemoteRotation(TRTCCloudDef.TRTC_VIDEO_ROTATION_90);
 
         HHDoctor.init(context, options);
     }
