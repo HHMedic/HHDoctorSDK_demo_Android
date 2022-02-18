@@ -2,6 +2,7 @@ package com.hhmedic.android.hhdoctorvideodemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -49,7 +50,7 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 //        findViewById(R.id.all_btn).setOnClickListener(this);
 //        findViewById(R.id.child_btn).setOnClickListener(this);
 //        findViewById(R.id.back_btn).setOnClickListener(this);
-//        findViewById(R.id.view_list).setOnClickListener(this);
+        findViewById(R.id.view_list).setOnClickListener(this);
 //        findViewById(R.id.view_detail).setOnClickListener(this);
 //        findViewById(R.id.view_all).setOnClickListener(this);
         findViewById(R.id.message).setOnClickListener(this);
@@ -78,9 +79,9 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
 //            case R.id.view_all:
 //                viewAll();
 //                break;
-//            case R.id.view_list:
-//                viewList();
-//                break;
+            case R.id.view_list:
+                viewList();
+                break;
 //            case R.id.view_detail:
 //                viewDetail();
 //                break;
@@ -284,14 +285,14 @@ public class CallSelectorAct extends BaseActivity implements View.OnClickListene
     /**
      * 查看病历存档列表
      */
-//    private void viewList() {
-//        Intent intent = new Intent(this, ViewDetailAct.class);
-//        String url = HHDoctor.getMedicListUrl(this, LocalConfig.getLoginedToken(this));
-//        Log.e("list url", url);
-//        intent.putExtra("url", url);
-//        intent.putExtra("title", "病历存档列表");
-//        startActivity(intent);
-//    }
+    private void viewList() {
+        Intent intent = new Intent(this, ViewDetailAct.class);
+        String url = HHDoctor.getMedicListUrl(this, LocalConfig.getLoginedToken(this));
+        Log.e("list url", url);
+        intent.putExtra("url", url);
+        intent.putExtra("title", "病历存档列表");
+        startActivity(intent);
+    }
 
     /**
      * 查看病历存档详情
