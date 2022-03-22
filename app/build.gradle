@@ -13,7 +13,7 @@ static def buildTime() {
 
 def doctor_sdk_name = "hh_trtc"
 
-def doctor_sdk_version = "3.4.0.02141817"
+def doctor_sdk_version = "3.4.0.03211909"
 
 def qmui_version = '2.0.0-alpha11'
 
@@ -72,7 +72,7 @@ android {
         variant.outputs.all
                 {
 
-                    outputFileName = "hh_android_trtc_new_demo_${defaultConfig.versionName}.apk"
+                    outputFileName = "hh_android_face_sdk_demo_${defaultConfig.versionName}.apk"
 
                 }
     }
@@ -86,7 +86,7 @@ dependencies {
     api "com.qmuiteam:qmui:$qmui_version"
     implementation 'com.yanzhenjie:permission:2.0.3'
     implementation "com.hhmedic.android.sdk:$doctor_sdk_name:$doctor_sdk_version"
-    implementation 'com.hhmedic.android.sdk:facesdk:3.2.0.02101137'
+    implementation 'com.hhmedic.android.sdk:facesdk:3.2.0.03221150'
     implementation 'com.zhihu.android:matisse:0.5.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
