@@ -1,4 +1,8 @@
-## 和缓视频医生Android SDK对接文档 3.4.0.02251433（快速接入版本）
+## 和缓视频医生Android SDK对接文档 3.4.0.04191618（快速接入版本）
+
+[和缓视频医生SDK音箱版本接入文档](https://github.com/HHMedic/HHDoctorSDK_demo_Android/blob/trtc/HHDoctor_SDK_SOUND.md)
+
+[和缓视频医生SDK电视版本接入文档](https://github.com/HHMedic/HHDoctorSDK_demo_Android/blob/trtc/HHDoctor_SDK_TV.md)
 
 ### 一、引入SDK
 
@@ -18,7 +22,7 @@ repositories {
 
 在app moudule的build.gradle文件中引用和缓视频医生SDK，如下：
 
-implementation 'com.hhmedic.android.sdk:hh_trtc:3.4.0.02251433'
+implementation 'com.hhmedic.android.sdk:hh_trtc:3.4.0.04191618'
 ```
 
 ### 二、 初始化SDK
