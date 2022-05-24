@@ -322,6 +322,12 @@ public static void message(Context context)
 | --- | --- |
 |Context context|当前上下文，一般为当前Activity|
 
+**如果需要支持O2O购药，跳转首页的同时上传经纬度，方法如下：**
+```
+ Location.sendLocation(context, longitude, latitude);
+```
+以上方法参数说明：context是上下文， longitude和latitude分别是经纬度
+
 ##### 2.12 设置呼叫附加参数
 
 > 注意这个方法需要在呼叫前进行设置才会生效
