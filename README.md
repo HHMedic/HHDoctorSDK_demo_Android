@@ -61,6 +61,12 @@ HHDoctor.logOut(this); //this指的是上下文Context
 HHDoctor.message(this); //this指的是上下文Context
 ```
 
+**如果需要支持O2O购药，跳转首页的同时上传经纬度，方法如下：**
+```
+ Location.sendLocation(context, longitude, latitude);
+```
+以上方法参数说明：context是上下文， longitude和latitude分别是经纬度
+
 ### 五、Demo及详细文档
 
 Demo
