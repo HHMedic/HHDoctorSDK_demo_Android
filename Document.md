@@ -1,4 +1,4 @@
-## 视频医生 Android SDK接入文档 (3.5.0.07261105)
+## 视频医生 Android SDK接入文档 (3.5.0.07281745)
 <!--![demo](demo.gif)-->
 
 [接入过程遇到的问题及解决方案的汇总参考](QA.md)
@@ -91,7 +91,7 @@ repositories {
 ##### 2.2 在build.gradle文件中dependencies中配置库的引用
 
 ```
-implementation "com.hhmedic.android.sdk:hh_trtc:3.5.0.07261105"
+implementation "com.hhmedic.android.sdk:hh_trtc:3.5.0.07281745"
 ```
 
 <span style="color:red;">注：添加以上配置后需要进行gradle sync才能同步生效，配置maven库地址的时候不能省略用户名和密码，否则同步不下来。</span>
@@ -661,6 +661,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_Android/tree/trtc
 
 |版本号|说明|
 |---|---|
+|3.5.0.07281745|修正权限问题|
 |3.5.0.07261105|1.兼容Android 12  2.优化视频中UI|
 |3.1.6.10081541|兼容Android Q读取照片问题，如果targetSDKVersion设置的29 需要在AndroidManifest开启uestLegacyExternalStorage设置为true|
 |3.1.6.09141533|解决一些layout相关问题|
