@@ -22,10 +22,10 @@ VideoSetting.setVideoEncParam(setVideoEncParam)
 
 |参数|调整方向及角度（原图像角度基础上调整）|
 |---|---|
-|RTCCloudDef.TRTC_VIDEO_ROTATION_0|顺时针调整0度（无效果）|
-|RTCCloudDef.TRTC_VIDEO_ROTATION_90|顺时针调整90度|
-|RTCCloudDef.TRTC_VIDEO_ROTATION_180|顺时针调整180度|
-|RTCCloudDef.TRTC_VIDEO_ROTATION_270|顺时针调整270度|
+|TRTCCloudDef.TRTC_VIDEO_ROTATION_0|顺时针调整0度（无效果）|
+|TRTCCloudDef.TRTC_VIDEO_ROTATION_90|顺时针调整90度|
+|TRTCCloudDef.TRTC_VIDEO_ROTATION_180|顺时针调整180度|
+|TRTCCloudDef.TRTC_VIDEO_ROTATION_270|顺时针调整270度|
 
 在本地图像的方向调整好后有可能在医生工作台看客户图像方向不正的问题，那么就需要看第二大部分进行相关设置的介绍。
 
@@ -49,7 +49,7 @@ VideoSetting.setVideoResolutionMode(TRTCCloudDef.TRTC_VIDEO_RESOLUTION_MODE_LAND
 
 |参数|调整方向及角度（原图像角度基础上调整）|
 |---|---|
-|RTCCloudDef.TRTC_VIDEO_ROTATION_0|顺时针调整0度（无效果）|
-|RTCCloudDef.TRTC_VIDEO_ROTATION_90|顺时针调整90度|
-|RTCCloudDef.TRTC_VIDEO_ROTATION_180|顺时针调整180度|
-|RTCCloudDef.TRTC_VIDEO_ROTATION_270|顺时针调整270度|
+|TRTCCloudDef.TRTC_VIDEO_ROTATION_0|顺时针调整0度（无效果）|
+|TRTCCloudDef.TRTC_VIDEO_ROTATION_90|顺时针调整90度|
+|TRTCCloudDef.TRTC_VIDEO_ROTATION_180|顺时针调整180度|
+|TRTCCloudDef.TRTC_VIDEO_ROTATION_270|顺时针调整270度|
